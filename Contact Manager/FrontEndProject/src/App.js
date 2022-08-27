@@ -8,19 +8,19 @@ import Signup from './Components/Home/Signup';
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Container>
+    <Container fluid={true} className="p-0">
+      <div>
+        <Router>
           <Routes>
-            <Route path="/" element={<Home/>} exact></Route>
-            <Route path="/home" element={<Home/>} exact></Route>
-            <Route path="/about" element={<About/>} exact></Route>
-            <Route path="/login" element={<Login/>} exact></Route>
-            <Route path="/signup" element={<Signup/>} exact></Route>
+            <Route path="/" element={<Home />} exact></Route>
+            <Route path="/home" element={<Home />} exact></Route>
+            <Route path="/about" element={<About />} exact></Route>
+            <Route path="/login" element={<Login />} exact></Route>
+            <Route path="/signup" element={<Signup />} exact></Route>
           </Routes>
-        </Container>
-      </Router>
-    </div>
+        </Router>
+      </div>
+    </Container>
   );
 }
 

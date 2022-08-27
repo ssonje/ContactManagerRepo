@@ -14,9 +14,9 @@ const CustomNavbar = (props) => {
     }
 
     return (
-        <Container>
-            <nav className="navbar navbar-expand-lg">
-                <Link className="navbar-brand ms-4" to="/home">Smart Contact Manager</Link>
+        <Container fluid style={{backgroundColor: "#000000"}}>
+            <nav className="navbar navbar-dark navbar-expand-lg">
+                <Link className="navbar-brand" to="/home">Smart Contact Manager</Link>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
@@ -28,7 +28,7 @@ const CustomNavbar = (props) => {
                         <li className="nav-item">
                             <Link className={activeStates.loginClass} to="/login">Login<span className="sr-only"></span></Link>
                         </li>
-                        <li className="nav-item me-4">
+                        <li className="nav-item">
                             <Link className={activeStates.signupClass} to="/signup">Sign Up<span className="sr-only"></span></Link>
                         </li>
                     </ul>
