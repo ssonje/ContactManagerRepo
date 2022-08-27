@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import { Container } from "reactstrap";
 import ActiveStateHelper from "../../Helpers/ActiveStateHelper"
 
+/**
+ * @Component
+ * `CustomNavbar` component provides the UI for Navbar for all the pages in the Contact Manager Appication.
+ */
 const CustomNavbar = (props) => {
     const [activeStates, setActiveStates] = useState({});
     if (Object.keys(activeStates).length === 0) {

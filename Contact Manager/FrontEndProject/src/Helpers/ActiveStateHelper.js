@@ -1,3 +1,7 @@
+/**
+ * @Component
+ * `ActiveStateHelper` component provides the current active page from the Contact Management Application.
+ */
 const ActiveStateHelper = (currentLocation) => {
 
     const activeStates = {};

@@ -1,6 +1,10 @@
 import React from "react";
 import CustomNavbar from "../Navbar/CustomNavbar";
 
+/**
+ * @Component
+ * `About` component provides the UI for About Section in Contact Manager Appication.
+ */
 const About = () => {
     return(
         <div>
