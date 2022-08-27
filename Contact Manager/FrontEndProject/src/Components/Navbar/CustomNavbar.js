@@ -16,7 +16,7 @@ const CustomNavbar = (props) => {
     return (
         <Container>
             <nav className="navbar navbar-expand-lg">
-                <Link className="navbar-brand ms-4" to="/home">Contact Manager</Link>
+                <Link className="navbar-brand ms-4" to="/home">Smart Contact Manager</Link>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
