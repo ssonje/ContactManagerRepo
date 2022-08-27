@@ -1,0 +1,17 @@
+.ComponentHeight {
+    height: calc(100vh - 56px);
+}
+
+.ComponentWidth {
+    width: 100vw;
+}
+
+.BackgroundImage {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../Images/home_background.jpg");
+    background-size: cover;
+}
+
+.HomeText {
+    color: #ffffff;
+    text-align: center;
+}
