@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "USER")
@@ -20,15 +22,25 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+
+	@Column(nullable = false)
+	@Size(min = 2, max = 100, message = "Name at least have 2 and maximum 100 charaters")
 	private String name;
 	
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
+	@Email(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Please enter a Valid Email-ID!")
 	private String email;
+	
+	@Column(nullable = false)
+	@Size(min = 6, max = 20, message = "Password at least have 6 and maximum 20 charaters")
 	private String password;
+	
+	@Column(nullable = false)
 	private String role;
 	private String imegeURL;
 	
 	@Column(length = 500)
+	@Size(max = 500, message = "About should have maximum 500 charaters")
 	private String about;
 	private boolean enabled;
 	
@@ -105,5 +117,13 @@ public class User {
 
 	public void setContacts(List<Contact> contacts) {
 		this.contacts = contacts;
+	}
+
+	// TODO: Remove this toString() method once the Contact Manager back end project is ready.
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
+				+ ", imegeURL=" + imegeURL + ", about=" + about + ", enabled=" + enabled + ", contacts=" + contacts
+				+ "]";
 	}
 }

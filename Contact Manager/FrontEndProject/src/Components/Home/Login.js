@@ -1,6 +1,6 @@
-import React from "react";
+import BaseAppCss from "../../CSS/BaseApp.module.css";
 import CustomNavbar from "../Navbar/CustomNavbar";
-import baseAppCss from "../../CSS/BaseApp.module.css";
+import React from "react";
 
 /**
  * @Component
@@ -11,8 +11,8 @@ const Login = () => {
         <div>
             <CustomNavbar currentLocation="/login"></CustomNavbar>
             <div>
-                <div align="center" className={(baseAppCss.ComponentHeight) + " " + (baseAppCss.ComponentWidth) + " " + (baseAppCss.BackgroundImage)}>
-                    <h1 className={(baseAppCss.Text)}>Login</h1>
+                <div align="center" className={(BaseAppCss.ComponentHeight) + " " + (BaseAppCss.ComponentWidth) + " " + (BaseAppCss.BackgroundImage)}>
+                    <h1 className={(BaseAppCss.Text)}>Login</h1>
                 </div>
             </div>
         </div>

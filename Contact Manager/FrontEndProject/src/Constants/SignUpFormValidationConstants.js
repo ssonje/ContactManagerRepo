@@ -1,0 +1,10 @@
+export const ABOUT_EMPTY_VALIDATION =  "About should have maximum 500 charaters.";
+export const CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS =  " And entered passwords are not matching.";
+export const CONFIRMED_PASSWORD_EMPTY_VALIDATION = "Confirmed password cannot be empty.";
+export const CONFIRMED_PASSWORD_LENGTH_VALIDATION = "Confirmed password at least have 6 and maximum 20 charaters.";
+export const EMAIL_EMPTY_VALIDATION = "Email cannot be empty.";
+export const EMAIL_REGEX_VALIDATION = "Please enter a Valid Email-ID.";
+export const ENTERED_PASSWORD_EMPTY_VALIDATION = "Password cannot be empty.";
+export const ENTERED_PASSWORD_LENGTH_VALIDATION = "Password at least have 6 and maximum 20 charaters.";
+export const NAME_EMPTY_VALIDATION = "Name cannot be empty.";
+export const NAME_SIZE_VALIDATION = "Name at least have 2 and maximum 100 charaters.";
