@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "../../Constants/ServerBaseURL";
+import { BASE_URL } from "../../Constants/BackEndServerURL";
 import { toast } from "react-toastify";
 
 /**
