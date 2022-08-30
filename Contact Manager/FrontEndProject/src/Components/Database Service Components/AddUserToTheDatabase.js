@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
  * @function
  * `AddUserToTheDatabase` provides the functionality to post data into the database by using the `axios`.
  * @param {navigate} navigate
- * Navigate to the destination where we want to go after successfully adding course to the database.
+ * Navigate to the destination where we want to go after successfully adding user to the database.
  * @param {user} user
  * This user will be added into the database.
  */

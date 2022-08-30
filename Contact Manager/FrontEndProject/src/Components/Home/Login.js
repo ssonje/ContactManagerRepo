@@ -1,6 +1,6 @@
-import React from "react";
-import CustomNavbar from "../Navbar/CustomNavbar";
 import BaseAppCss from "../../CSS/BaseApp.module.css";
+import CustomNavbar from "../Navbar/CustomNavbar";
+import React from "react";
 
 /**
  * @Component

@@ -19,7 +19,7 @@ public class HomeController {
 	@PostMapping("/user")
 	public User addUser(@Valid @RequestBody User user) throws Exception {
 		try {
-			User updatedUser = setDefaultPropertiesForUser(user);
+			User updatedUser = HomeController.setDefaultPropertiesForUser(user);
 			return userService.addUser(updatedUser);
 		} catch (Exception e) {
 			throw new Exception(e.getCause());
@@ -27,7 +27,7 @@ public class HomeController {
 	}
 
 	// Set the role and enabled fields of @C User
-	private User setDefaultPropertiesForUser(User user) {
+	private static User setDefaultPropertiesForUser(User user) {
 		user.setRole("ROLE_USER");
 		user.setEnabled(true);
 		return user;
