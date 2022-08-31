@@ -2,6 +2,28 @@ import { AddUserToTheDatabase } from "../Database Service Components/AddUserToTh
 import { Container, Row, Col, FormGroup, Label, Input, Form, Button } from "reactstrap";
 import { HIDE_PASSWORD_ICON, SHOW_PASSWORD_ICON } from "../../Constants/SignUp/SignUpPasswordIcons";
 import { SignUpFormValidation } from "../Helpers/Components/SignUpFormValidation";
+import {
+    SIGNUP_ABOUT_FIELD_ID,
+    SIGNUP_CONFIRM_PASSWORD_FIELD_ID,
+    SIGNUP_EMAIL_FIELD_ID,
+    SIGNUP_NAME_FIELD_ID,
+    SIGNUP_PASSWORD_FIELD_ID,
+    SIGNUP_PROFILE_IMAGE_FIELD_ID
+} from "../../Constants/SignUp/SignUpFormFieldIDConstants";
+import {
+    SIGNUP_ABOUT_INPUT_NAME,
+    SIGNUP_CONFIRM_PASSWORD_INPUT_NAME,
+    SIGNUP_EMAIL_INPUT_NAME,
+    SIGNUP_NAME_INPUT_NAME,
+    SIGNUP_PASSWORD_INPUT_NAME
+} from "../../Constants/SignUp/SignUpFormInputNameConstants.js";
+import {
+    SIGNUP_ABOUT_PLACEHOLDER,
+    SIGNUP_CONFIRM_PASSWORD_PLACEHOLDER,
+    SIGNUP_EMAIL_PLACEHOLDER,
+    SIGNUP_NAME_PLACEHOLDER,
+    SIGNUP_PASSWORD_PLACEHOLDER
+} from "../../Constants/SignUp/SignUpFormPlaceholderConstants";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import BaseAppCss from "../../CSS/BaseApp.module.css";
@@ -22,21 +44,20 @@ const Signup = () => {
         imageURL: null,
     });
 
+    const navigate = useNavigate();
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [showEnteredPassword, setShowEnteredPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [userSignupErrors, setUserSignupErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
 
     const handleShowEnteredPasswordButton = () => {
         setShowEnteredPassword(!showEnteredPassword);
     }
 
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [confirmPassword, setConfirmPassword] = useState("");
-
     const handleShowConfirmPasswordButton = () => {
         setShowConfirmPassword(!showConfirmPassword);
     }
-
-    const [userSignupErrors, setUserSignupErrors] = useState({});
-    const navigate = useNavigate();
 
     // Add user into the database.
     const addUser = (user) => {
@@ -44,8 +65,6 @@ const Signup = () => {
             AddUserToTheDatabase(navigate, user);
         }
     };
-
-    const [isSubmit, setIsSubmit] = useState(false);
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -73,11 +92,11 @@ const Signup = () => {
                                             <Col md={6}>
                                                 { /* User Name */}
                                                 <FormGroup>
-                                                    <Label for="userName" style={{ color: "#ffffff" }}>Name</Label>
+                                                    <Label for={SIGNUP_NAME_FIELD_ID} style={{ color: "#ffffff" }}>Name</Label>
                                                     <Input
-                                                        id="userName"
-                                                        name="name"
-                                                        placeholder="Enter your name here"
+                                                        id={SIGNUP_NAME_FIELD_ID}
+                                                        name={SIGNUP_NAME_INPUT_NAME}
+                                                        placeholder={SIGNUP_NAME_PLACEHOLDER}
                                                         type="text"
                                                         onChange={(e) => {
                                                             setUser({ ...user, name: e.target.value });
@@ -90,11 +109,11 @@ const Signup = () => {
                                             <Col md={6}>
                                                 { /* User Email */}
                                                 <FormGroup>
-                                                    <Label for="userEmail" style={{ color: "#ffffff" }}>Email</Label>
+                                                    <Label for={SIGNUP_EMAIL_FIELD_ID} style={{ color: "#ffffff" }}>Email</Label>
                                                     <Input
-                                                        id="userEmail"
-                                                        name="email"
-                                                        placeholder="Enter your email here"
+                                                        id={SIGNUP_EMAIL_FIELD_ID}
+                                                        name={SIGNUP_EMAIL_INPUT_NAME}
+                                                        placeholder={SIGNUP_EMAIL_PLACEHOLDER}
                                                         type="email"
                                                         onChange={(e) => {
                                                             setUser({ ...user, email: e.target.value });
@@ -109,13 +128,13 @@ const Signup = () => {
                                             <Col md={6}>
                                                 { /* User Password */}
                                                 <FormGroup>
-                                                    <Label for="userPassword" style={{ color: "#ffffff" }}>Password</Label>
+                                                    <Label for={SIGNUP_PASSWORD_FIELD_ID} style={{ color: "#ffffff" }}>Password</Label>
                                                     <Row>
                                                         <Col md={10}>
                                                             <Input
-                                                                id="password"
-                                                                name="password"
-                                                                placeholder="Enter your password here"
+                                                                id={SIGNUP_PASSWORD_FIELD_ID}
+                                                                name={SIGNUP_PASSWORD_INPUT_NAME}
+                                                                placeholder={SIGNUP_PASSWORD_PLACEHOLDER}
                                                                 type={showEnteredPassword ? "text" : "password"}
                                                                 onChange={(e) => {
                                                                     setUser({ ...user, password: e.target.value });
@@ -142,13 +161,13 @@ const Signup = () => {
                                             <Col md={6}>
                                                 { /* User Confirm Password */}
                                                 <FormGroup>
-                                                    <Label for="userConfirmPassword" style={{ color: "#ffffff" }}>Confirm Password</Label>
+                                                    <Label for={SIGNUP_CONFIRM_PASSWORD_FIELD_ID} style={{ color: "#ffffff" }}>Confirm Password</Label>
                                                     <Row>
                                                         <Col md={10}>
                                                             <Input
-                                                                id="userConfirmPassword"
-                                                                name="confirmPassword"
-                                                                placeholder="Confirm your password here"
+                                                                id={SIGNUP_CONFIRM_PASSWORD_FIELD_ID}
+                                                                name={SIGNUP_CONFIRM_PASSWORD_INPUT_NAME}
+                                                                placeholder={SIGNUP_CONFIRM_PASSWORD_PLACEHOLDER}
                                                                 type={showConfirmPassword ? "text" : "password"}
                                                                 onChange={(e) => {
                                                                     setConfirmPassword(e.target.value);
@@ -177,11 +196,11 @@ const Signup = () => {
                                             <Col>
                                                 { /* User About */}
                                                 <FormGroup>
-                                                    <Label for="userAbout" style={{ color: "#ffffff" }}>About you</Label>
+                                                    <Label for={SIGNUP_ABOUT_FIELD_ID} style={{ color: "#ffffff" }}>About you</Label>
                                                     <Input
-                                                        id="userAbout"
-                                                        name="about"
-                                                        placeholder="Please introduce yourself"
+                                                        id={SIGNUP_ABOUT_FIELD_ID}
+                                                        name={SIGNUP_ABOUT_INPUT_NAME}
+                                                        placeholder={SIGNUP_ABOUT_PLACEHOLDER}
                                                         type="textarea"
                                                         onChange={(e) => {
                                                             setUser({ ...user, about: e.target.value });
@@ -196,9 +215,9 @@ const Signup = () => {
                                             <Col>
                                                 { /* User Profile Image */}
                                                 <FormGroup>
-                                                    <Label for="userImage" style={{ color: "#ffffff" }}>Upload your Profile Image</Label>
+                                                    <Label for={SIGNUP_PROFILE_IMAGE_FIELD_ID} style={{ color: "#ffffff" }}>Upload your Profile Image</Label>
                                                     <Input
-                                                        id="userImage"
+                                                        id={SIGNUP_PROFILE_IMAGE_FIELD_ID}
                                                         type="file"
                                                         onChange={(e) => {
                                                             setUser({ ...user, imageURL: e.target.value });
