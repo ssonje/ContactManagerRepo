@@ -1,5 +1,6 @@
 import { AddUserToTheDatabase } from "../Database Service Components/AddUserToTheDatabase";
 import { Container, Row, Col, FormGroup, Label, Input, Form, Button } from "reactstrap";
+import { HIDE_PASSWORD_ICON, SHOW_PASSWORD_ICON } from "../../Constants/SignUp/SignUpPasswordIcons";
 import { SignUpFormValidation } from "../Helpers/Components/SignUpFormValidation";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
@@ -126,7 +127,11 @@ const Signup = () => {
                                                                 onClick={() => {
                                                                     handleShowEnteredPasswordButton();
                                                                 }}>
-                                                                <i className="fa fa-solid fa-eye-slash" style={{ color: "#000000" }}></i>
+                                                                <i className={
+                                                                    showEnteredPassword
+                                                                        ? SHOW_PASSWORD_ICON
+                                                                        : HIDE_PASSWORD_ICON}
+                                                                    style={{ color: "#000000" }}></i>
                                                             </Button>
                                                         </Col>
                                                     </Row>
@@ -155,7 +160,11 @@ const Signup = () => {
                                                                 onClick={() => {
                                                                     handleShowConfirmPasswordButton();
                                                                 }}>
-                                                                <i className="fa fa-solid fa-eye-slash" style={{ color: "#000000" }}></i>
+                                                                <i className={
+                                                                    showConfirmPassword
+                                                                        ? SHOW_PASSWORD_ICON
+                                                                        : HIDE_PASSWORD_ICON}
+                                                                    style={{ color: "#000000" }}></i>
                                                             </Button>
                                                         </Col>
                                                     </Row>
