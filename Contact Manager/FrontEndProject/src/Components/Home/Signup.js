@@ -161,7 +161,7 @@ const Signup = () => {
                                                     <Label for={SIGNUP_CONFIRM_PASSWORD_FIELD_ID} style={{ color: "#ffffff" }}>Confirm Password</Label>
                                                     <InputGroup>
                                                         <Input
-                                                        style={{ border: "none", boxShadow: "none" }}
+                                                            style={{ border: "none", boxShadow: "none" }}
                                                             id={SIGNUP_CONFIRM_PASSWORD_FIELD_ID}
                                                             name={SIGNUP_CONFIRM_PASSWORD_INPUT_NAME}
                                                             placeholder={SIGNUP_CONFIRM_PASSWORD_PLACEHOLDER}
