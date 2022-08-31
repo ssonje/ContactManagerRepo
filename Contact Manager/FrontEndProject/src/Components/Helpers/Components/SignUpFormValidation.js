@@ -63,8 +63,14 @@ export const SignUpFormValidation = (user, confirmPassword) => {
     /* Entered and Confirmed Password Validation */
 
     if (user.password && confirmPassword && user.password !== confirmPassword) {
-        errors.password = errors.password + CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
-        errors.confirmPassword = errors.confirmPassword + CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
+        if (errors.password) {
+            errors.password = errors.password + " " + CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
+        } else if (errors.confirmPassword) {
+            errors.confirmPassword = errors.confirmPassword + " " + CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
+        } else {
+            errors.password = CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
+            errors.confirmPassword = CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
+        }
     }
 
     /* User Confirmed Password Validation */

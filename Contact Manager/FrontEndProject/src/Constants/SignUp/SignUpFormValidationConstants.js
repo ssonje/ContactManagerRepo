@@ -1,5 +1,5 @@
 export const ABOUT_EMPTY_VALIDATION =  "About should have maximum 500 charaters.";
-export const CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS =  " And entered passwords are not matching.";
+export const CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS =  "Entered passwords are not matching.";
 export const CONFIRMED_PASSWORD_EMPTY_VALIDATION = "Confirmed password cannot be empty.";
 export const CONFIRMED_PASSWORD_LENGTH_VALIDATION = "Confirmed password at least have 6 and maximum 20 charaters.";
 export const EMAIL_EMPTY_VALIDATION = "Email cannot be empty.";
