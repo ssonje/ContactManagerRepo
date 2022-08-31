@@ -94,6 +94,7 @@ const Signup = () => {
                                                 <FormGroup>
                                                     <Label for={SIGNUP_NAME_FIELD_ID} style={{ color: "#ffffff" }}>Name</Label>
                                                     <Input
+                                                        style={{ border: "none", boxShadow: "none" }}
                                                         id={SIGNUP_NAME_FIELD_ID}
                                                         name={SIGNUP_NAME_INPUT_NAME}
                                                         placeholder={SIGNUP_NAME_PLACEHOLDER}
@@ -111,6 +112,7 @@ const Signup = () => {
                                                 <FormGroup>
                                                     <Label for={SIGNUP_EMAIL_FIELD_ID} style={{ color: "#ffffff" }}>Email</Label>
                                                     <Input
+                                                        style={{ border: "none", boxShadow: "none" }}
                                                         id={SIGNUP_EMAIL_FIELD_ID}
                                                         name={SIGNUP_EMAIL_INPUT_NAME}
                                                         placeholder={SIGNUP_EMAIL_PLACEHOLDER}
@@ -192,6 +194,7 @@ const Signup = () => {
                                                 <FormGroup>
                                                     <Label for={SIGNUP_ABOUT_FIELD_ID} style={{ color: "#ffffff" }}>About you</Label>
                                                     <Input
+                                                        style={{ border: "none", boxShadow: "none" }}
                                                         id={SIGNUP_ABOUT_FIELD_ID}
                                                         name={SIGNUP_ABOUT_INPUT_NAME}
                                                         placeholder={SIGNUP_ABOUT_PLACEHOLDER}
@@ -211,6 +214,7 @@ const Signup = () => {
                                                 <FormGroup>
                                                     <Label for={SIGNUP_PROFILE_IMAGE_FIELD_ID} style={{ color: "#ffffff" }}>Upload your Profile Image</Label>
                                                     <Input
+                                                        style={{ border: "none", boxShadow: "none" }}
                                                         id={SIGNUP_PROFILE_IMAGE_FIELD_ID}
                                                         type="file"
                                                         onChange={(e) => {
