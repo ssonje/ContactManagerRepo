@@ -1,5 +1,5 @@
 import { AddUserToTheDatabase } from "../Database Service Components/AddUserToTheDatabase";
-import { Container, Row, Col, FormGroup, Label, Input, Form, Button } from "reactstrap";
+import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
 import { HIDE_PASSWORD_ICON, SHOW_PASSWORD_ICON } from "../../Constants/SignUp/SignUpPasswordIcons";
 import { SignUpFormValidation } from "../Helpers/Components/SignUpFormValidation";
 import {
@@ -129,31 +129,28 @@ const Signup = () => {
                                                 { /* User Password */}
                                                 <FormGroup>
                                                     <Label for={SIGNUP_PASSWORD_FIELD_ID} style={{ color: "#ffffff" }}>Password</Label>
-                                                    <Row>
-                                                        <Col md={10}>
-                                                            <Input
-                                                                id={SIGNUP_PASSWORD_FIELD_ID}
-                                                                name={SIGNUP_PASSWORD_INPUT_NAME}
-                                                                placeholder={SIGNUP_PASSWORD_PLACEHOLDER}
-                                                                type={showEnteredPassword ? "text" : "password"}
-                                                                onChange={(e) => {
-                                                                    setUser({ ...user, password: e.target.value });
-                                                                }}
-                                                            />
-                                                        </Col>
-                                                        <Col md={2}>
-                                                            <Button style={{ background: "#ffffff" }}
-                                                                onClick={() => {
-                                                                    handleShowEnteredPasswordButton();
-                                                                }}>
-                                                                <i className={
-                                                                    showEnteredPassword
-                                                                        ? SHOW_PASSWORD_ICON
-                                                                        : HIDE_PASSWORD_ICON}
-                                                                    style={{ color: "#000000" }}></i>
-                                                            </Button>
-                                                        </Col>
-                                                    </Row>
+                                                    <InputGroup>
+                                                        <Input
+                                                            style={{ border: "none", boxShadow: "none" }}
+                                                            id={SIGNUP_PASSWORD_FIELD_ID}
+                                                            name={SIGNUP_PASSWORD_INPUT_NAME}
+                                                            placeholder={SIGNUP_PASSWORD_PLACEHOLDER}
+                                                            type={showEnteredPassword ? "text" : "password"}
+                                                            onChange={(e) => {
+                                                                setUser({ ...user, password: e.target.value });
+                                                            }}
+                                                        />
+                                                        <Button style={{ background: "#ffffff", border: "none", boxShadow: "none" }}
+                                                            onClick={() => {
+                                                                handleShowEnteredPasswordButton();
+                                                            }}>
+                                                            <i className={
+                                                                showEnteredPassword
+                                                                    ? SHOW_PASSWORD_ICON
+                                                                    : HIDE_PASSWORD_ICON}
+                                                                style={{ color: "#000000" }}></i>
+                                                        </Button>
+                                                    </InputGroup>
                                                     <Label style={{ color: 'red', marginTop: 5 }}>{userSignupErrors.password}</Label>
                                                 </FormGroup>
                                             </Col>
@@ -162,31 +159,28 @@ const Signup = () => {
                                                 { /* User Confirm Password */}
                                                 <FormGroup>
                                                     <Label for={SIGNUP_CONFIRM_PASSWORD_FIELD_ID} style={{ color: "#ffffff" }}>Confirm Password</Label>
-                                                    <Row>
-                                                        <Col md={10}>
-                                                            <Input
-                                                                id={SIGNUP_CONFIRM_PASSWORD_FIELD_ID}
-                                                                name={SIGNUP_CONFIRM_PASSWORD_INPUT_NAME}
-                                                                placeholder={SIGNUP_CONFIRM_PASSWORD_PLACEHOLDER}
-                                                                type={showConfirmPassword ? "text" : "password"}
-                                                                onChange={(e) => {
-                                                                    setConfirmPassword(e.target.value);
-                                                                }}
-                                                            />
-                                                        </Col>
-                                                        <Col md={2}>
-                                                            <Button style={{ background: "#ffffff" }}
-                                                                onClick={() => {
-                                                                    handleShowConfirmPasswordButton();
-                                                                }}>
-                                                                <i className={
-                                                                    showConfirmPassword
-                                                                        ? SHOW_PASSWORD_ICON
-                                                                        : HIDE_PASSWORD_ICON}
-                                                                    style={{ color: "#000000" }}></i>
-                                                            </Button>
-                                                        </Col>
-                                                    </Row>
+                                                    <InputGroup>
+                                                        <Input
+                                                            style={{ border: "none", boxShadow: "none" }}
+                                                            id={SIGNUP_CONFIRM_PASSWORD_FIELD_ID}
+                                                            name={SIGNUP_CONFIRM_PASSWORD_INPUT_NAME}
+                                                            placeholder={SIGNUP_CONFIRM_PASSWORD_PLACEHOLDER}
+                                                            type={showConfirmPassword ? "text" : "password"}
+                                                            onChange={(e) => {
+                                                                setConfirmPassword(e.target.value);
+                                                            }}
+                                                        />
+                                                        <Button style={{ background: "#ffffff", border: "none", boxShadow: "none" }}
+                                                            onClick={() => {
+                                                                handleShowConfirmPasswordButton();
+                                                            }}>
+                                                            <i className={
+                                                                showConfirmPassword
+                                                                    ? SHOW_PASSWORD_ICON
+                                                                    : HIDE_PASSWORD_ICON}
+                                                                style={{ color: "#000000" }}></i>
+                                                        </Button>
+                                                    </InputGroup>
                                                     <Label style={{ color: 'red', marginTop: 5 }}>{userSignupErrors.confirmPassword}</Label>
                                                 </FormGroup>
                                             </Col>
