@@ -9,7 +9,7 @@ import {
     CONFIRMED_PASSWORD_LENGTH_VALIDATION,
     ABOUT_EMPTY_VALIDATION,
     CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS
-} from "../../../Constants/SignUpFormValidationConstants";
+} from "../../../Constants/SignUp/SignUpFormValidationConstants";
 
 /**
  * @Component
