@@ -1,5 +1,5 @@
-import BaseAppCss from "../../CSS/BaseApp.module.css";
 import CustomNavbar from "../Navbar/CustomNavbar";
+import LoginCss from "../../CSS/Login.module.css";
 import React from "react";
 
 /**
@@ -10,9 +10,9 @@ const Login = () => {
     return (
         <div>
             <CustomNavbar currentLocation="/login"></CustomNavbar>
-            <div>
-                <div align="center" className={(BaseAppCss.ComponentHeight) + " " + (BaseAppCss.ComponentWidth) + " " + (BaseAppCss.BackgroundImage)}>
-                    <h1 className={(BaseAppCss.Text)}>Login</h1>
+            <div className={"d-flex align-items-center justify-content-center " + (LoginCss.ContainerWindow)}>
+                <div className={(LoginCss.LoginText)}>
+                    <h1>Login</h1>
                 </div>
             </div>
         </div>

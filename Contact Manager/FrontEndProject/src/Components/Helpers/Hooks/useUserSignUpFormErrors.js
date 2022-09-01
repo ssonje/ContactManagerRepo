@@ -12,7 +12,7 @@ import { useEffect, useRef } from 'react';
  * @param {operationForUserOnDatabase} operationForUserOnDatabase
  * This function will be executed if `isSubmit` is true and there are no `userErrors`.
  */
-const useUserFormErrors = (userSignupErrors, user, isSubmit, operationForUserOnDatabase) => {
+export const useUserFormErrors = (userSignupErrors, user, isSubmit, operationForUserOnDatabase) => {
 
     const isInitialRender = useRef(true);
 
@@ -30,5 +30,3 @@ const useUserFormErrors = (userSignupErrors, user, isSubmit, operationForUserOnD
     }, [userSignupErrors]);
 
 }
-
-export default useUserFormErrors;
