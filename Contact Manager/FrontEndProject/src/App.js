@@ -1,15 +1,16 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Container } from "reactstrap";
-import Home from './Components/Home/Home';
+import { ToastContainer } from 'react-toastify';
 import About from './Components/Home/About';
+import BaseAppCss from "./CSS/BaseApp.module.css";
+import Home from './Components/Home/Home';
 import Login from './Components/Home/Login';
 import Signup from './Components/Home/Signup';
-import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <div>
+    <div className={(BaseAppCss.AppWindow) + " " + (BaseAppCss.BackgroundImage)}>
       <Router>
         <ToastContainer autoClose={2000}/>
         <Container fluid={true} className="p-0">
