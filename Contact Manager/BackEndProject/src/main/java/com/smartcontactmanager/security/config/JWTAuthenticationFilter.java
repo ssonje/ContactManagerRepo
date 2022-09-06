@@ -27,24 +27,20 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 	}
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-		try {
-			String authenticationToken = jwtTokenHelper.getToken(request);
-			String userName = jwtTokenHelper.getUsernameFromToken(authenticationToken);
-			UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+		String authenticationToken = jwtTokenHelper.getToken(request);
+		String userName = jwtTokenHelper.getUsernameFromToken(authenticationToken);
+		UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
 
-			if (authenticationToken != null
-					&& userName != null
-					&& jwtTokenHelper.validateToken(authenticationToken, userDetails)) {
-				UsernamePasswordAuthenticationToken userAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-				userAuthentication.setDetails(new WebAuthenticationDetails(request));
-				SecurityContextHolder.getContext().setAuthentication(userAuthentication);
-			}
-
-			filterChain.doFilter(request, response);
-		} catch (Exception e) {
-			throw new ServletException("Something went wrong in the `JWTAuthenticationFilter.doFilterInternal` method.");
+		if (authenticationToken != null
+				&& userName != null
+				&& jwtTokenHelper.validateToken(authenticationToken, userDetails)) {
+			UsernamePasswordAuthenticationToken userAuthentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+			userAuthentication.setDetails(new WebAuthenticationDetails(request));
+			SecurityContextHolder.getContext().setAuthentication(userAuthentication);
 		}
+
+		filterChain.doFilter(request, response);
 	}
 
 }
