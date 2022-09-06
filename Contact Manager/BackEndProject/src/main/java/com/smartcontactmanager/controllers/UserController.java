@@ -22,7 +22,7 @@ public class UserController {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	@PostMapping("/user")
-	public User addUser(@Valid @RequestBody User user) throws Exception {
+	public User addUser(@Valid @RequestBody User user) {
 		User updatedUser = UserControllerHelpers.setDefaultPropertiesForUser(user, passwordEncoder);
 		return userService.addUser(updatedUser);
 	}
