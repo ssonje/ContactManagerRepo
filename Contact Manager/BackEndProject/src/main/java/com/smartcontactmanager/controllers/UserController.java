@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smartcontactmanager.controllers.helpers.UserControllerHelpers;
 import com.smartcontactmanager.entities.User;
 import com.smartcontactmanager.services.UserService;
 
@@ -22,16 +23,8 @@ public class UserController {
 
 	@PostMapping("/user")
 	public User addUser(@Valid @RequestBody User user) throws Exception {
-		User updatedUser = UserController.setDefaultPropertiesForUser(user, passwordEncoder);
+		User updatedUser = UserControllerHelpers.setDefaultPropertiesForUser(user, passwordEncoder);
 		return userService.addUser(updatedUser);
-	}
-
-	// Set the role and enabled fields of @C User
-	private static User setDefaultPropertiesForUser(User user, BCryptPasswordEncoder passwordEncoder) {
-		user.setRole("ROLE_USER");
-		user.setEnabled(true);
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		return user;
 	}
 
 }
