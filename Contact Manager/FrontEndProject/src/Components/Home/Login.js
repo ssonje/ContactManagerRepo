@@ -43,7 +43,7 @@ const Login = () => {
         setIsSubmit(true);
     }
 
-    // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and add user to the database.
+    // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and login user into the Application.
     useUserFormActionErrors(userLoginErrors, user, isSubmit, loginUser);
 
     return (
