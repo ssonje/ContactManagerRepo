@@ -1,6 +1,6 @@
 import { AddUserToTheDatabase } from "../Database Service Components/AddUserToTheDatabase";
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
-import { HIDE_PASSWORD_ICON, SHOW_PASSWORD_ICON } from "../../Constants/SignUp/SignUpPasswordIcons";
+import { SIGNUP_HIDE_PASSWORD_ICON, SIGNUP_SHOW_PASSWORD_ICON } from "../../Constants/SignUp/SignUpPasswordIcons";
 import { SignUpFormValidation } from "../Helpers/Components/SignUpFormValidation";
 import {
     SIGNUP_ABOUT_FIELD_ID,
@@ -25,7 +25,7 @@ import {
     SIGNUP_PASSWORD_PLACEHOLDER
 } from "../../Constants/SignUp/SignUpFormPlaceholderConstants";
 import { useNavigate } from "react-router-dom";
-import { useUserFormErrors } from "../Helpers/Hooks/useUserSignUpFormErrors";
+import { useUserFormActionErrors } from "../Helpers/Hooks/useUserFormActionErrors";
 import React, { useState } from "react";
 import CustomNavbar from "../Navbar/CustomNavbar";
 import SignUpCss from "../../CSS/SignUp.module.css";
@@ -72,8 +72,8 @@ const Signup = () => {
         setIsSubmit(true);
     }
 
-    // Call the useUserFormErrors in-order to skip initial execution of useEffect and add user to the database.
-    useUserFormErrors(userSignupErrors, user, isSubmit, addUser);
+    // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and add user to the database.
+    useUserFormActionErrors(userSignupErrors, user, isSubmit, addUser);
 
     return (
         <div>
@@ -147,8 +147,8 @@ const Signup = () => {
                                                         }}>
                                                         <i className={
                                                             showEnteredPassword
-                                                                ? SHOW_PASSWORD_ICON
-                                                                : HIDE_PASSWORD_ICON}
+                                                                ? SIGNUP_SHOW_PASSWORD_ICON
+                                                                : SIGNUP_HIDE_PASSWORD_ICON}
                                                             style={{ color: "#000000" }}></i>
                                                     </Button>
                                                 </InputGroup>
@@ -177,8 +177,8 @@ const Signup = () => {
                                                         }}>
                                                         <i className={
                                                             showConfirmPassword
-                                                                ? SHOW_PASSWORD_ICON
-                                                                : HIDE_PASSWORD_ICON}
+                                                                ? SIGNUP_SHOW_PASSWORD_ICON
+                                                                : SIGNUP_HIDE_PASSWORD_ICON}
                                                             style={{ color: "#000000" }}></i>
                                                     </Button>
                                                 </InputGroup>
