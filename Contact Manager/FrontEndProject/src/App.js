@@ -12,7 +12,7 @@ function App() {
   return (
     <div className={(BaseAppCss.AppWindow) + " " + (BaseAppCss.BackgroundImage)}>
       <Router>
-        <ToastContainer autoClose={2000}/>
+        <ToastContainer autoClose={2000} />
         <Container fluid={true} className="p-0">
           <Routes>
             <Route path="/" element={<Home />} exact></Route>

@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 
 /**
  * @Hook
- * `useUserFormErrors` custom hook is used in-order to skip initial twice execution of useEffect and do some operation for user on the database.
- * @param {userSignupErrors} userSignupErrors
+ * `useUserFormActionErrors` custom hook is used in-order to skip initial twice execution of useEffect and do some operation for user on the database.
+ * @param {userFormErrors} userFormErrors
  * This is array of strings represents all the user errors.
  * @param {user} user
  * This is the `user` passed to the `operationForUserOnDatabase` function.
@@ -12,7 +12,7 @@ import { useEffect, useRef } from 'react';
  * @param {operationForUserOnDatabase} operationForUserOnDatabase
  * This function will be executed if `isSubmit` is true and there are no `userErrors`.
  */
-export const useUserFormErrors = (userSignupErrors, user, isSubmit, operationForUserOnDatabase) => {
+export const useUserFormActionErrors = (userFormErrors, user, isSubmit, operationForUserOnDatabase) => {
 
     const isInitialRender = useRef(true);
 
@@ -24,9 +24,9 @@ export const useUserFormErrors = (userSignupErrors, user, isSubmit, operationFor
             return;
         }
 
-        if (Object.keys(userSignupErrors).length === 0 && isSubmit) {
+        if (Object.keys(userFormErrors).length === 0 && isSubmit) {
             operationForUserOnDatabase(user);
         }
-    }, [userSignupErrors]);
+    }, [userFormErrors]);
 
 }
