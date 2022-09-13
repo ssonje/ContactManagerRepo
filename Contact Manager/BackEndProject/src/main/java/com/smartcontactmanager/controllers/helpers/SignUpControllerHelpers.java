@@ -4,7 +4,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.smartcontactmanager.entities.User;
 
-public class UserControllerHelpers {
+public class SignUpControllerHelpers {
 
 	// Set the role, enabled field and encode the password of @C User
 	public static User setDefaultPropertiesForUser(User user, BCryptPasswordEncoder passwordEncoder) {
