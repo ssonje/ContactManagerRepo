@@ -12,10 +12,10 @@ import { toast } from "react-toastify";
  */
 export const AddUserToTheDatabase = (navigate, user) => {
     return (
-        axios.post(`${BASE_URL}/user`, user).then(
+        axios.post(`${BASE_URL}/signup`, user).then(
             (response) => {
                 // Successfully post the data to the database
-                toast.success("User has been added to the database!!!");
+                toast.success("Signup successful.!!!");
 
                 // Navigate to the login page after user has been successfully added to the system
                 navigate('/login');

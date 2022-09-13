@@ -47,7 +47,7 @@ export const SignUpFormValidation = (user, confirmPassword) => {
         errors.password = SIGNUP_ENTERED_PASSWORD_EMPTY_VALIDATION;
     }
 
-    if (user.password && (user.password.length < 6 || user.password.length > 20)) {
+    if (user.password && (user.password.length < 6 || user.password.length > 75)) {
         errors.password = SIGNUP_ENTERED_PASSWORD_LENGTH_VALIDATION;
     }
 
@@ -57,7 +57,7 @@ export const SignUpFormValidation = (user, confirmPassword) => {
         errors.confirmPassword = SIGNUP_CONFIRMED_PASSWORD_EMPTY_VALIDATION;
     }
 
-    if (confirmPassword && (confirmPassword.length < 6 || confirmPassword.length > 20)) {
+    if (confirmPassword && (confirmPassword.length < 6 || confirmPassword.length > 75)) {
         errors.confirmPassword = SIGNUP_CONFIRMED_PASSWORD_LENGTH_VALIDATION;
     }
 

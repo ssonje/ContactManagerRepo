@@ -26,24 +26,24 @@ public class User {
 	@Column(nullable = false)
 	@Size(min = 2, max = 100, message = "Name at least have 2 and maximum 100 charaters")
 	private String name;
-	
+
 	@Column(unique = true, nullable = false)
 	@Email(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Please enter a Valid Email-ID!")
 	private String email;
-	
+
 	@Column(nullable = false)
-	@Size(min = 6, max = 20, message = "Password at least have 6 and maximum 20 charaters")
+	@Size(min = 6, max = 75, message = "Password at least have 6 and maximum 75 charaters")
 	private String password;
-	
+
 	@Column(nullable = false)
 	private String role;
 	private String imegeURL;
-	
+
 	@Column(length = 500)
 	@Size(max = 500, message = "About should have maximum 500 charaters")
 	private String about;
 	private boolean enabled;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Contact> contacts = new ArrayList<Contact>();
 
