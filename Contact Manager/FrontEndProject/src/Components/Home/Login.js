@@ -113,7 +113,7 @@ const Login = () => {
 
                                     <Row>
                                         <Col>
-                                            { /* Forgot Password */}
+                                            { /* Navigate to the SignUp Page */}
                                             <Container className="text-center">
                                                 <Label className={LoginCss.LoginText}>Do you want to Sign Up? <Link to="/signup">Signup here</Link>
                                                 </Label>
