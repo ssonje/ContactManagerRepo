@@ -1,5 +1,6 @@
 import { AuthenticateUser } from "../Database Service Components/AuthenticateUser";
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
+import { Link } from "react-router-dom";
 import { LoginFormValidation } from "../Helpers/Components/LoginFormValidation";
 import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../Helpers/Hooks/useUserFormActionErrors";
@@ -112,23 +113,21 @@ const Login = () => {
 
                                     <Row>
                                         <Col>
+                                            { /* Navigate to the SignUp Page */}
+                                            <Container className="text-center">
+                                                <Label className={LoginCss.LoginText}>Do you want to Sign Up? <Link to="/signup">Signup here</Link>
+                                                </Label>
+                                            </Container>
+                                        </Col>
+                                    </Row>
+
+                                    <Row>
+                                        <Col>
                                             { /* User Submit */}
                                             <Container className="text-center">
-                                                <Button className="btn btn-outline-light" outline onClick={(e) => {
+                                                <Button className="btn btn-outline-light m-3" outline onClick={(e) => {
                                                     handleForm(e);
                                                 }}>Login</Button>
-                                                <Button className="btn btn-outline-light m-3" outline type="reset" onClick={() => {
-                                                    setUser({
-                                                        ...user,
-                                                        email: null,
-                                                        password: null,
-                                                    });
-
-                                                    user.email = null;
-                                                    user.password = null;
-                                                }}>
-                                                    Clear Data
-                                                </Button>
                                             </Container>
                                         </Col>
                                     </Row>
