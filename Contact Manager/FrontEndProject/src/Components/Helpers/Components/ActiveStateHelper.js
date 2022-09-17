@@ -10,6 +10,8 @@ const ActiveStateHelper = (currentLocation) => {
     activeStates.aboutClass = "nav-link" + (currentLocation === "/about" ? " active" : "");
     activeStates.loginClass = "nav-link" + (currentLocation === "/login" ? " active" : "");
     activeStates.signupClass = "nav-link" + (currentLocation === "/signup" ? " active" : "");
+    activeStates.userProfileClass = "nav-link" + (currentLocation === "/user/profile" ? " active" : "");
+    activeStates.logoutClass = "nav-link" + (currentLocation === "/logout" ? " active" : "");
 
     return activeStates;
 

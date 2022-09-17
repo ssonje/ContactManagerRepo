@@ -6,7 +6,9 @@ import About from './Components/Home/About';
 import BaseAppCss from "./CSS/BaseApp.module.css";
 import Home from './Components/Home/Home';
 import Login from './Components/Home/Login';
+import Logout from './Components/Home/Logout';
 import Signup from './Components/Home/Signup';
+import UserProfile from './Components/User/UserProfile';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path="/about" element={<About />} exact></Route>
             <Route path="/login" element={<Login />} exact></Route>
             <Route path="/signup" element={<Signup />} exact></Route>
+            <Route path="/user/profile" element={<UserProfile />} exact></Route>
+            <Route path="/logout" element={<Logout />} exact></Route>
           </Routes>
         </Container>
       </Router>

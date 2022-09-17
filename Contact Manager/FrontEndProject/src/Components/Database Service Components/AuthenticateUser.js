@@ -19,7 +19,7 @@ export const AuthenticateUser = (navigate, username, password) => {
             (response) => {
                 // Successfully authenticated user
                 if (response.status === 200 && response.data.token) {
-                    localStorage.setItem(username, JSON.stringify(response.data));
+                    localStorage.setItem(username, JSON.stringify(response.data.token));
 
                     // TODO: Dynamically open the profile of user as per the ROLE assigned to him/her.
                     navigate("/user/profile");
