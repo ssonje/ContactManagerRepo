@@ -1,15 +1,15 @@
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
-import { SignUpFormValidation } from "../Helpers/Components/SignUpFormValidation";
-import { SignUpUser } from "../Database Service Components/SignUpUser";
+import { SignUpFormValidation } from "./SignUpFormValidation";
+import { SignUpUser } from "../../Database Service Components/SignUpUser";
 import { useNavigate } from "react-router-dom";
-import { useUserFormActionErrors } from "../Helpers/Hooks/useUserFormActionErrors";
+import { useUserFormActionErrors } from "../../Helpers/Hooks/useUserFormActionErrors";
 import React, { useState } from "react";
 import CustomNavbar from "../Navbar/CustomNavbar";
-import SignUpCss from "../../CSS/SignUp.module.css";
-import * as SignUpFormFieldIDConstants from "../../Constants/SignUp/SignUpFormFieldIDConstants";
-import * as SignUpFormInputNameConstants from "../../Constants/SignUp/SignUpFormInputNameConstants.js";
-import * as SignUpFormPlaceholderConstants from "../../Constants/SignUp/SignUpFormPlaceholderConstants";
-import * as SignUpPasswordIcons from "../../Constants/SignUp/SignUpPasswordIcons";
+import SignUpCss from "./CSS/SignUp.module.css";
+import * as SignUpFormFieldIDConstants from "./Constants/SignUpFormFieldIDConstants";
+import * as SignUpFormInputNameConstants from "./Constants/SignUpFormInputNameConstants.js";
+import * as SignUpFormPlaceholderConstants from "./Constants/SignUpFormPlaceholderConstants";
+import * as SignUpPasswordIcons from "./Constants/SignUpPasswordIcons";
 
 /**
  * @Component

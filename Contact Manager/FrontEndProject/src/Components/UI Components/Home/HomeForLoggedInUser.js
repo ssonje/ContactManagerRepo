@@ -1,5 +1,5 @@
 import CustomNavbar from "../Navbar/CustomNavbar";
-import HomeCss from "../../CSS/Home.module.css";
+import HomeCss from "./CSS/Home.module.css";
 import React from "react";
 
 /**

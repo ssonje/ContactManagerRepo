@@ -1,12 +1,12 @@
 import CustomNavbar from "../Navbar/CustomNavbar";
 import React from "react";
-import UserProfileCss from "../../CSS/UserProfile.module.css";
+import UserProfileCss from "./CSS/UserProfile.module.css";
 
 /**
  * @Component
- * `UserProfile` component provides the UI for User Profile Section in Contact Manager Appication.
+ * `UserProfileUI` component provides the UI for User Profile Section in Contact Manager Appication.
  */
-const UserProfile = () => {
+const UserProfileUI = () => {
     return (
         <div>
             <CustomNavbar currentLocation="/user/profile"></CustomNavbar>
@@ -19,4 +19,4 @@ const UserProfile = () => {
     );
 }
 
-export default UserProfile;
+export default UserProfileUI;

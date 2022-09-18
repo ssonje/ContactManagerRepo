@@ -1,4 +1,4 @@
-import { useHomeRender } from "../Helpers/Hooks/useHomeRender";
+import { useHomeRender } from "./useHomeRender";
 import HomeForLoggedInUser from "./HomeForLoggedInUser";
 import HomeForNonLoggedInUser from "./HomeForNonLoggedInUser";
 import React from "react";

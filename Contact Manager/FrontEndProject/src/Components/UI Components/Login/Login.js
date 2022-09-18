@@ -1,16 +1,16 @@
-import { AuthenticateUser } from "../Database Service Components/AuthenticateUser";
+import { AuthenticateUser } from "../../Database Service Components/AuthenticateUser";
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
 import { Link } from "react-router-dom";
-import { LoginFormValidation } from "../Helpers/Components/LoginFormValidation";
+import { LoginFormValidation } from "./LoginFormValidation";
 import { useNavigate } from "react-router-dom";
-import { useUserFormActionErrors } from "../Helpers/Hooks/useUserFormActionErrors";
+import { useUserFormActionErrors } from "../../Helpers/Hooks/useUserFormActionErrors";
 import React, { useState } from "react";
 import CustomNavbar from "../Navbar/CustomNavbar";
-import LoginCss from "../../CSS/Login.module.css";
-import * as LoginFormFieldIDConstants from "../../Constants/Login/LoginFormFieldIDConstants";
-import * as LoginFormInputNameConstants from "../../Constants/Login/LoginFormInputNameConstants";
-import * as LoginFormPlaceholderConstants from "../../Constants/Login/LoginFormPlaceholderConstants";
-import * as LoginPasswordIcons from "../../Constants/Login/LoginPasswordIcons";
+import LoginCss from "./CSS/Login.module.css";
+import * as LoginFormFieldIDConstants from "./Constants/LoginFormFieldIDConstants";
+import * as LoginFormInputNameConstants from "./Constants/LoginFormInputNameConstants";
+import * as LoginFormPlaceholderConstants from "./Constants/LoginFormPlaceholderConstants";
+import * as LoginPasswordIcons from "./Constants/LoginPasswordIcons";
 
 /**
  * @Component
