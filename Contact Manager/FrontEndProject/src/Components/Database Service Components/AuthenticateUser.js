@@ -1,6 +1,6 @@
-import axios from "axios";
 import { BASE_URL } from "../../Constants/BackEndServerURL";
-import { toast } from "react-toastify";
+import { HTTPStatusErrorHelper } from "./Helpers/HTTPStatusErrorHelper";
+import axios from "axios";
 
 /**
  * @component
@@ -28,28 +28,8 @@ export const AuthenticateUser = (navigate, username, password) => {
                 return response.data;
             },
             (error) => {
-                // Error while authenticating the user
-                switch (error.response.status) {
-                    case 400:
-                        toast.error("Bad Request - HTTP status - 400");
-                        break;
-
-                    case 401:
-                        toast.error("Username and Password didn't match - HTTP status - 401");
-                        break;
-
-                    case 403:
-                        toast.error("You do not have access rights - HTTP status - 403");
-                        break;
-
-                    case 404:
-                        toast.error("Page not found - HTTP status - 404");
-                        break;
-
-                    default:
-                        toast.error("Something went wrong. Please contact test@gmail.com.");
-                        break;
-                }
+                // Show error while authenticating the user
+                HTTPStatusErrorHelper(error.response.status);
             }
         )
     );

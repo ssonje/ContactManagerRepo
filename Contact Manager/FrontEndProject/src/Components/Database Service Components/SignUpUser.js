@@ -1,6 +1,7 @@
-import axios from "axios";
 import { BASE_URL } from "../../Constants/BackEndServerURL";
+import { HTTPStatusErrorHelper } from "./Helpers/HTTPStatusErrorHelper";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 /**
  * @component
@@ -21,8 +22,8 @@ export const SignUpUser = (navigate, user) => {
                 navigate('/login');
             },
             (error) => {
-                // Error while posting the data
-                toast.error("Something went wrong while signing up!!!");
+                // Show error while signing up the user
+                HTTPStatusErrorHelper(error.response.status);
             }
         )
     );

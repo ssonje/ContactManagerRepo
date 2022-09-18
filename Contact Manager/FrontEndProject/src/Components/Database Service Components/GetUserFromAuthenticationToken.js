@@ -1,6 +1,6 @@
-import axios from "axios";
 import { BASE_URL } from "../../Constants/BackEndServerURL";
-import { toast } from "react-toastify";
+import { HTTPStatusErrorHelper } from "./Helpers/HTTPStatusErrorHelper";
+import axios from "axios";
 
 /**
  * @component
@@ -26,9 +26,8 @@ export const GetUserFromAuthenticationToken = (authToken) => {
                 return dataFetch;
             },
             (error) => {
-                // Error while authenticating the user
-                // TODO: add complete http errors here
-                toast.error("Something Went Wrong!");
+                // Show error while getting data from the authentication token
+                HTTPStatusErrorHelper(error.response.status);
             }
         )
     );
