@@ -2,13 +2,13 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Container } from "reactstrap";
 import { ToastContainer } from 'react-toastify';
-import About from './Components/Home/About';
+import About from './Components/UI Components/About/About';
 import BaseAppCss from "./CSS/BaseApp.module.css";
-import Home from './Components/Home/Home';
-import Login from './Components/Home/Login';
-import Logout from './Components/Home/Logout';
-import Signup from './Components/Home/Signup';
-import UserProfile from './Components/User/UserProfile';
+import Home from './Components/UI Components/Home/Home';
+import Login from './Components/UI Components/Login/Login';
+import Logout from './Components/UI Components/Logout/Logout';
+import Signup from './Components/UI Components/Signup/Signup';
+import UserProfile from './Components/UI Components/User/UserProfile';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import AboutCss from "../../CSS/About.module.css";
+import AboutCss from "./CSS/About.module.css";
 import CustomNavbar from "../Navbar/CustomNavbar";
 import React from "react";
 

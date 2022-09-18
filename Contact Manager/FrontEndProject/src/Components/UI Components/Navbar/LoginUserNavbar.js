@@ -1,14 +1,14 @@
 import { Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ActiveStateHelper from "../Helpers/Components/ActiveStateHelper";
+import ActiveStateHelper from "../../Helpers/Components/ActiveStateHelper";
 import React from "react";
 
 /**
  * @Component
- * `NonLoginUserNavbar` component provides the UI for Navbar for Non Logged in user.
+ * `LoginUserNavbar` component provides the UI for Navbar for Logged in user.
  */
-const NonLoginUserNavbar = (props) => {
+const LoginUserNavbar = (props) => {
     const [activeStates, setActiveStates] = useState({});
     if (Object.keys(activeStates).length === 0) {
         setActiveStates(ActiveStateHelper(props.currentLocation));
@@ -21,16 +21,10 @@ const NonLoginUserNavbar = (props) => {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className={activeStates.homeClass} to="/home">Home<span className="sr-only"></span></Link>
+                            <Link className={activeStates.userProfileClass} to="/user/profile">Profile<span className="sr-only"></span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={activeStates.aboutClass} to="/about">About<span className="sr-only"></span></Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className={activeStates.loginClass} to="/login">Login<span className="sr-only"></span></Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className={activeStates.signupClass} to="/signup">Sign Up<span className="sr-only"></span></Link>
+                            <Link className={activeStates.logoutClass} to="/logout">Logout<span className="sr-only"></span></Link>
                         </li>
                     </ul>
                 </div>
@@ -39,4 +33,4 @@ const NonLoginUserNavbar = (props) => {
     );
 }
 
-export default NonLoginUserNavbar;
+export default LoginUserNavbar;
