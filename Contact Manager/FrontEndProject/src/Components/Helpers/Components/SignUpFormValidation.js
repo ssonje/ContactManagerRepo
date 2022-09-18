@@ -13,7 +13,7 @@ import {
 
 
 /**
- * @Component
+ * @helper @Component
  * `SignUpFormValidation` component provides functionality to validate the form.
  */
 export const SignUpFormValidation = (user, confirmPassword) => {

@@ -1,7 +1,7 @@
 import * as LoginFormValidationConstants from "../../../Constants/Login/LoginFormValidationConstants";
 
 /**
- * @Component
+ * @helper @Component
  * `LoginFormValidation` component provides functionality to validate the Login form.
  */
 export const LoginFormValidation = (user) => {
