@@ -9,8 +9,8 @@ import React from "react";
 const CustomNavbar = (props) => {
     return (
         (localStorage.length === 1)
-        ? <LoginUserNavbar currentLocation={props.currentLocation}></LoginUserNavbar>
-        : <NonLoginUserNavbar currentLocation={props.currentLocation}></NonLoginUserNavbar>
+            ? <LoginUserNavbar currentLocation={props.currentLocation}></LoginUserNavbar>
+            : <NonLoginUserNavbar currentLocation={props.currentLocation}></NonLoginUserNavbar>
     );
 }
 
