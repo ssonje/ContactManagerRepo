@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 /**
  * @Hook
- * `useHomeRender` custom hook is used in-order to skip initial twice execution of useEffect 
+ * `useHomeRender` custom hook is used in-order to skip initial twice execution using useEffect
  * and refresh the Home wrt to the localstorage.
  * @param {localStorage} localStorage
  * Refresh the Home page wrt to the localStorage length.

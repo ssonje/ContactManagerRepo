@@ -4,27 +4,20 @@ import axios from "axios";
 
 /**
  * @component
- * `GetUserFromAuthenticationToken` provides the functionality to get the user information 
- * from the authentication token by using the `axios`.
+ * `GetUserFromUsername` provides the functionality to get the user information by using the `axios`.
  * @param {authToken} authToken
- * token from which we're getting user information
+ * Authentication Token
  */
-// TODO: Remove this if not used in the code
-export const GetUserFromAuthenticationToken = (authToken) => {
+export const GetUserFromUsername = (authToken, setUser) => {
     return (
-        axios.get(`${BASE_URL}/auth/userinfo`, {
+        axios.get(`${BASE_URL}/user/profile`, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }
         }).then(
             (response) => {
                 // Successfully authenticated user
-                const dataFetch = {
-                    username: response.data.username,
-                    authorities: response.data.authorities
-                };
-
-                return dataFetch;
+                setUser(response.data);
             },
             (error) => {
                 // Show error while getting data from the authentication token

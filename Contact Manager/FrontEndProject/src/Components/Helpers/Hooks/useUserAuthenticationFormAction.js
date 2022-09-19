@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 
 /**
  * @Hook
- * `useUserAuthenticationFormAction` custom hook is used in-order to skip initial twice execution of useEffect and do some operation for user on the database.
+ * `useUserAuthenticationFormAction` custom hook is used in-order to skip initial twice execution 
+ * using useEffect and do some operation for user on the database.
  * @param {authToken} authToken
  * This is the `authToken` passed to the `operationForUserOnDatabase` function.
  * @param {operationForUserOnDatabase} operationForUserOnDatabase

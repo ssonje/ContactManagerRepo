@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 
 /**
  * @Hook
- * `useUserFormActionErrors` custom hook is used in-order to skip initial twice execution of useEffect and do some operation for user on the database.
+ * `useUserFormActionErrors` custom hook is used in-order to skip initial twice execution using useEffect 
+ * and do some operation for user on the database.
  * @param {userFormErrors} userFormErrors
  * This is array of strings represents all the user errors.
  * @param {user} user
