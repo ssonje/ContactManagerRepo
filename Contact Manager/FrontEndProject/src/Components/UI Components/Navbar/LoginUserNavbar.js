@@ -14,6 +14,9 @@ const LoginUserNavbar = (props) => {
         setActiveStates(ActiveStateHelper(props.currentLocation));
     }
 
+    // get the user name of the user from the props
+    const user_name = props.user_name;
+
     return (
         <Container fluid style={{ backgroundColor: "#000000" }}>
             <nav className="navbar navbar-dark navbar-expand-lg">
@@ -21,7 +24,7 @@ const LoginUserNavbar = (props) => {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className={activeStates.userProfileClass} to="/user/profile">Profile<span className="sr-only"></span></Link>
+                            <Link className={activeStates.userProfileClass} to="/user/profile">{user_name ? user_name : ""}<span className="sr-only"></span></Link>
                         </li>
                         <li className="nav-item">
                             <Link className={activeStates.logoutClass} to="/logout">Logout<span className="sr-only"></span></Link>

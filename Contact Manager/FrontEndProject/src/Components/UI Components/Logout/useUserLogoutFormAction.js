@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 /**
  * @Hook
- * `useUserLogoutFormAction` custom hook is used in-order to skip initial twice execution of useEffect 
+ * `useUserLogoutFormAction` custom hook is used in-order to skip initial twice execution using useEffect
  * and navigate to the specific location wrt to the action.
  * @param {navigate} navigate
  * Navigate to the destination location.

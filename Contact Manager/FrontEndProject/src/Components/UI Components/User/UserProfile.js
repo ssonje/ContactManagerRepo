@@ -1,6 +1,6 @@
 import React from "react";
+import TrackUserURL from "../../Helpers/Components/TrackUserURL";
 import UserProfileUI from "./UserProfileUI";
-import TestComponent from "../../Helpers/Components/TrackUserURL";
 
 /**
  * @Component
@@ -10,7 +10,7 @@ const UserProfile = () => {
     return (
         localStorage.length === 1
             ? <UserProfileUI />
-            : <TestComponent />
+            : <TrackUserURL />
     );
 }
 
