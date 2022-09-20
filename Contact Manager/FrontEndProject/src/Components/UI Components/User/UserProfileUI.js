@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useUserAuthenticationFormAction } from "../../Helpers/Hooks/useUserAuthenticationFormAction";
 import CustomNavbar from "../Navbar/CustomNavbar";
 import React from "react";
+import SideBar from "../Sidebar/SideBar"
 import UserProfileCss from "./CSS/UserProfile.module.css";
 
 /**
@@ -25,6 +26,7 @@ const UserProfileUI = () => {
     return (
         <div>
             <CustomNavbar currentLocation="/user/profile" user_name={user.name === null ? "" : user.name}></CustomNavbar>
+            <SideBar />
             <div className={"d-flex align-items-center justify-content-center " + (UserProfileCss.ContainerWindow)}>
                 <div className={(UserProfileCss.UserProfileText)}>
                     <h1>Your Profile</h1>

@@ -1,8 +1,8 @@
 /**
  * @helper @Component
- * `ActiveStateHelper` component provides the current active page from the Contact Management Application.
+ * `NavbarActiveStateHelper` component provides the current active page from the Contact Management Application.
  */
-const ActiveStateHelper = (currentLocation) => {
+const NavbarActiveStateHelper = (currentLocation) => {
 
     const activeStates = {};
 
@@ -17,4 +17,4 @@ const ActiveStateHelper = (currentLocation) => {
 
 }
 
-export default ActiveStateHelper;
+export default NavbarActiveStateHelper;
