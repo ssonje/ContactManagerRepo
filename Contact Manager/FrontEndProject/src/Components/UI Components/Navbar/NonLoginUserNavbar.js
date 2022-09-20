@@ -1,7 +1,7 @@
 import { Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ActiveStateHelper from "../../Helpers/Components/ActiveStateHelper";
+import NavbarActiveStateHelper from "../../Helpers/Components/NavbarActiveStateHelper";
 import React from "react";
 
 /**
@@ -11,7 +11,7 @@ import React from "react";
 const NonLoginUserNavbar = (props) => {
     const [activeStates, setActiveStates] = useState({});
     if (Object.keys(activeStates).length === 0) {
-        setActiveStates(ActiveStateHelper(props.currentLocation));
+        setActiveStates(NavbarActiveStateHelper(props.currentLocation));
     }
 
     return (
