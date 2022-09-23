@@ -9,7 +9,11 @@ import React from "react";
 const CustomNavbar = (props) => {
     return (
         (localStorage.length === 1)
-            ? <LoginUserNavbar currentLocation={props.currentLocation} user_name={props.user_name}></LoginUserNavbar>
+            ? <LoginUserNavbar
+                currentLocation={props.currentLocation}
+                setSideBarForProfileUI={props.setSideBarForProfileUI}
+                isSideBarShowing={props.isSideBarShowing}>
+            </LoginUserNavbar>
             : <NonLoginUserNavbar currentLocation={props.currentLocation}></NonLoginUserNavbar>
     );
 }

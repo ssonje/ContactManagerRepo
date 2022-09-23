@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import NavbarActiveStateHelper from "../../Helpers/Components/NavbarActiveStateHelper";
 import React from "react";
+import SideBar from "../Sidebar/SideBar";
 
 /**
  * @Component
@@ -14,17 +15,46 @@ const LoginUserNavbar = (props) => {
         setActiveStates(NavbarActiveStateHelper(props.currentLocation));
     }
 
-    // get the user name of the user from the props
-    const user_name = props.user_name;
-
     return (
         <Container fluid style={{ backgroundColor: "#000000" }}>
             <nav className="navbar navbar-dark navbar-expand-lg">
-                <Link className="navbar-brand" to="/home">Smart Contact Manager</Link>
+                {props.isSideBarShowing
+                    ?
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                            <SideBar setSideBarForProfileUI={props.setSideBarForProfileUI}></SideBar>
+                        </li>
+                    </ul>
+                    :
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                            <SideBar setSideBarForProfileUI={props.setSideBarForProfileUI}></SideBar>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="navbar-brand" to="/home">Smart Contact Manager</Link>
+                        </li>
+                    </ul>
+                }
+
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className={activeStates.userProfileClass} to="/user/profile">{user_name ? user_name : ""}<span className="sr-only"></span></Link>
+                            <Link className={activeStates.userAddContactClass} to="/user/add/contact">Add Contact<span className="sr-only"></span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className={activeStates.userViewContactsClass} to="/user/view/contacts">View Contacts<span className="sr-only"></span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className={activeStates.userDeleteContactClass} to="/user/delete/contact">Delete Contact<span className="sr-only"></span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className={activeStates.userModifyContactClass} to="/user/modify/contact">Modify Contact<span className="sr-only"></span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className={activeStates.userProfileClass} to="/user/profile">Profile<span className="sr-only"></span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className={activeStates.userSettingsClass} to="/user/settings">Settings<span className="sr-only"></span></Link>
                         </li>
                         <li className="nav-item">
                             <Link className={activeStates.logoutClass} to="/logout">Logout<span className="sr-only"></span></Link>
@@ -32,7 +62,7 @@ const LoginUserNavbar = (props) => {
                     </ul>
                 </div>
             </nav>
-        </Container>
+        </Container >
     );
 }
 

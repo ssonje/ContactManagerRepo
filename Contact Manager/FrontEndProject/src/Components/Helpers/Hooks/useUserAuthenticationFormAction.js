@@ -4,12 +4,10 @@ import { useEffect, useRef } from 'react';
  * @Hook
  * `useUserAuthenticationFormAction` custom hook is used in-order to skip initial twice execution 
  * using useEffect and do some operation for user on the database.
- * @param {authToken} authToken
- * This is the `authToken` passed to the `operationForUserOnDatabase` function.
  * @param {operationForUserOnDatabase} operationForUserOnDatabase
  * This function will be executed if `isSubmit` is true and there are no `userErrors`.
  */
-export const useUserAuthenticationFormAction = (authToken, operationForUserOnDatabase) => {
+export const useUserAuthenticationFormAction = (operationForUserOnDatabase) => {
 
     const isInitialRender = useRef(true);
 
@@ -21,7 +19,7 @@ export const useUserAuthenticationFormAction = (authToken, operationForUserOnDat
             return;
         }
 
-        operationForUserOnDatabase(authToken);
+        operationForUserOnDatabase();
     }, []);
 
 }
