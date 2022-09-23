@@ -1,31 +1,24 @@
-import { GetUserFromUsername } from "../../Database Service Components/GetUserFromUsername";
-import { useState } from "react";
-import { useUserAuthenticationFormAction } from "../../Helpers/Hooks/useUserAuthenticationFormAction";
 import CustomNavbar from "../Navbar/CustomNavbar";
 import HomeCss from "./CSS/Home.module.css";
 import React from "react";
+import { useState } from "react";
 
 /**
  * @Component
  * `HomeForLoggedInUser` component provides the UI for Home Section for logged in user in Contact Manager Appication.
  */
 const HomeForLoggedInUser = () => {
-    const [user, setUser] = useState({
-        name: null
-    });
-    const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
-    const getUserData = (authToken) => {
-        GetUserFromUsername(authToken, setUser);
-    }
 
-    // use `useUserAuthenticationFormAction` hook in-order to skip the twice execution using useEffect
-    // and get the user data from username.
-    useUserAuthenticationFormAction(authToken, getUserData);
+    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
 
     return (
         <div>
-            <CustomNavbar currentLocation="/home" user_name={user.name === null ? "" : user.name}></CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (HomeCss.ContainerWindow)}>
+            <CustomNavbar
+                currentLocation="/home"
+                setSideBarForProfileUI={setSideBarForProfileUI}
+                isSideBarShowing={sideBarForProfileUI}>
+            </CustomNavbar>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? HomeCss.ContainerWindowForSideBarOn : HomeCss.ContainerWindowForSideBarOff)}>
                 <div className={(HomeCss.HomeText)}>
                     <div>
                         <h1>Smart Contact Manager</h1>

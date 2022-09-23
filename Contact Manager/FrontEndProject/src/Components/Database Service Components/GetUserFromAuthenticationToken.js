@@ -1,16 +1,18 @@
 import { BASE_URL } from "../../Constants/BackEndServerURL";
 import { HTTPStatusErrorHelper } from "./Helpers/HTTPStatusErrorHelper";
 import axios from "axios";
+import * as AuthenticationToken from "../../Constants/AuthenticationToken";
 
 /**
  * @component
  * `GetUserFromAuthenticationToken` provides the functionality to get the user information 
  * from the authentication token by using the `axios`.
- * @param {authToken} authToken
- * token from which we're getting user information
  */
 // TODO: Remove this if not used in the code
-export const GetUserFromAuthenticationToken = (authToken) => {
+export const GetUserFromAuthenticationToken = () => {
+
+    const authToken = AuthenticationToken.AUTH_TOKEN;
+
     return (
         axios.get(`${BASE_URL}/auth/userinfo`, {
             headers: {
