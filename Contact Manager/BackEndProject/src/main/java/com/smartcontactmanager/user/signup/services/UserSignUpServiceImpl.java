@@ -1,4 +1,4 @@
-package com.smartcontactmanager.services;
+package com.smartcontactmanager.user.signup.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,7 +7,7 @@ import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.User;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserSignUpServiceImpl implements UserSignUpService {
 
 	@Autowired
 	private UserRepository userRepository;

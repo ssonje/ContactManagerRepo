@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontactmanager.controllers.helpers.SignUpControllerHelpers;
 import com.smartcontactmanager.entities.User;
-import com.smartcontactmanager.services.UserService;
+import com.smartcontactmanager.user.signup.services.UserSignUpService;
 
 @RestController
 public class SignUpController {
 
 	@Autowired
-	private UserService userService;
+	private UserSignUpService userSignUpService;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -24,7 +24,7 @@ public class SignUpController {
 	@PostMapping("/signup")
 	public User addUser(@Valid @RequestBody User user) {
 		User updatedUser = SignUpControllerHelpers.setDefaultPropertiesForUser(user, passwordEncoder);
-		return userService.addUser(updatedUser);
+		return userSignUpService.addUser(updatedUser);
 	}
 
 }
