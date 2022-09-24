@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smartcontactmanager.controllers.helpers.SignUpControllerHelpers;
+import com.smartcontactmanager.controllers.helpers.SignUpControllerHelper;
 import com.smartcontactmanager.entities.User;
 import com.smartcontactmanager.user.signup.services.UserSignUpService;
 
@@ -23,7 +23,7 @@ public class SignUpController {
 
 	@PostMapping("/signup")
 	public User addUser(@Valid @RequestBody User user) {
-		User updatedUser = SignUpControllerHelpers.setDefaultPropertiesForUser(user, passwordEncoder);
+		User updatedUser = SignUpControllerHelper.setDefaultPropertiesForUser(user, passwordEncoder);
 		return userSignUpService.addUser(updatedUser);
 	}
 
