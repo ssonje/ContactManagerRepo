@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "CONTACT")
@@ -15,19 +19,26 @@ public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+
+	@Column(nullable = false)
+	@Size(min = 2, max = 100, message = "Name at least have 2 and maximum 100 charaters")
 	private String name;
+
 	private String nickname;
 	private String work;
 	
-	@Column(unique = true)
+	@Column(nullable = false)
+	@Email(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Please enter a Valid Email-ID!")
 	private String email;
 	private String imageURL;
 	private long mobileNumber;
-	
+
 	@Column(length = 15000)
+	@Size(max = 15000, message = "Description should have maximum 15000 charaters")
 	private String description;
 
 	@ManyToOne
+	@JsonIgnore
 	private User user;
 
 	public long getId() {
