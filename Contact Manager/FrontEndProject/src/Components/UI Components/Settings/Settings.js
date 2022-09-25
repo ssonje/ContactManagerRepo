@@ -1,5 +1,5 @@
 import React from "react";
-import SettingsUI from "./SettingsUI";
+import SettingsUI from "./UI/SettingsUI";
 import TrackUserURL from "../../Helpers/Components/TrackUserURL";
 
 /**

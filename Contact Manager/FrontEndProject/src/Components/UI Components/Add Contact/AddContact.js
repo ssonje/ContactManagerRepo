@@ -1,4 +1,4 @@
-import AddContactUI from "./AddContactUI";
+import AddContactUI from "./UI/AddContactUI";
 import React from "react";
 import TrackUserURL from "../../Helpers/Components/TrackUserURL";
 

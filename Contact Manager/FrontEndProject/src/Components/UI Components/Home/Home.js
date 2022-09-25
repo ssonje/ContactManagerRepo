@@ -1,6 +1,6 @@
-import { useHomeRender } from "./useHomeRender";
-import HomeForLoggedInUser from "./HomeForLoggedInUser";
-import HomeForNonLoggedInUser from "./HomeForNonLoggedInUser";
+import { useHomeRender } from "./Hook/useHomeRender";
+import HomeForLoggedInUser from "./UI/HomeForLoggedInUser";
+import HomeForNonLoggedInUser from "./UI/HomeForNonLoggedInUser";
 import React from "react";
 
 /**

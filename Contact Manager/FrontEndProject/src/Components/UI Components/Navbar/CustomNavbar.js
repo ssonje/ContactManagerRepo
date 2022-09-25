@@ -1,5 +1,5 @@
-import LoginUserNavbar from "./LoginUserNavbar";
-import NonLoginUserNavbar from "./NonLoginUserNavbar";
+import LoginUserNavbar from "./UI/LoginUserNavbar";
+import NonLoginUserNavbar from "./UI/NonLoginUserNavbar";
 import React from "react";
 
 /**

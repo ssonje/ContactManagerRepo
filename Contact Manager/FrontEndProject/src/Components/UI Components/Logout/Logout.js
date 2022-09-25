@@ -1,6 +1,6 @@
 import React from "react";
 import TrackUserURL from "../../Helpers/Components/TrackUserURL";
-import LogoutUI from "./LogoutUI";
+import LogoutUI from "./UI/LogoutUI";
 
 /**
  * @Component
