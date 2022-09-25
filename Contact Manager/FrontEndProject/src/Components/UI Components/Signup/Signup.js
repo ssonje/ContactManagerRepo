@@ -1,5 +1,5 @@
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
-import { SignUpFormValidation } from "./SignUpFormValidation";
+import { SignUpFormValidation } from "./Form Validation/SignUpFormValidation";
 import { SignUpUser } from "../../Database Service Components/SignUpUser";
 import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../../Helpers/Hooks/useUserFormActionErrors";

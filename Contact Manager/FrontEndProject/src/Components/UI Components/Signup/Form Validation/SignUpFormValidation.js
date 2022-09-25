@@ -1,4 +1,4 @@
-import * as SignUpFormValidationConstants from "./Constants/SignUpFormValidationConstants"
+import * as SignUpFormValidationConstants from "../Constants/SignUpFormValidationConstants"
 
 /**
  * @helper @Component
