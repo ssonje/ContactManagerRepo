@@ -1,7 +1,9 @@
 import './App.css';
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Container } from "reactstrap";
 import { ToastContainer } from 'react-toastify';
+
 import About from './Components/UI Components/About/About';
 import AddContact from './Components/UI Components/Add Contact/AddContact';
 import BaseAppCss from "./CSS/BaseApp.module.css";

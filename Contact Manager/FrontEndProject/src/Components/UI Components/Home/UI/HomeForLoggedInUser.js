@@ -1,7 +1,8 @@
+import { useState } from "react";
+
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import HomeCss from "../CSS/Home.module.css";
 import React from "react";
-import { useState } from "react";
 
 /**
  * @Component
