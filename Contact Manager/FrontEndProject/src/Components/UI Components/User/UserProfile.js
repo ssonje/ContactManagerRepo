@@ -1,6 +1,6 @@
 import React from "react";
 import TrackUserURL from "../../Helpers/Components/TrackUserURL";
-import UserProfileUI from "./UserProfileUI";
+import UserProfileUI from "./UI/UserProfileUI";
 
 /**
  * @Component

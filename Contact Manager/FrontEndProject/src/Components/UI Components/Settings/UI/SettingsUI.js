@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CustomNavbar from "../Navbar/CustomNavbar";
+import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
-import SettingsCss from "./CSS/Settings.module.css";
+import SettingsCss from "../CSS/Settings.module.css";
 
 /**
  * @Component

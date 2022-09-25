@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CustomNavbar from "../Navbar/CustomNavbar";
-import ModifyContactCss from "./CSS/ModifyContact.module.css";
+import CustomNavbar from "../../Navbar/CustomNavbar";
+import ModifyContactCss from "../CSS/ModifyContact.module.css";
 import React from "react";
 
 /**

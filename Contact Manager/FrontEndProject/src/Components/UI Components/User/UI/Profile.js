@@ -1,5 +1,5 @@
 import React from "react";
-import UserProfileCss from "./CSS/UserProfile.module.css";
+import UserProfileCss from "../CSS/UserProfile.module.css";
 
 /**
  * @Component

@@ -1,4 +1,4 @@
-import ModifyContactUI from "./ModifyContactUI";
+import ModifyContactUI from "./UI/ModifyContactUI";
 import React from "react";
 import TrackUserURL from "../../Helpers/Components/TrackUserURL";
 

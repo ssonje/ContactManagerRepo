@@ -1,9 +1,9 @@
 import { Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import NavbarActiveStateHelper from "../../Helpers/Components/NavbarActiveStateHelper";
+import NavbarActiveStateHelper from "../../../Helpers/Components/NavbarActiveStateHelper";
 import React from "react";
-import SideBar from "../Sidebar/SideBar";
+import SideBar from "../../Sidebar/SideBar";
 
 /**
  * @Component

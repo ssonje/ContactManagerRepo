@@ -1,6 +1,6 @@
 import React from "react";
 import TrackUserURL from "../../Helpers/Components/TrackUserURL";
-import ViewContactsUI from "./ViewContactsUI";
+import ViewContactsUI from "./UI/ViewContactsUI";
 
 /**
  * @Component
