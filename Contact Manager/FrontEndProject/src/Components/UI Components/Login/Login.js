@@ -1,7 +1,7 @@
 import { AuthenticateUser } from "../../Database Service Components/AuthenticateUser";
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
 import { Link } from "react-router-dom";
-import { LoginFormValidation } from "./LoginFormValidation";
+import { LoginFormValidation } from "./Form Validation/LoginFormValidation";
 import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../../Helpers/Hooks/useUserFormActionErrors";
 import React, { useState } from "react";
