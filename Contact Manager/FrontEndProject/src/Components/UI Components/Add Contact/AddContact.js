@@ -1,6 +1,6 @@
 import AddContactUI from "./UI/AddContactUI";
 import React from "react";
-import TrackUserURL from "../../Helpers/Components/TrackUserURL";
+import TrackURLForNonLoggedInUser from "../../Helpers/Components/TrackURLForNonLoggedInUser";
 
 /**
  * @Component
@@ -10,7 +10,7 @@ const AddContact = () => {
     return (
         localStorage.length === 1
             ? <AddContactUI />
-            : <TrackUserURL />
+            : <TrackURLForNonLoggedInUser />
     );
 }
 

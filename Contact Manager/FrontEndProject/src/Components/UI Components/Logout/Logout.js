@@ -1,5 +1,5 @@
 import React from "react";
-import TrackUserURL from "../../Helpers/Components/TrackUserURL";
+import TrackURLForNonLoggedInUser from "../../Helpers/Components/TrackURLForNonLoggedInUser";
 import LogoutUI from "./UI/LogoutUI";
 
 /**
@@ -10,7 +10,7 @@ const Logout = () => {
     return (
         (localStorage.length === 1)
             ? <LogoutUI />
-            : <TrackUserURL />
+            : <TrackURLForNonLoggedInUser />
     );
 }
 
