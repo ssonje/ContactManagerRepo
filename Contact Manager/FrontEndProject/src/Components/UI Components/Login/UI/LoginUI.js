@@ -5,6 +5,7 @@ import { LoginFormValidation } from "../Form Validation/LoginFormValidation";
 import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../../../Helpers/Hooks/useUserFormActionErrors";
 
+import CustomNavbar from "../../Navbar/CustomNavbar";
 import React, { useState } from "react";
 import LoginCss from "../CSS/Login.module.css";
 
@@ -51,6 +52,7 @@ const LoginUI = () => {
     return (
         <div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            <CustomNavbar currentLocation="/login"></CustomNavbar>
             <div className={"d-flex align-items-center justify-content-center " + (LoginCss.ContainerWindow)}>
                 <Container>
                     <Row>

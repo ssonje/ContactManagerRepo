@@ -4,6 +4,7 @@ import { SignUpUser } from "../../../Database Service Components/SignUpUser";
 import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../../../Helpers/Hooks/useUserFormActionErrors";
 
+import CustomNavbar from "../../Navbar/CustomNavbar";
 import React, { useState } from "react";
 import SignUpCss from "../CSS/SignUp.module.css";
 
@@ -59,6 +60,7 @@ const SignupUI = () => {
     return (
         <div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            <CustomNavbar currentLocation="/signup"></CustomNavbar>
             <div className={"d-flex align-items-center justify-content-center " + (SignUpCss.ContainerWindow)}>
                 <Container>
                     <Row>

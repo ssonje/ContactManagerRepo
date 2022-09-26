@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react';
 
 /**
  * @Hook
- * `useUserActivity` custom hook is used in-order to skip initial twice execution using useEffect 
+ * `useUserActivityForNonLoggedInUser` custom hook is used in-order to skip initial twice execution using useEffect
  * and navigate to the login page if user not logged in and tried to access the secure URL's.
  * @param {navigate} navigate
  * Navigate to the destination location.
  */
-export const useUserActivity = (navigate) => {
+export const useUserActivityForNonLoggedInUser = (navigate) => {
 
     const isInitialRender = useRef(true);
 
