@@ -6,7 +6,7 @@ import SideBarUI from "./UI/SideBarUI";
  */
 const SideBar = (props) => {
     return (
-        <SideBarUI />
+        <SideBarUI setSideBarForProfileUI={props.setSideBarForProfileUI}/>
     );
 }
 
