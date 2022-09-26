@@ -1,6 +1,6 @@
 import AboutUI from "./UI/AboutUI";
-import CustomNavbar from "../Navbar/CustomNavbar";
 import React from "react";
+import TrackURLForLoggedInUser from "../../Helpers/Components/TrackURLForLoggedInUser";
 
 /**
  * @Component
@@ -8,10 +8,9 @@ import React from "react";
  */
 const About = () => {
     return (
-        <div>
-            <CustomNavbar currentLocation="/about"></CustomNavbar>
-            <AboutUI />
-        </div>
+        localStorage.length === 0
+            ? <AboutUI />
+            : <TrackURLForLoggedInUser />
     );
 }
 

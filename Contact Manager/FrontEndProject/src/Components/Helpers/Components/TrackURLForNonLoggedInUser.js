@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useUserActivity } from "../Hooks/useUserActivity";
+import { useUserActivityForNonLoggedInUser } from "../Hooks/useUserActivityForNonLoggedInUser";
 
 /**
  * @helper @Component
@@ -8,7 +8,7 @@ import { useUserActivity } from "../Hooks/useUserActivity";
  */
 const TrackURLForNonLoggedInUser = () => {
     const navigate = useNavigate();
-    useUserActivity(navigate);
+    useUserActivityForNonLoggedInUser(navigate);
 }
 
 export default TrackURLForNonLoggedInUser;

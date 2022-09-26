@@ -1,4 +1,5 @@
 import AboutCss from "../CSS/About.module.css";
+import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
 
 /**
@@ -7,9 +8,12 @@ import React from "react";
  */
 const AboutUI = () => {
     return (
-        <div className={"d-flex align-items-center justify-content-center " + (AboutCss.ContainerWindow)}>
-            <div className={(AboutCss.AboutText)}>
-                <h1>About us</h1>
+        <div>
+            <CustomNavbar currentLocation="/about"></CustomNavbar>
+            <div className={"d-flex align-items-center justify-content-center " + (AboutCss.ContainerWindow)}>
+                <div className={(AboutCss.AboutText)}>
+                    <h1>About us</h1>
+                </div>
             </div>
         </div>
     );
