@@ -3,16 +3,24 @@ import { Link } from "react-router-dom";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import HomeCss from "../CSS/Home.module.css";
 import React from "react";
+import { useState } from "react";
 
 /**
  * @Component
  * `HomeForNonLoggedInUser` component provides the UI for Home Section for non logged in user in Contact Manager Appication.
  */
 const HomeForNonLoggedInUser = () => {
+
+    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+
     return (
         <div>
-            <CustomNavbar currentLocation="/home"></CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (HomeCss.ContainerWindow)}>
+            <CustomNavbar
+                currentLocation="/home"
+                setSideBarForProfileUI={setSideBarForProfileUI}
+                isSideBarShowing={sideBarForProfileUI}>
+            </CustomNavbar>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? HomeCss.ContainerWindowForSideBarOn : HomeCss.ContainerWindowForSideBarOff)}>
                 <div className={(HomeCss.HomeText)}>
                     <div>
                         <h1>Smart Contact Manager</h1>

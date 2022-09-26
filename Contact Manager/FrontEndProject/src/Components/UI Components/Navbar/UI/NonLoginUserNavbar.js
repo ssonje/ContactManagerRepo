@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import NavbarActiveStateHelper from "../../../Helpers/Components/NavbarActiveStateHelper";
 import React from "react";
+import SideBar from "../../Sidebar/SideBar";
 
 /**
  * @Component
@@ -18,7 +19,24 @@ const NonLoginUserNavbar = (props) => {
     return (
         <Container fluid style={{ backgroundColor: "#000000" }}>
             <nav className="navbar navbar-dark navbar-expand-lg">
-                <Link className="navbar-brand" to="/home">Smart Contact Manager</Link>
+            {props.isSideBarShowing
+                    ?
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                            <SideBar setSideBarForProfileUI={props.setSideBarForProfileUI}></SideBar>
+                        </li>
+                    </ul>
+                    :
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                            <SideBar setSideBarForProfileUI={props.setSideBarForProfileUI}></SideBar>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="navbar-brand" to="/home">Smart Contact Manager</Link>
+                        </li>
+                    </ul>
+                }
+
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">

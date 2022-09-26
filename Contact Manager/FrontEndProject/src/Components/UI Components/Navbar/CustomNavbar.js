@@ -14,7 +14,11 @@ const CustomNavbar = (props) => {
                 setSideBarForProfileUI={props.setSideBarForProfileUI}
                 isSideBarShowing={props.isSideBarShowing}>
             </LoginUserNavbar>
-            : <NonLoginUserNavbar currentLocation={props.currentLocation}></NonLoginUserNavbar>
+            : <NonLoginUserNavbar
+                currentLocation={props.currentLocation}
+                setSideBarForProfileUI={props.setSideBarForProfileUI}
+                isSideBarShowing={props.isSideBarShowing}>
+            </NonLoginUserNavbar>
     );
 }
 

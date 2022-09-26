@@ -5,14 +5,14 @@ import { useState } from 'react';
 import React from "react";
 import SideBarCss from "../CSS/SideBar.module.css";
 
-import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
 
 /**
  * @Component
- * `SideBarUI` component provides the UI for Side in the User Profile Section in Contact Manager Appication.
+ * `SideBarUIForLoggedInUser` component provides the UI for Side in the User Profile Section in Contact Manager Appication.
  */
-const SideBarUI = (props) => {
+const SideBarUIForLoggedInUser = (props) => {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => {
         setSidebar(!sidebar);
@@ -89,4 +89,4 @@ const SideBarUI = (props) => {
     );
 }
 
-export default SideBarUI;
+export default SideBarUIForLoggedInUser;

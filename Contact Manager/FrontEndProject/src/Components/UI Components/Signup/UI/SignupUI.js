@@ -57,11 +57,18 @@ const SignupUI = () => {
     // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and add user to the database.
     useUserFormActionErrors(userSignupErrors, user, isSubmit, addUser);
 
+    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+
     return (
         <div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-            <CustomNavbar currentLocation="/signup"></CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (SignUpCss.ContainerWindow)}>
+            <CustomNavbar
+                currentLocation="/signup"
+                setSideBarForProfileUI={setSideBarForProfileUI}
+                isSideBarShowing={sideBarForProfileUI}
+            >
+            </CustomNavbar>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? SignUpCss.ContainerWindowForSideBarOn : SignUpCss.ContainerWindowForSideBarOff)}>
                 <Container>
                     <Row>
                         <Col md={2}></Col>

@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../../../Helpers/Hooks/useUserFormActionErrors";
 
 import CustomNavbar from "../../Navbar/CustomNavbar";
-import React, { useState } from "react";
 import LoginCss from "../CSS/Login.module.css";
+import React, { useState } from "react";
 
 import * as LoginFormFieldIDConstants from "../Constants/LoginFormFieldIDConstants";
 import * as LoginFormInputNameConstants from "../Constants/LoginFormInputNameConstants";
@@ -49,11 +49,18 @@ const LoginUI = () => {
     // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and login user into the Application.
     useUserFormActionErrors(userLoginErrors, user, isSubmit, loginUser);
 
+    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+
     return (
         <div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-            <CustomNavbar currentLocation="/login"></CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (LoginCss.ContainerWindow)}>
+            <CustomNavbar
+                currentLocation="/login"
+                setSideBarForProfileUI={setSideBarForProfileUI}
+                isSideBarShowing={sideBarForProfileUI}
+            >
+            </CustomNavbar>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? LoginCss.ContainerWindowForSideBarOn : LoginCss.ContainerWindowForSideBarOff)}>
                 <Container>
                     <Row>
                         <Col md={4}></Col>
