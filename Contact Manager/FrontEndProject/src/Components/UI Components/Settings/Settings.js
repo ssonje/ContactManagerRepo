@@ -1,6 +1,6 @@
 import React from "react";
 import SettingsUI from "./UI/SettingsUI";
-import TrackUserURL from "../../Helpers/Components/TrackUserURL";
+import TrackURLForNonLoggedInUser from "../../Helpers/Components/TrackURLForNonLoggedInUser";
 
 /**
  * @Component
@@ -10,7 +10,7 @@ const Settings = () => {
     return (
         localStorage.length === 1
             ? <SettingsUI />
-            : <TrackUserURL />
+            : <TrackURLForNonLoggedInUser />
     );
 }
 

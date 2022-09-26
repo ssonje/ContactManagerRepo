@@ -1,5 +1,5 @@
 import React from "react";
-import TrackUserURL from "../../Helpers/Components/TrackUserURL";
+import TrackURLForNonLoggedInUser from "../../Helpers/Components/TrackURLForNonLoggedInUser";
 import UserProfileUI from "./UI/UserProfileUI";
 
 /**
@@ -10,7 +10,7 @@ const UserProfile = () => {
     return (
         localStorage.length === 1
             ? <UserProfileUI />
-            : <TrackUserURL />
+            : <TrackURLForNonLoggedInUser />
     );
 }
 
