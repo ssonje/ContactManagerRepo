@@ -1,4 +1,5 @@
-import SideBarUI from "./UI/SideBarUI";
+import SideBarUIForLoggedInUser from "./UI/SideBarUIForLoggedInUser";
+import SideBarUIForNonLoggedInUser from "./UI/SideBarUIForNonLoggedInUser";
 
 /**
  * @Component
@@ -6,7 +7,9 @@ import SideBarUI from "./UI/SideBarUI";
  */
 const SideBar = (props) => {
     return (
-        <SideBarUI setSideBarForProfileUI={props.setSideBarForProfileUI}/>
+        localStorage.length === 1
+            ? <SideBarUIForLoggedInUser setSideBarForProfileUI={props.setSideBarForProfileUI} />
+            : <SideBarUIForNonLoggedInUser setSideBarForProfileUI={props.setSideBarForProfileUI} />
     );
 }
 

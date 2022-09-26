@@ -9,3 +9,20 @@
     position: absolute;
     overflow: hidden;
 }
+
+.ContainerWindowForSideBarOn {
+    height: calc(100% - 56px);
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    position: absolute;
+    overflow: hidden;
+    transition: 350ms;
+}
+
+.ContainerWindowForSideBarOff {
+    height: calc(100% - 56px);
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    transition: 350ms;
+}
