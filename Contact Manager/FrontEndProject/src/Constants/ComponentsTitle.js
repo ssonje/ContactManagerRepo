@@ -1,4 +1,11 @@
 export const COMPONENT_TITLE_FOR_ABOUT = "About";
+export const COMPONENT_TITLE_FOR_ADD_CONTACT = "Add Contact";
+export const COMPONENT_TITLE_FOR_DELETE_CONTACT = "Delete Contact";
 export const COMPONENT_TITLE_FOR_HOME = "Home";
 export const COMPONENT_TITLE_FOR_LOGIN = "Login";
+export const COMPONENT_TITLE_FOR_LOGOUT = "Logout";
+export const COMPONENT_TITLE_FOR_MODIFY_CONTACT = "Modify Contact";
+export const COMPONENT_TITLE_FOR_PROFILE = "Profile";
+export const COMPONENT_TITLE_FOR_SETTINGS = "Settings";
 export const COMPONENT_TITLE_FOR_SIGNUP = "Sign Up";
+export const COMPONENT_TITLE_FOR_VIEW_CONTACT = "View Contact";
