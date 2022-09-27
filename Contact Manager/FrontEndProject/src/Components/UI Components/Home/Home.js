@@ -1,8 +1,11 @@
+import { useComponentTitle } from "../../Helpers/Hooks/useComponentTitle";
 import { useHomeRender } from "./Hook/useHomeRender";
 
 import HomeForLoggedInUser from "./UI/HomeForLoggedInUser";
 import HomeForNonLoggedInUser from "./UI/HomeForNonLoggedInUser";
 import React from "react";
+
+import * as ComponentsTitle from "../../../Constants/ComponentsTitle";
 
 /**
  * @Component
@@ -11,6 +14,8 @@ import React from "react";
 const Home = () => {
     // Render the correct Home page for the Logged in / out user.
     useHomeRender(localStorage);
+
+    useComponentTitle(ComponentsTitle.COMPONENT_TITLE_FOR_HOME);
 
     return (
         (localStorage.length === 1)
