@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import DeleteContactCss from "../CSS/DeleteContact.module.css";
 import React from "react";
@@ -19,7 +20,7 @@ const DeleteContactUI = () => {
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? DeleteContactCss.ContainerWindowForSideBarOn : DeleteContactCss.ContainerWindowForSideBarOff)}>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <div className={(DeleteContactCss.DeleteContactText)}>
                     <h1>Delete Contact</h1>
                 </div>

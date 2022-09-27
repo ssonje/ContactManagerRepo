@@ -1,3 +1,4 @@
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import React from "react";
 import UserProfileCss from "../CSS/UserProfile.module.css";
 
@@ -7,7 +8,7 @@ import UserProfileCss from "../CSS/UserProfile.module.css";
  */
 const Profile = (props) => {
     return (
-        <div className={"d-flex align-items-center justify-content-center " + (props.isSideBarShowing ? UserProfileCss.ContainerWindowForSideBarOn : UserProfileCss.ContainerWindowForSideBarOff)}>
+        <div className={"d-flex align-items-center justify-content-center " + (props.isSideBarShowing ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
             <div className={(UserProfileCss.UserProfileText)}>
                 <h1>Your Profile</h1>
             </div>

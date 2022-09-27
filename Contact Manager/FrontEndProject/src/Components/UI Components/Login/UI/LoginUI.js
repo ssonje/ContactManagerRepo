@@ -3,11 +3,13 @@ import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row 
 import { Link } from "react-router-dom";
 import { LoginFormValidation } from "../Form Validation/LoginFormValidation";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useUserFormActionErrors } from "../../../Helpers/Hooks/useUserFormActionErrors";
 
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import LoginCss from "../CSS/Login.module.css";
-import React, { useState } from "react";
+import React from "react";
 
 import * as LoginFormFieldIDConstants from "../Constants/LoginFormFieldIDConstants";
 import * as LoginFormInputNameConstants from "../Constants/LoginFormInputNameConstants";
@@ -60,7 +62,7 @@ const LoginUI = () => {
                 isSideBarShowing={sideBarForProfileUI}
             >
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? LoginCss.ContainerWindowForSideBarOn : LoginCss.ContainerWindowForSideBarOff)}>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <Container>
                     <Row>
                         <Col md={4}></Col>

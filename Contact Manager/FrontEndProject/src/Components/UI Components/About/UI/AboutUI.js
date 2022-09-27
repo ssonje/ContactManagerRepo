@@ -1,7 +1,9 @@
+import { useState } from "react";
+
 import AboutCss from "../CSS/About.module.css";
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
-import { useState } from "react";
 
 /**
  * @Component
@@ -18,7 +20,7 @@ const AboutUI = () => {
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? AboutCss.ContainerWindowForSideBarOn : AboutCss.ContainerWindowForSideBarOff)}>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <div className={(AboutCss.AboutText)}>
                     <h1>About us</h1>
                 </div>

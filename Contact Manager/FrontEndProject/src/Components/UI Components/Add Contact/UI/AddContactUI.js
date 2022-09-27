@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useUserFormActionErrors } from "../../../Helpers/Hooks/useUserFormActionErrors"; 
 
 import AddContactCss from "../CSS/AddContact.module.css";
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
 
@@ -58,7 +59,7 @@ const AddContactUI = () => {
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? AddContactCss.ContainerWindowForSideBarOn : AddContactCss.ContainerWindowForSideBarOff)}>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <Container>
                     <Row>
                         <Col md={2}></Col>

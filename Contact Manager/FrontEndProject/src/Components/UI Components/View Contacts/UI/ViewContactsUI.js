@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
 import ViewContactsCss from "../CSS/ViewContacts.module.css";
@@ -19,7 +20,7 @@ const ViewContactsUI = () => {
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? ViewContactsCss.ContainerWindowForSideBarOn : ViewContactsCss.ContainerWindowForSideBarOff)}>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <div className={(ViewContactsCss.ViewContactsText)}>
                     <h1>View Contacts</h1>
                 </div>
