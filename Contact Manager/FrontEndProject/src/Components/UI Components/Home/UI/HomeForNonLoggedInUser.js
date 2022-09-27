@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import HomeCss from "../CSS/Home.module.css";
 import React from "react";
-import { useState } from "react";
 
 /**
  * @Component
@@ -20,7 +21,7 @@ const HomeForNonLoggedInUser = () => {
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? HomeCss.ContainerWindowForSideBarOn : HomeCss.ContainerWindowForSideBarOff)}>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <div className={(HomeCss.HomeText)}>
                     <div>
                         <h1>Smart Contact Manager</h1>

@@ -4,6 +4,7 @@ import { SignUpUser } from "../../../Database Service Components/SignUpUser";
 import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../../../Helpers/Hooks/useUserFormActionErrors";
 
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import React, { useState } from "react";
 import SignUpCss from "../CSS/SignUp.module.css";
@@ -68,7 +69,7 @@ const SignupUI = () => {
                 isSideBarShowing={sideBarForProfileUI}
             >
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? SignUpCss.ContainerWindowForSideBarOn : SignUpCss.ContainerWindowForSideBarOff)}>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <Container>
                     <Row>
                         <Col md={2}></Col>
