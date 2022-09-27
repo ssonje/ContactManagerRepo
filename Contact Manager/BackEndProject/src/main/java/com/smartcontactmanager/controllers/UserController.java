@@ -1,6 +1,7 @@
 package com.smartcontactmanager.controllers;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -37,6 +38,12 @@ public class UserController {
 		contact.setUser(user);
 		contactRepository.save(contact);
 		return contact;
+	}
+
+	@GetMapping("/view/contacts")
+	public List<Contact> viewContacts(Principal principal) {
+		User user = userRepository.loadUserByEmail(principal.getName());
+		return user.getContacts();
 	}
 
 }
