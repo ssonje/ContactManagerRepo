@@ -168,6 +168,7 @@ const AddContactUI = () => {
                                                 <Input
                                                     style={{ border: "none", boxShadow: "none" }}
                                                     id={AddContactFormFieldIDConstants.ADD_CONTACT_IMAGE_URL_FIELD_ID}
+                                                    name={AddContactFormInputNameConstants.ADD_CONTACT_IMAGE}
                                                     type="file"
                                                     onChange={(e) => {
                                                         setContact({ ...contact, imageURL: e.target.value });
