@@ -43,7 +43,8 @@ public class UserController {
 	@GetMapping("/view/contacts")
 	public List<Contact> viewContacts(Principal principal) {
 		User user = userRepository.loadUserByEmail(principal.getName());
-		return user.getContacts();
+		List<Contact> contacts = contactRepository.findContactsByUserID(user.getId());
+		return contacts;
 	}
 
 }
