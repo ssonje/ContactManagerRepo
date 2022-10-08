@@ -1,4 +1,4 @@
-import { AddContact } from "../../../Database Service Components/AddContact";
+import { AddContactDBService } from "../Database Service/AddContactDBService";
 import { AddContactFormValidation } from "../Form Validation/AddContactFormValidation";
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +39,7 @@ const AddContactUI = () => {
     // Add Contact for the particular User
     const addContact = () => {
         if (window.confirm("Are you sure you want to Add Contact?")) {
-            AddContact(navigate, contact);
+            AddContactDBService(navigate, contact);
         }
     };
 

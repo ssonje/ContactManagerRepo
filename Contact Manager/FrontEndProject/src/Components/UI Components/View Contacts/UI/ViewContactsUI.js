@@ -1,7 +1,7 @@
 import { Container } from "reactstrap";
 import { useRef, useState } from "react";
 import { useViewContacts } from "../Hooks/useViewContacts";
-import { ViewContacts } from "../Database Service/ViewContacts";
+import { ViewContactsDBService } from "../Database Service/ViewContactsDBService";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
@@ -23,7 +23,7 @@ const ViewContactsUI = () => {
     // Fetch the Contacts for the User
     const viewContacts = () => {
         if (isContactsFetched.current) {
-            ViewContacts(setContacts);
+            ViewContactsDBService(setContacts);
             isContactsFetched.current = false;
         }
     };

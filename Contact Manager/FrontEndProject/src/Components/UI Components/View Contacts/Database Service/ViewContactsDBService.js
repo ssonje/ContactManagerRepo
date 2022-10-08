@@ -6,11 +6,11 @@ import axios from "axios";
 
 /**
  * @component
- * `ViewContacts` provides the functionality for viewing all the contacts for the user by using the `axios`.
+ * `ViewContactsDBService` provides the functionality for viewing all the contacts for the user by using the `axios`.
  * @param {setContacts} setContacts
  * Fetched contacts are now passed to the setContacts function.
  */
-export const ViewContacts = (setContacts) => {
+export const ViewContactsDBService = (setContacts) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
