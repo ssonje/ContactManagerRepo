@@ -4,8 +4,6 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
-import * as AuthenticationToken from "../../Constants/AuthenticationToken";
-
 /**
  * @component
  * `AddContact` provides the functionality for adding contact for the user by using the `axios`.
@@ -16,7 +14,7 @@ import * as AuthenticationToken from "../../Constants/AuthenticationToken";
  */
 export const AddContact = (navigate, contact) => {
 
-    const authToken = AuthenticationToken.AUTH_TOKEN;
+    const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
     return (
         axios.post(`${BASE_URL}/user/add/contact`, contact, {

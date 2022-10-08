@@ -3,15 +3,13 @@ import { HTTPStatusErrorHelper } from "./Helpers/HTTPStatusErrorHelper";
 
 import axios from "axios";
 
-import * as AuthenticationToken from "../../Constants/AuthenticationToken";
-
 /**
  * @component
  * `GetUserFromUsername` provides the functionality to get the user information by using the `axios`.
  */
 export const GetUserFromUsername = (setUser) => {
 
-    const authToken = AuthenticationToken.AUTH_TOKEN;
+    const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
     return (
         axios.get(`${BASE_URL}/user/profile`, {

@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { Container } from "reactstrap";
+import { useRef, useState } from "react";
+import { useViewContacts } from "../Hooks/useViewContacts";
+import { ViewContacts } from "../Database Service/ViewContacts";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
+import NoContactsAvailableUI from "./NoContactsAvailableUI";
 import React from "react";
+import ShowContactsTableUI from "./ShowContactsTableUI";
 import ViewContactsCss from "../CSS/ViewContacts.module.css";
 
 /**
@@ -11,7 +16,20 @@ import ViewContactsCss from "../CSS/ViewContacts.module.css";
  */
 const ViewContactsUI = () => {
 
+    const [contacts, setContacts] = useState([]);
     const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+    const isContactsFetched = useRef(true);
+
+    // Fetch the Contacts for the User
+    const viewContacts = () => {
+        if (isContactsFetched.current) {
+            ViewContacts(setContacts);
+            isContactsFetched.current = false;
+        }
+    };
+
+    // Call the useViewContacts in-order to skip initial execution of useEffect and fetch contacts for the user.
+    useViewContacts(viewContacts);
 
     return (
         <div>
@@ -21,9 +39,16 @@ const ViewContactsUI = () => {
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
             <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
-                <div className={(ViewContactsCss.ViewContactsText)}>
-                    <h1>View Contacts</h1>
-                </div>
+                <Container>
+                    <h2 className={(ViewContactsCss.ViewContactsText) + " mb-4"}>View Contacts</h2>
+                    <div className={(ViewContactsCss.ViewContactsTextCenter)}>
+                        {
+                            contacts.length > 0
+                                ? <ShowContactsTableUI contacts={contacts}></ShowContactsTableUI>
+                                : <NoContactsAvailableUI />
+                        }
+                    </div>
+                </Container>
             </div>
         </div>
     );
