@@ -1,6 +1,6 @@
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
 import { SignUpFormValidation } from "../Form Validation/SignUpFormValidation";
-import { SignUpUser } from "../../../Database Service Components/SignUpUser";
+import { SignUpUserDBService } from "../Database Service/SignUpUserDBService";
 import { useNavigate } from "react-router-dom";
 import { useUserFormActionErrors } from "../../../Helpers/Hooks/useUserFormActionErrors";
 
@@ -45,7 +45,7 @@ const SignupUI = () => {
     // Add user into the database.
     const addUser = (user) => {
         if (window.confirm("Are you sure you want to continue?")) {
-            SignUpUser(navigate, user);
+            SignUpUserDBService(navigate, user);
         }
     };
 
