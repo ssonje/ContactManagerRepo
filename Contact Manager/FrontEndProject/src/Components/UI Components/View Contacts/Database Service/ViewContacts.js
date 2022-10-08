@@ -21,7 +21,7 @@ export const ViewContacts = (setContacts) => {
             }
         }).then(
             (response) => {
-                // Successfully fetched the contacts=
+                // Successfully fetched the contacts
                 setContacts(response.data);
 
                 if (response.data.length === 0) {
@@ -31,7 +31,7 @@ export const ViewContacts = (setContacts) => {
                 }
             },
             (error) => {
-                // Show error while signing up the user
+                // Show error while fetching all the contacts
                 HTTPStatusErrorHelper(error.response.status);
             }
         )
