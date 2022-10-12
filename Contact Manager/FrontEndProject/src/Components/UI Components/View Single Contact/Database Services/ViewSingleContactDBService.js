@@ -23,12 +23,19 @@ export const ViewSingleContactDBService = (id, setContact) => {
             }
         }).then(
             (response) => {
-                // Successfully fetched contact details
+                if (response.data) {
+                    // Successfully fetched contact details
+                    toast.success("Contact details fetched successfully!");
+                } else {
+                    // Unathorized user viewing others contact details
+                    toast.warning("Your not authorized to view others contact details!");
+                }
+
                 setContact(response.data);
-                toast.success("Contact details fetched successfully!");
             },
             (error) => {
                 // Show error while fetching the contact details
+                setContact(error.data);
                 HTTPStatusErrorHelper(error.response.status);
             }
         )
