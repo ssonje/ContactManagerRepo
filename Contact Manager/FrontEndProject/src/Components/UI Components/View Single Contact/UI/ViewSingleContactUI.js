@@ -6,8 +6,8 @@ import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import ContactDetailsTable from "./ContactDetailsTable";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
-import ViewSingleContactCss from "../CSS/ViewSingleContact.module.css";
 import UnauthorizedContactDetails from "./UnauthorizedContactDetails";
+import ViewSingleContactCss from "../CSS/ViewSingleContact.module.css";
 
 /**
  * @Component
