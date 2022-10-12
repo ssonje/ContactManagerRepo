@@ -3,10 +3,11 @@ import { useViewSingleContact } from "../Hooks/useViewSingleContact";
 import { ViewSingleContactDBService } from "../Database Services/ViewSingleContactDBService";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
+import ContactDetailsTable from "./ContactDetailsTable";
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
 import ViewSingleContactCss from "../CSS/ViewSingleContact.module.css";
-import ContactDetailsTable from "./ContactDetailsTable";
+import UnauthorizedContactDetails from "./UnauthorizedContactDetails";
 
 /**
  * @Component
@@ -41,7 +42,11 @@ const ViewSingleContactUI = (props) => {
             <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <div className={(ViewSingleContactCss.ViewSingleContactText)}>
                     <h2>View Contact</h2>
-                    <ContactDetailsTable contact={contact}></ContactDetailsTable>
+                    {
+                        contact
+                        ? <ContactDetailsTable contact={contact}></ContactDetailsTable>
+                        : <UnauthorizedContactDetails></UnauthorizedContactDetails>
+                    }
                 </div>
             </div>
         </div>

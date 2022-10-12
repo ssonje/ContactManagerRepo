@@ -50,9 +50,16 @@ public class UserController {
 	}
 
 	@GetMapping("/view/contact/{id}")
-	public Contact getContactByID(@PathVariable("id") Integer id) {
+	public Contact getContactByID(@PathVariable("id") Integer id, Principal principal) {
+		User user = userRepository.loadUserByEmail(principal.getName());
 		Optional<Contact> contactOptional = contactRepository.findById(id);
-		return contactOptional.get();
+		Contact contact = contactOptional.get();
+
+		if (user.getId() == contact.getUser().getId()) {
+			return contact;
+		}
+
+		return null;
 	}
 
 }
