@@ -3,9 +3,9 @@ import { useEffect, useRef } from 'react';
 /**
  * @Hook
  * `useViewSingleContact` custom hook is used in-order to skip initial twice execution using useEffect 
- * and fetch contacts for the user.
+ * and fetch contact details.
  * @param {fetchContactDetails} fetchContactDetails
- * Execute the viewContacts function in-order to fetch the contacts.
+ * Execute the fetchContactDetails function in-order to fetch the contact details.
  */
 export const useViewSingleContact = (fetchContactDetails) => {
 

@@ -7,12 +7,11 @@ import * as AiIcons from 'react-icons/ai';
 
 /**
  * @Component
- * `ContactDetailsTable` component provides the table formatted UI for viewing the contacts.
+ * `ContactDetailsTable` component provides the table formatted UI for viewing the contact details.
  */
 const ContactDetailsTable = (props) => {
 
     const contact = props.contact;
-    console.log("Contact = ", contact);
     const navigate = useNavigate();
 
     const handleDeleteButtonClick = () => {

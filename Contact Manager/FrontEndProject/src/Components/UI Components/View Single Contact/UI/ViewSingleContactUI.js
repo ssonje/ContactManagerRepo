@@ -20,7 +20,7 @@ const ViewSingleContactUI = (props) => {
     const [contact, setContact] = useState([]);
     const isContactFetched = useRef(true);
 
-    // Fetch the Contacts for the User
+    // Fetch the Contact details
     const fetchContactDetails = () => {
         if (isContactFetched.current) {
             ViewSingleContactDBService(id, setContact);
