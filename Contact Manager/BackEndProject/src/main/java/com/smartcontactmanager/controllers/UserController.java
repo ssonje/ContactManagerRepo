@@ -2,11 +2,13 @@ package com.smartcontactmanager.controllers;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +47,12 @@ public class UserController {
 		User user = userRepository.loadUserByEmail(principal.getName());
 		List<Contact> contacts = contactRepository.findContactsByUserID(user.getId());
 		return contacts;
+	}
+
+	@GetMapping("/view/contact/{id}")
+	public Contact getContactByID(@PathVariable("id") Integer id) {
+		Optional<Contact> contactOptional = contactRepository.findById(id);
+		return contactOptional.get();
 	}
 
 }

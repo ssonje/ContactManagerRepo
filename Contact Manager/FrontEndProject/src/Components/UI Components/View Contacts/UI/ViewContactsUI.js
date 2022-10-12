@@ -40,7 +40,7 @@ const ViewContactsUI = () => {
             </CustomNavbar>
             <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
                 <Container>
-                    <h2 className={(ViewContactsCss.ViewContactsText) + " mb-4"}>View Contacts</h2>
+                    <h2 className={(ViewContactsCss.ViewContactsText) + " mb-4"}>Your Contacts</h2>
                     <div className={(ViewContactsCss.ViewContactsTextCenter)}>
                         {
                             contacts.length > 0

@@ -1,4 +1,5 @@
 import { Button, Table } from "reactstrap";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import React from "react";
@@ -22,7 +23,7 @@ const ShowContactsTableUI = (props) => {
     }
 
     const handleEditButtonClick = () => {
-        navigate("/user/modify/contact");        
+        navigate("/user/modify/contact");
     }
 
     return (
@@ -31,8 +32,7 @@ const ShowContactsTableUI = (props) => {
                 <tr>
                     <th className={(ViewContactsCss.ViewContactsTableHeaderText)}>Name</th>
                     <th className={(ViewContactsCss.ViewContactsTableHeaderText)}>Mobile Number</th>
-                    <th className={(ViewContactsCss.ViewContactsTableHeaderText)}>Nick Name</th>
-                    <th className={(ViewContactsCss.ViewContactsTableHeaderText)}>Work</th>
+                    <th className={(ViewContactsCss.ViewContactsTableHeaderText)}>Email</th>
                     <th className={(ViewContactsCss.ViewContactsTableHeaderText)}>Action</th>
                 </tr>
             </thead>
@@ -42,8 +42,9 @@ const ShowContactsTableUI = (props) => {
                         <tr>
                             <td>{contact.name}</td>
                             <td>{contact.mobileNumber}</td>
-                            <td>{contact.nickname ? contact.nickname : "-"}</td>
-                            <td>{contact.work ? contact.work : "-"}</td>
+                            <td>
+                                <Link to={`/user/view/contact/${contact.id}`}><a>{contact.email}</a></Link>
+                            </td>
                             <td>
                                 <Button outline color="danger" onClick={() => {
                                     handleDeleteButtonClick();

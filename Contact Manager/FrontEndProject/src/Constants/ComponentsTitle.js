@@ -9,3 +9,4 @@ export const COMPONENT_TITLE_FOR_PROFILE = "Profile";
 export const COMPONENT_TITLE_FOR_SETTINGS = "Settings";
 export const COMPONENT_TITLE_FOR_SIGNUP = "Sign Up";
 export const COMPONENT_TITLE_FOR_VIEW_CONTACT = "View Contact";
+export const COMPONENT_TITLE_FOR_YOUR_CONTACTS = "Your Contacts";
