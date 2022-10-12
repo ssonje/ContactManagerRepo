@@ -12,7 +12,7 @@ import * as ComponentsTitle from "../../../Constants/ComponentsTitle";
  */
 const ViewContacts = () => {
 
-    useComponentTitle(ComponentsTitle.COMPONENT_TITLE_FOR_VIEW_CONTACT);
+    useComponentTitle(ComponentsTitle.COMPONENT_TITLE_FOR_YOUR_CONTACTS);
 
     return (
         localStorage.length === 1

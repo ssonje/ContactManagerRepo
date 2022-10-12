@@ -120,7 +120,7 @@ const AddContactUI = () => {
                                                         setContact({ ...contact, mobileNumber: e.target.value });
                                                     }}
                                                 />
-                                                <Label></Label>
+                                                <Label style={{ color: 'red', marginTop: 5 }}>{addContactErrors.mobileNumber}</Label>
                                             </FormGroup>
                                         </Col>
 

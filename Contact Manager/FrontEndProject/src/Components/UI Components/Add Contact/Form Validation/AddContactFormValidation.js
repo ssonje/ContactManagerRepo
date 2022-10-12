@@ -29,6 +29,17 @@ export const AddContactFormValidation = (contact) => {
         errors.name = AddContactFormValidationConstants.ADD_CONTACT_NAME_LENGTH_VALIDATION;
     }
 
+    /* Contact Mobile Number Validation */
+
+    if (!contact.mobileNumber) {
+        errors.mobileNumber = AddContactFormValidationConstants.ADD_CONTACT_MOBILE_NUMBER_EMPTY_VALIDATION;
+    }
+
+    var mobileNumberRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+    if (contact.mobileNumber && !contact.mobileNumber.match(mobileNumberRegex)) {
+        errors.mobileNumber = AddContactFormValidationConstants.ADD_CONTACT_MOBILE_NUMBER_REGEX_VALIDATION;
+    }
+
     /* Contact Name Validation */
 
     if (contact.description && contact.description.length > 15000) {

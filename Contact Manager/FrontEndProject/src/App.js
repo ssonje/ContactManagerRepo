@@ -16,6 +16,7 @@ import Settings from './Components/UI Components/Settings/Settings';
 import Signup from './Components/UI Components/Signup/Signup';
 import UserProfile from './Components/UI Components/User/UserProfile';
 import ViewContacts from './Components/UI Components/View Contacts/ViewContacts';
+import ViewSingleContact from './Components/UI Components/View Single Contact/ViewSingleContact';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/user/add/contact" element={<AddContact />} exact></Route>
             <Route path="/user/delete/contact" element={<DeleteContact />} exact></Route>
             <Route path="/user/modify/contact" element={<ModifyContact />} exact></Route>
+            <Route path="/user/view/contact/:id" element={<ViewSingleContact />}></Route>
             <Route path="/user/view/contacts" element={<ViewContacts />} exact></Route>
             <Route path="/user/profile" element={<UserProfile />} exact></Route>
             <Route path="/user/settings" element={<Settings />} exact></Route>
