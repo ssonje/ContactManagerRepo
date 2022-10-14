@@ -1,7 +1,7 @@
 import { Container } from "reactstrap";
 import { useRef, useState } from "react";
 import { useViewContacts } from "../Hooks/useViewContacts";
-import { ViewContactsDBService } from "../Database Service/ViewContactsDBService";
+import { ViewContactsDBService } from "../Database Services/ViewContactsDBService";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
