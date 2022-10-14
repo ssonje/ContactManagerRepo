@@ -62,4 +62,20 @@ public class UserController {
 		return null;
 	}
 
+	@PostMapping("/delete/contact/{id}")
+	public Contact deleteContact(@PathVariable("id") Integer id, Principal principal) {
+		System.out.println("[UserController] delete contact = id = " + id);
+		System.out.println("[UserController] delete contact = principal.getName() = " + principal.getName());
+		User user = userRepository.loadUserByEmail(principal.getName());
+		Optional<Contact> contactOptional = contactRepository.findById(id);
+		Contact contact = contactOptional.get();
+
+		if (user.getId() == contact.getUser().getId()) {
+			contactRepository.deleteById(id);
+			return contact;
+		}
+
+		return null;
+	}
+
 }

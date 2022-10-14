@@ -18,8 +18,10 @@ const ShowContactsTableUI = (props) => {
     const contacts = props.contacts;
     const navigate = useNavigate();
 
-    const handleDeleteButtonClick = () => {
-        navigate("/user/delete/contact");
+    const handleDeleteButtonClick = (contactID) => {
+        if (window.confirm("Are you sure you want to Delete this Contact?")) {
+            navigate(`/user/delete/contact/${contactID}`);
+        }
     }
 
     const handleEditButtonClick = () => {
@@ -47,7 +49,7 @@ const ShowContactsTableUI = (props) => {
                             </td>
                             <td>
                                 <Button outline color="danger" onClick={() => {
-                                    handleDeleteButtonClick();
+                                    handleDeleteButtonClick(contact.id);
                                 }}>
                                     <AiIcons.AiFillDelete />
                                 </Button>

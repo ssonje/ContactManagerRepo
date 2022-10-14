@@ -32,10 +32,10 @@ function App() {
             <Route path="/logout" element={<Logout />} exact></Route>
             <Route path="/signup" element={<Signup />} exact></Route>
             <Route path="/user/add/contact" element={<AddContact />} exact></Route>
-            <Route path="/user/delete/contact" element={<DeleteContact />} exact></Route>
+            <Route path="/user/delete/contact/:id" element={<DeleteContact />} exact></Route>
             <Route path="/user/modify/contact" element={<ModifyContact />} exact></Route>
-            <Route path="/user/view/contact/:id" element={<ViewSingleContact />}></Route>
             <Route path="/user/view/contacts" element={<ViewContacts />} exact></Route>
+            <Route path="/user/view/contact/:id" element={<ViewSingleContact />}></Route>
             <Route path="/user/profile" element={<UserProfile />} exact></Route>
             <Route path="/user/settings" element={<Settings />} exact></Route>
           </Routes>

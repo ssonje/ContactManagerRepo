@@ -33,7 +33,7 @@ public class Contact {
 	private String email;
 	private String imageURL;
 
-	@Column(unique = true, nullable = false)
+	@Column(nullable = false)
 	@Pattern(regexp = "[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$", message = "Please enter a Valid Mobile Number!")
 	private String mobileNumber;
 

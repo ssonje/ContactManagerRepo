@@ -1,30 +1,45 @@
+import { DeleteContactDBService } from "../Database Services/DeleteContactDBService";
+import { useDeleteContact } from "../Hooks/useDeleteContact";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import { useState } from "react";
 
-import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
-import DeleteContactCss from "../CSS/DeleteContact.module.css";
 import React from "react";
 
 /**
  * @Component
  * `DeleteContactUI` component provides the UI for deleting the contact.
  */
-const DeleteContactUI = () => {
+const DeleteContactUI = (props) => {
+
+    const user = useState({
+        email: null,
+        password: null,
+    });
 
     const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+    const id = props.id;
+    const isContactsDeleted = useRef(true);
+    const navigate = useNavigate();
+
+    // Delete the contact
+    const deleteContact = () => {
+        if (isContactsDeleted.current) {
+            DeleteContactDBService(id, user, navigate);
+            isContactsDeleted.current = false;
+        }
+    };
+
+    // Call the useViewContacts in-order to skip initial execution of useEffect and delete contact.
+    useDeleteContact(deleteContact);
 
     return (
         <div>
             <CustomNavbar
-                currentLocation="/user/delete/contact"
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
-            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
-                <div className={(DeleteContactCss.DeleteContactText)}>
-                    <h1>Delete Contact</h1>
-                </div>
-            </div>
         </div>
     );
 }
