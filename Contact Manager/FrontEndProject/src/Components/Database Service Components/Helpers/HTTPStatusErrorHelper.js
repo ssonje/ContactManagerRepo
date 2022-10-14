@@ -13,7 +13,7 @@ export const HTTPStatusErrorHelper = (statusCode) => {
             break;
 
         case 401:
-            toast.error("Username and Password didn't match - HTTP status - 401");
+            toast.error("Unauthorized user - HTTP status - 401");
             break;
 
         case 403:
