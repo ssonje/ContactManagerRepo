@@ -33,7 +33,7 @@ const ModifyContactUI = (props) => {
     // Fetch the Contact details
     const fetchContactDetails = () => {
         if (isContactFetched.current) {
-            ViewSingleContactDBService(id, setContact);
+            ViewSingleContactDBService(setContact, id);
             isContactFetched.current = false;
         }
     };
@@ -54,7 +54,7 @@ const ModifyContactUI = (props) => {
         }
     };
 
-    const handleForm = (e) => {
+    const handleModifyContactForm = (e) => {
         e.preventDefault();
         setModifyContactErrors(ModifyContactFormValidation(contact));
         setIsSubmit(true);
@@ -62,6 +62,12 @@ const ModifyContactUI = (props) => {
 
     // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and modify contact.
     useUserFormActionErrors(modifyContactErrors, contact, isSubmit, modifyContact);
+
+    const handleCancelModifyContactForm = (e) => {
+        if (window.confirm("Are you sure you want to cancel Modifying Contact?")) {
+            navigate("/user/view/contacts");
+        }
+    }
 
     return (
         <div>
@@ -218,11 +224,15 @@ const ModifyContactUI = (props) => {
 
                                     <Row>
                                         <Col>
-                                            { /* Add Contact - Submit */}
                                             <Container className="text-center">
-                                                <Button className="btn btn-outline-light m-3" outline onClick={(e) => {
-                                                    handleForm(e);
+                                            { /* Modify Contact - Submit */}
+                                                <Button className="btn btn-outline-success m-3" outline onClick={(e) => {
+                                                    handleModifyContactForm(e);
                                                 }}>Modify Contact</Button>
+                                                { /* Modify Contact - Cancel */}
+                                                <Button className="btn btn-outline-danger" outline onClick={(e) => {
+                                                    handleCancelModifyContactForm(e);
+                                                }}>Cancel</Button>
                                             </Container>
                                         </Col>
                                     </Row>

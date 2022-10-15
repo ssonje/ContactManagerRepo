@@ -24,7 +24,7 @@ const ViewSingleContactUI = (props) => {
     // Fetch the Contact details
     const fetchContactDetails = () => {
         if (isContactFetched.current) {
-            ViewSingleContactDBService(id, setContact);
+            ViewSingleContactDBService(setContact, id);
             isContactFetched.current = false;
         }
     };
