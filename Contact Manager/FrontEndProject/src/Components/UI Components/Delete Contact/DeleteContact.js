@@ -13,9 +13,8 @@ import * as ComponentsTitle from "../../../Constants/ComponentsTitle";
  */
 const DeleteContact = () => {
 
-    const {id} = useParams();
-
     useComponentTitle(ComponentsTitle.COMPONENT_TITLE_FOR_DELETE_CONTACT);
+    const {id} = useParams();
 
     return (
         localStorage.length === 1

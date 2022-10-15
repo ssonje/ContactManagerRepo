@@ -10,7 +10,7 @@ import axios from "axios";
  * @param {id} id
  * This contact id will used to delete the contact details.
  */
-export const DeleteContactDBService = (navigate, id, user) => {
+export const DeleteContactDBService = (id, user, navigate) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 

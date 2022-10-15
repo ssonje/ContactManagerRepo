@@ -5,7 +5,6 @@ import React from "react";
 import TrackURLForNonLoggedInUser from "../../Helpers/Components/TrackURLForNonLoggedInUser";
 
 import * as ComponentsTitle from "../../../Constants/ComponentsTitle";
-import { useParams } from "react-router-dom";
 
 /**
  * @Component
@@ -13,13 +12,11 @@ import { useParams } from "react-router-dom";
  */
 const ModifyContact = () => {
 
-    const {id} = useParams();
-
     useComponentTitle(ComponentsTitle.COMPONENT_TITLE_FOR_MODIFY_CONTACT);
 
     return (
         localStorage.length === 1
-            ? <ModifyContactUI id={id}/>
+            ? <ModifyContactUI />
             : <TrackURLForNonLoggedInUser />
     );
 }
