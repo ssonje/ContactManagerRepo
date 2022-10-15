@@ -8,7 +8,7 @@ import axios from "axios";
  * @component
  * `ModifyContactDBService` provides the functionality for modifying the existing contact by using the `axios`.
  * @param {navigate} navigate
- * Navigate to the destination where we want to go after successfully adding contact.
+ * Navigate to the destination where we want to go after successfully modifying contact.
  * @param {id} id
  * Contact with this ID will be modified.
  * @param {contact} contact
