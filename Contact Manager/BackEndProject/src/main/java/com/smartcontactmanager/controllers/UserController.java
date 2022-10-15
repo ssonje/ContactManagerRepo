@@ -64,8 +64,6 @@ public class UserController {
 
 	@PostMapping("/delete/contact/{id}")
 	public Contact deleteContact(@PathVariable("id") Integer id, Principal principal) {
-		System.out.println("[UserController] delete contact = id = " + id);
-		System.out.println("[UserController] delete contact = principal.getName() = " + principal.getName());
 		User user = userRepository.loadUserByEmail(principal.getName());
 		Optional<Contact> contactOptional = contactRepository.findById(id);
 		Contact contact = contactOptional.get();
@@ -73,6 +71,27 @@ public class UserController {
 		if (user.getId() == contact.getUser().getId()) {
 			contactRepository.deleteById(id);
 			return contact;
+		}
+
+		return null;
+	}
+
+	@PostMapping("/modify/contact/{id}")
+	public Contact modifyContact(@PathVariable("id") Integer id, Principal principal, @Valid @RequestBody Contact contact) {
+		User user = userRepository.loadUserByEmail(principal.getName());
+		Optional<Contact> contactOptional = contactRepository.findById(id);
+		Contact contactFromID = contactOptional.get();
+
+		if ((user.getId() == contactFromID.getUser().getId()) && (contactFromID.getId() == contact.getId())) {
+			contactFromID.setDescription(contact.getDescription());
+			contactFromID.setEmail(contact.getEmail());
+			contactFromID.setImageURL(contact.getImageURL());
+			contactFromID.setMobileNumber(contact.getMobileNumber());
+			contactFromID.setName(contact.getName());
+			contactFromID.setNickname(contact.getNickname());
+			contactFromID.setWork(contact.getWork());
+			contactRepository.save(contactFromID);
+			return contactFromID;
 		}
 
 		return null;
