@@ -2,7 +2,7 @@ import * as ModifyContactFormValidationConstants from "../Constants/ModifyContac
 
 /**
  * @helper @Component
- * `ModifyContactFormValidation` component provides functionality to validate the Add Contact form.
+ * `ModifyContactFormValidation` component provides functionality to validate the Modify Contact form.
  */
 export const ModifyContactFormValidation = (contact) => {
 
