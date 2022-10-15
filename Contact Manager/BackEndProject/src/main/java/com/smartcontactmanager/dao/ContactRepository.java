@@ -11,6 +11,6 @@ import com.smartcontactmanager.entities.Contact;
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
 
 	@Query("from Contact as c where c.user.id =:userID")
-	public List<Contact> findContactsByUserID(@Param("userID") long userID);
+	public List<Contact> findContactsByUserID(@Param("userID") Integer userID);
 
 }
