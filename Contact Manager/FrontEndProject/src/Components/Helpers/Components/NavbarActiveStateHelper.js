@@ -19,7 +19,6 @@ const NavbarActiveStateHelper = (currentLocation) => {
     activeStates.userProfileClass = "nav-link" + (currentLocation === "/user/profile" ? " active" : "");
     activeStates.userSettingsClass = "nav-link" + (currentLocation === "/user/settings" ? " active" : "");
     activeStates.userAddContactClass = "nav-link" + (currentLocation === "/user/add/contact" ? " active" : "");
-    activeStates.userModifyContactClass = "nav-link" + (currentLocation === "/user/modify/contact" ? " active" : "");
     activeStates.userViewContactsClass = "nav-link" + (currentLocation === "/user/view/contacts" ? " active" : "");
 
     return activeStates;

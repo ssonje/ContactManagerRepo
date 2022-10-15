@@ -46,9 +46,6 @@ const LoginUserNavbar = (props) => {
                             <Link className={activeStates.userViewContactsClass} to="/user/view/contacts">View Contacts<span className="sr-only"></span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={activeStates.userModifyContactClass} to="/user/modify/contact">Modify Contact<span className="sr-only"></span></Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className={activeStates.userProfileClass} to="/user/profile">Profile<span className="sr-only"></span></Link>
                         </li>
                         <li className="nav-item">

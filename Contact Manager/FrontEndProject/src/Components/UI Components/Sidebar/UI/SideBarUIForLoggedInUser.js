@@ -53,12 +53,6 @@ const SideBarUIForLoggedInUser = (props) => {
                             </Link>
                         </li>
                         <li className={SideBarCss.navText}>
-                            <Link to="/user/modify/contact">
-                                <AiIcons.AiOutlineEdit />
-                                <span>Modify Contacts</span>
-                            </Link>
-                        </li>
-                        <li className={SideBarCss.navText}>
                             <Link to="/user/profile">
                                 <AiIcons.AiOutlineProfile />
                                 <span>Your Profile</span>

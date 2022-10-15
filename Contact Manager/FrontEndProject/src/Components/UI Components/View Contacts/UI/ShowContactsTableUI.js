@@ -24,8 +24,10 @@ const ShowContactsTableUI = (props) => {
         }
     }
 
-    const handleEditButtonClick = () => {
-        navigate("/user/modify/contact");
+    const handleEditButtonClick = (contactID) => {
+        if (window.confirm("Are you sure you want to Modify this Contact?")) {
+            navigate(`/user/modify/contact/${contactID}`);
+        }
     }
 
     return (
@@ -54,7 +56,7 @@ const ShowContactsTableUI = (props) => {
                                     <AiIcons.AiFillDelete />
                                 </Button>
                                 <Button outline color="warning" className="ms-3" onClick={() => {
-                                    handleEditButtonClick();
+                                    handleEditButtonClick(contact.id);
                                 }}>
                                     <AiIcons.AiFillEdit />
                                 </Button>
