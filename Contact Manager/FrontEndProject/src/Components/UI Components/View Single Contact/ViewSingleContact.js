@@ -13,9 +13,9 @@ import * as ComponentsTitle from "../../../Constants/ComponentsTitle";
  */
 const ViewSingleContact = () => {
 
-    useComponentTitle(ComponentsTitle.COMPONENT_TITLE_FOR_VIEW_CONTACT);
-
     const {id} = useParams();
+
+    useComponentTitle(ComponentsTitle.COMPONENT_TITLE_FOR_VIEW_CONTACT);
 
     return (
         localStorage.length === 1
