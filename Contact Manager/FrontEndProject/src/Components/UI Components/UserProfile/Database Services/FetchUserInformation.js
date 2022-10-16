@@ -19,7 +19,7 @@ export const FetchUserInformation = (setUser) => {
             }
         }).then(
             (response) => {
-                // Successfully authenticated user
+                // Successfully fetched user information
                 toast.success("User information fetched successfully!");
                 setUser(response.data);
             },
