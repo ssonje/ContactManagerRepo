@@ -26,7 +26,7 @@ const DeleteContactUI = (props) => {
     // Delete the contact
     const deleteContact = () => {
         if (isContactsDeleted.current) {
-            DeleteContactDBService(id, user, navigate);
+            DeleteContactDBService(navigate, id, user);
             isContactsDeleted.current = false;
         }
     };
