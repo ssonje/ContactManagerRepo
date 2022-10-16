@@ -1,5 +1,6 @@
 import { BASE_URL } from "../../../../Constants/BackEndServerURL";
 import { HTTPStatusErrorHelper } from "../../../Database Service Components/Helpers/HTTPStatusErrorHelper";
+import { toast } from "react-toastify";
 
 import axios from "axios";
 
@@ -18,7 +19,8 @@ export const FetchUserInformation = (setUser) => {
             }
         }).then(
             (response) => {
-                // Successfully authenticated user
+                // Successfully fetched user information
+                toast.success("User information fetched successfully!");
                 setUser(response.data);
             },
             (error) => {
