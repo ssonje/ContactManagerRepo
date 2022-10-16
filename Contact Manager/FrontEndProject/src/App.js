@@ -14,7 +14,7 @@ import Logout from './Components/UI Components/Logout/Logout';
 import ModifyContact from './Components/UI Components/Modify Contact/ModifyContact';
 import Settings from './Components/UI Components/Settings/Settings';
 import Signup from './Components/UI Components/Signup/Signup';
-import UserProfile from './Components/UI Components/User/UserProfile';
+import UserProfile from './Components/UI Components/UserProfile/UserProfile';
 import ViewContacts from './Components/UI Components/View Contacts/ViewContacts';
 import ViewSingleContact from './Components/UI Components/View Single Contact/ViewSingleContact';
 

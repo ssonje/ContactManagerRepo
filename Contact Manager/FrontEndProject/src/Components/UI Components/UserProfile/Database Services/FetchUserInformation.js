@@ -1,13 +1,13 @@
-import { BASE_URL } from "../../Constants/BackEndServerURL";
-import { HTTPStatusErrorHelper } from "./Helpers/HTTPStatusErrorHelper";
+import { BASE_URL } from "../../../../Constants/BackEndServerURL";
+import { HTTPStatusErrorHelper } from "../../../Database Service Components/Helpers/HTTPStatusErrorHelper";
 
 import axios from "axios";
 
 /**
  * @component
- * `GetUserFromUsername` provides the functionality to get the user information by using the `axios`.
+ * `FetchUserInformation` provides the functionality to fetch the user information by using the `axios`.
  */
-export const GetUserFromUsername = (setUser) => {
+export const FetchUserInformation = (setUser) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -22,7 +22,7 @@ export const GetUserFromUsername = (setUser) => {
                 setUser(response.data);
             },
             (error) => {
-                // Show error while getting data from the authentication token
+                // Show error while fetching data of user
                 HTTPStatusErrorHelper(error.response.status);
             }
         )
