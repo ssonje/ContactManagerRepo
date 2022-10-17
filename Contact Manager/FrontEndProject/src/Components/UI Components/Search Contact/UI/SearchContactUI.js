@@ -1,6 +1,6 @@
-import React from "react";
-
 import { Col, Container, Form, FormGroup, Input, Row } from "reactstrap";
+
+import React from "react";
 
 import * as SearchContactFormFieldIDConstants from "../Constants/SearchContactFormFieldIDConstants";
 import * as SearchContactFormInputNameConstants from "../Constants/SearchContactFormInputNameConstants";
