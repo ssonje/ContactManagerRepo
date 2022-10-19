@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
+import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/ToastSuccessMessages";
+
 /**
  * @component
  * `SignUpUserDBService` provides the functionality for signing up the user by using the `axios`.
@@ -17,7 +19,7 @@ export const SignUpUserDBService = (navigate, user) => {
         axios.post(`${BASE_URL}/signup`, user).then(
             (response) => {
                 // Successfully post the data to the server
-                toast.success("Signup successful.!!!");
+                toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFUL_SIGNUP);
 
                 // Navigate to the login page after user has been successfully added to the server
                 navigate('/login');

@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
+import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/ToastSuccessMessages";
+
 /**
  * @component
  * `FetchUserInformation` provides the functionality to fetch the user information by using the `axios`.
@@ -20,7 +22,7 @@ export const FetchUserInformation = (setUser) => {
         }).then(
             (response) => {
                 // Successfully fetched user information
-                toast.success("User information fetched successfully!");
+                toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFULLY_FETCHING_USER_INFORMATION);
                 setUser(response.data);
             },
             (error) => {

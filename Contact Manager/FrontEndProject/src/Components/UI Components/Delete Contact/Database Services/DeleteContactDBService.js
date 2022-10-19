@@ -4,6 +4,9 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
+import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/ToastSuccessMessages";
+import * as ToastWarningMessages from "../../../../Constants/Toast Messages/ToastWarningMessages";
+
 /**
  * @component
  * `DeleteContactDBService` provides the functionality for deleting single contact by using the `axios`.
@@ -23,10 +26,10 @@ export const DeleteContactDBService = (navigate, id, user) => {
             (response) => {
                 if (response.data) {
                     // Successfully deleted the required contact
-                    toast.success("Contact deleted successfully!");
+                    toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_DELETED_CONTACT);
                 } else {
                     // Unathorized user deleting others contacts
-                    toast.warning("Your not authorized to delete others contact details!");
+                    toast.warning(ToastWarningMessages.TOAST_WARNING_DELETE_UNATHORIZED_CONTACT);
                 }
 
                 navigate("/user/view/contacts");

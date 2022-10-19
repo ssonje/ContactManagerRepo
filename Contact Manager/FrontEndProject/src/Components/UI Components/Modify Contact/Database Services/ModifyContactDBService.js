@@ -4,6 +4,9 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
+import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/ToastSuccessMessages";
+import * as ToastWarningMessages from "../../../../Constants/Toast Messages/ToastWarningMessages";
+
 /**
  * @component
  * `ModifyContactDBService` provides the functionality for modifying the existing contact by using the `axios`.
@@ -27,10 +30,10 @@ export const ModifyContactDBService = (navigate, id, contact) => {
             (response) => {
                 if (response.data) {
                     // Successfully modified the required contact
-                    toast.success("Contact modified successfully!");
+                    toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_MODIFIED_CONTACT);
                 } else {
                     // Unathorized user to modified others contacts
-                    toast.warning("Your not authorized to modify others contact details!");
+                    toast.warning(ToastWarningMessages.TOAST_WARNING_MODIFY_UNATHORIZED_CONTACT);
                 }
 
                 navigate("/user/view/contacts");
