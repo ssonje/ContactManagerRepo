@@ -4,6 +4,9 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
+import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/ToastSuccessMessages";
+import * as ToastWarningMessages from "../../../../Constants/Toast Messages/ToastWarningMessages";
+
 /**
  * @component
  * `ViewContactsDBService` provides the functionality for viewing all the contacts for the user by using the `axios`.
@@ -25,9 +28,9 @@ export const ViewContactsDBService = (setContacts) => {
                 setContacts(response.data);
 
                 if (response.data.length === 0) {
-                    toast.warning("No contacts found!");
+                    toast.warning(ToastWarningMessages.TOAST_WARNING_NO_CONTACTS_FOUND);
                 } else {
-                    toast.success("Contacts fetched successfully!");
+                    toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFULLY_FETCHING_CONTACTS);
                 }
             },
             (error) => {

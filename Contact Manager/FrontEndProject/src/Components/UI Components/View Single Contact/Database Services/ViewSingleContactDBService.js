@@ -4,6 +4,9 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
+import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/ToastSuccessMessages";
+import * as ToastWarningMessages from "../../../../Constants/Toast Messages/ToastWarningMessages";
+
 /**
  * @component
  * `ViewSingleContactDBService` provides the functionality for viewing single contact by using the `axios`.
@@ -25,10 +28,10 @@ export const ViewSingleContactDBService = (setContact, id) => {
             (response) => {
                 if (response.data) {
                     // Successfully fetched contact details
-                    toast.success("Contact details fetched successfully!");
+                    toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFULLY_FETCHING_CONTACT_DETAILS);
                 } else {
                     // Unathorized user viewing others contact details
-                    toast.warning("Your not authorized to view others contact details!");
+                    toast.warning(ToastWarningMessages.TOAST_WARNING_VIEW_UNATHORIZED_CONTACT);
                 }
 
                 setContact(response.data);

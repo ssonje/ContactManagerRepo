@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 
 import axios from "axios";
 
+import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/ToastSuccessMessages";
+
 /**
  * @component
  * `AddContactDBService` provides the functionality for adding contact for the user by using the `axios`.
@@ -24,7 +26,7 @@ export const AddContactDBService = (navigate, contact) => {
         }).then(
             (response) => {
                 // Successfully post the data to the server
-                toast.success("Contact Added Successfully.!!!");
+                toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_ADDED_CONTACT);
 
                 // Navigate to the view contact page after contact has been successfully added to the server
                 navigate('/user/view/contacts');
