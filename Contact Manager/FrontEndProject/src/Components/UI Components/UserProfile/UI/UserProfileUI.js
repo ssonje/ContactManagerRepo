@@ -1,11 +1,11 @@
+import { FetchUserInformation } from "../Database Services/FetchUserInformation";
+import { useFetchUserInformation } from "../Hooks/useFetchUserInformation";
+import { useRef } from "react";
 import { useState } from "react";
 
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import Profile from "./Profile";
 import React from "react";
-import { FetchUserInformation } from "../Database Services/FetchUserInformation";
-import { useFetchUserInformation } from "../Hooks/useFetchUserInformation";
-import { useRef } from "react";
 
 /**
  * @Component
@@ -15,13 +15,13 @@ const UserProfileUI = () => {
 
     const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
     const [user, setUser] = useState([]);
-    const isContactsFetched = useRef(true);
+    const isUserInformationFetched = useRef(true);
 
     // Fetch the required User
     const fetchUser = () => {
-        if (isContactsFetched.current) {
+        if (isUserInformationFetched.current) {
             FetchUserInformation(setUser);
-            isContactsFetched.current = false;
+            isUserInformationFetched.current = false;
         }
     };
 

@@ -9,10 +9,10 @@ import CustomNavbar from "../../Navbar/CustomNavbar";
 import React, { useState } from "react";
 import SignUpCss from "../CSS/SignUp.module.css";
 
+import * as AiIcons from 'react-icons/ai';
 import * as SignUpFormFieldIDConstants from "../Constants/SignUpFormFieldIDConstants";
 import * as SignUpFormInputNameConstants from "../Constants/SignUpFormInputNameConstants.js";
 import * as SignUpFormPlaceholderConstants from "../Constants/SignUpFormPlaceholderConstants";
-import * as SignUpPasswordIcons from "../Constants/SignUpPasswordIcons";
 
 /**
  * @Component
@@ -62,7 +62,6 @@ const SignupUI = () => {
 
     return (
         <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <CustomNavbar
                 currentLocation="/signup"
                 setSideBarForProfileUI={setSideBarForProfileUI}
@@ -135,11 +134,13 @@ const SignupUI = () => {
                                                         onClick={() => {
                                                             handleShowEnteredPasswordButton();
                                                         }}>
-                                                        <i className={
-                                                            showEnteredPassword
-                                                                ? SignUpPasswordIcons.SIGNUP_SHOW_PASSWORD_ICON
-                                                                : SignUpPasswordIcons.SIGNUP_HIDE_PASSWORD_ICON}
-                                                            style={{ color: "#000000" }}></i>
+                                                        <i style={{ color: "#000000" }}>
+                                                            {
+                                                                showEnteredPassword
+                                                                    ? <AiIcons.AiOutlineEye />
+                                                                    : <AiIcons.AiOutlineEyeInvisible />
+                                                            }
+                                                        </i>
                                                     </Button>
                                                 </InputGroup>
                                                 <Label style={{ color: 'red', marginTop: 5 }}>{userSignupErrors.password}</Label>
@@ -165,11 +166,13 @@ const SignupUI = () => {
                                                         onClick={() => {
                                                             handleShowConfirmPasswordButton();
                                                         }}>
-                                                        <i className={
-                                                            showConfirmPassword
-                                                                ? SignUpPasswordIcons.SIGNUP_SHOW_PASSWORD_ICON
-                                                                : SignUpPasswordIcons.SIGNUP_HIDE_PASSWORD_ICON}
-                                                            style={{ color: "#000000" }}></i>
+                                                        <i style={{ color: "#000000" }}>
+                                                            {
+                                                                showConfirmPassword
+                                                                    ? <AiIcons.AiOutlineEye />
+                                                                    : <AiIcons.AiOutlineEyeInvisible />
+                                                            }
+                                                        </i>
                                                     </Button>
                                                 </InputGroup>
                                                 <Label style={{ color: 'red', marginTop: 5 }}>{userSignupErrors.confirmPassword}</Label>
@@ -230,12 +233,6 @@ const SignupUI = () => {
                                                         about: null,
                                                         imageURL: null
                                                     });
-
-                                                    user.name = null;
-                                                    user.email = null;
-                                                    user.password = null;
-                                                    user.about = null;
-                                                    user.imageURL = null;
                                                 }}>
                                                     Clear Data
                                                 </Button>

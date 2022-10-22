@@ -11,10 +11,10 @@ import CustomNavbar from "../../Navbar/CustomNavbar";
 import LoginCss from "../CSS/Login.module.css";
 import React from "react";
 
+import * as AiIcons from 'react-icons/ai';
 import * as LoginFormFieldIDConstants from "../Constants/LoginFormFieldIDConstants";
 import * as LoginFormInputNameConstants from "../Constants/LoginFormInputNameConstants";
 import * as LoginFormPlaceholderConstants from "../Constants/LoginFormPlaceholderConstants";
-import * as LoginPasswordIcons from "../Constants/LoginPasswordIcons";
 
 /**
  * @Component
@@ -55,7 +55,6 @@ const LoginUI = () => {
 
     return (
         <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <CustomNavbar
                 currentLocation="/login"
                 setSideBarForProfileUI={setSideBarForProfileUI}
@@ -110,11 +109,13 @@ const LoginUI = () => {
                                                         onClick={() => {
                                                             handleShowEnteredPasswordButton();
                                                         }}>
-                                                        <i className={
-                                                            showEnteredPassword
-                                                                ? LoginPasswordIcons.LOGIN_SHOW_PASSWORD_ICON
-                                                                : LoginPasswordIcons.LOGIN_HIDE_PASSWORD_ICON}
-                                                            style={{ color: "#000000" }}></i>
+                                                        <i style={{ color: "#000000" }}>
+                                                            {
+                                                                showEnteredPassword
+                                                                    ? <AiIcons.AiOutlineEye />
+                                                                    : <AiIcons.AiOutlineEyeInvisible />
+                                                            }
+                                                        </i>
                                                     </Button>
                                                 </InputGroup>
                                                 <Label style={{ color: 'red', marginTop: 5 }}>{userLoginErrors.password}</Label>

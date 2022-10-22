@@ -10,10 +10,10 @@ import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
 import SettingsCss from "../CSS/Settings.module.css";
 
+import * as AiIcons from 'react-icons/ai';
 import * as SettingsFormFieldIDConstants from "../Constants/SettingsFormFieldIDConstants";
 import * as SettingsFormInputNameConstants from "../Constants/SettingsFormInputNameConstants";
 import * as SettingsFormPlaceholderConstants from "../Constants/SettingsFormPlaceholderConstants";
-import * as SettingsPasswordIcons from "../Constants/SettingsPasswordIcons";
 
 /**
  * @Component
@@ -55,8 +55,8 @@ const SettingsUI = () => {
     const handleForm = (e) => {
         e.preventDefault();
         setUserSettingsErrors(SettingsFormValidation(
-            userPassword.oldPassword, 
-            userPassword.newPassword, 
+            userPassword.oldPassword,
+            userPassword.newPassword,
             userPassword.confirmedNewPassword));
         setIsSubmit(true);
     }
@@ -66,7 +66,6 @@ const SettingsUI = () => {
 
     return (
         <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <CustomNavbar
                 currentLocation="/user/settings"
                 setSideBarForProfileUI={setSideBarForProfileUI}
@@ -100,11 +99,13 @@ const SettingsUI = () => {
                                                         onClick={() => {
                                                             handleShowEnteredOldPasswordButton();
                                                         }}>
-                                                        <i className={
-                                                            showEnteredOldPassword
-                                                                ? SettingsPasswordIcons.SETTINGS_SHOW_PASSWORD_ICON
-                                                                : SettingsPasswordIcons.SETTINGS_HIDE_PASSWORD_ICON}
-                                                            style={{ color: "#000000" }}></i>
+                                                        <i style={{ color: "#000000" }}>
+                                                            {
+                                                                showEnteredOldPassword
+                                                                    ? <AiIcons.AiOutlineEye />
+                                                                    : <AiIcons.AiOutlineEyeInvisible />
+                                                            }
+                                                        </i>
                                                     </Button>
                                                 </InputGroup>
                                                 <Label style={{ color: 'red', marginTop: 5 }}>{userSettingsErrors.oldPassword}</Label>
@@ -131,11 +132,13 @@ const SettingsUI = () => {
                                                         onClick={() => {
                                                             handleShowEnteredNewPasswordButton();
                                                         }}>
-                                                        <i className={
-                                                            showEnteredNewPassword
-                                                                ? SettingsPasswordIcons.SETTINGS_SHOW_PASSWORD_ICON
-                                                                : SettingsPasswordIcons.SETTINGS_HIDE_PASSWORD_ICON}
-                                                            style={{ color: "#000000" }}></i>
+                                                        <i style={{ color: "#000000" }}>
+                                                            {
+                                                                showEnteredNewPassword
+                                                                    ? <AiIcons.AiOutlineEye />
+                                                                    : <AiIcons.AiOutlineEyeInvisible />
+                                                            }
+                                                        </i>
                                                     </Button>
                                                 </InputGroup>
                                                 <Label style={{ color: 'red', marginTop: 5 }}>{userSettingsErrors.newPassword}</Label>
@@ -161,11 +164,13 @@ const SettingsUI = () => {
                                                         onClick={() => {
                                                             handleShowEnteredConfirmNewPasswordButton();
                                                         }}>
-                                                        <i className={
-                                                            showEnteredNewConfirmPassword
-                                                                ? SettingsPasswordIcons.SETTINGS_SHOW_PASSWORD_ICON
-                                                                : SettingsPasswordIcons.SETTINGS_HIDE_PASSWORD_ICON}
-                                                            style={{ color: "#000000" }}></i>
+                                                        <i style={{ color: "#000000" }}>
+                                                            {
+                                                                showEnteredNewConfirmPassword
+                                                                    ? <AiIcons.AiOutlineEye />
+                                                                    : <AiIcons.AiOutlineEyeInvisible />
+                                                            }
+                                                        </i>
                                                     </Button>
                                                 </InputGroup>
                                                 <Label style={{ color: 'red', marginTop: 5 }}>{userSettingsErrors.confirmedNewPassword}</Label>
