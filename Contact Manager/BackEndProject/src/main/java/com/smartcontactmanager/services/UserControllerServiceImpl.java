@@ -5,12 +5,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties.Lettuce;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.dao.ContactRepository;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.Contact;
 import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.UserPassword;
 
 @Service
 public class UserControllerServiceImpl implements UserControllerService {
@@ -20,6 +23,9 @@ public class UserControllerServiceImpl implements UserControllerService {
 
 	@Autowired
 	private ContactRepository contactRepository;
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	@Override
 	public User userProfile(Principal principal) {
@@ -84,6 +90,20 @@ public class UserControllerServiceImpl implements UserControllerService {
 			contactFromID.setWork(contact.getWork());
 			contactRepository.save(contactFromID);
 			return contactFromID;
+		}
+
+		return null;
+	}
+
+	public User changePassword(UserPassword userPassword, Principal principal) {
+		User user = userRepository.loadUserByEmail(principal.getName());
+
+		if (passwordEncoder.matches(userPassword.getOldPassword(), user.getPassword())
+				&& !(userPassword.getOldPassword().equals(userPassword.getNewPassword()))
+				&& (userPassword.getNewPassword().equals(userPassword.getConfirmedNewPassword()))) {
+			user.setPassword(passwordEncoder.encode(userPassword.getNewPassword()));
+			userRepository.save(user);
+			return user;
 		}
 
 		return null;

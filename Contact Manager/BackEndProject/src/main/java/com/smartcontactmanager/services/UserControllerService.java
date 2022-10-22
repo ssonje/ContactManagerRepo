@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.smartcontactmanager.entities.Contact;
 import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.UserPassword;
 
 public interface UserControllerService {
 
@@ -14,5 +15,6 @@ public interface UserControllerService {
 	public Contact getContactByID(Integer id, Principal principal);
 	public Contact deleteContact(Integer id, Principal principal);
 	public Contact modifyContact(Integer id, Principal principal, Contact contact);
+	public User changePassword(UserPassword userPassword, Principal principal);
 
 }

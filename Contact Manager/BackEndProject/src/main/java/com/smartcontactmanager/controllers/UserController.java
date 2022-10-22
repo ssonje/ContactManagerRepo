@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontactmanager.entities.Contact;
 import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.UserPassword;
 import com.smartcontactmanager.services.UserControllerService;
 
 @RestController
@@ -52,6 +53,11 @@ public class UserController {
 	@PostMapping("/modify/contact/{id}")
 	public Contact modifyContact(@PathVariable("id") Integer id, Principal principal, @Valid @RequestBody Contact contact) {
 		return userControllerService.modifyContact(id, principal, contact);
+	}
+
+	@PostMapping("/settings/password")
+	public User changePassword(@Valid @RequestBody UserPassword userPassword, Principal principal) {
+		return userControllerService.changePassword(userPassword, principal);
 	}
 
 }
