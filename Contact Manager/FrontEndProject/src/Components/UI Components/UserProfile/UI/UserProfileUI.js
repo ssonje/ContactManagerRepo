@@ -1,9 +1,9 @@
-import { FetchUserInformation } from "../Database Services/FetchUserInformation";
 import { useFetchUserInformation } from "../Hooks/useFetchUserInformation";
 import { useRef } from "react";
 import { useState } from "react";
 
 import CustomNavbar from "../../Navbar/CustomNavbar";
+import FetchUserInformation from "../Database Services/FetchUserInformation";
 import Profile from "./Profile";
 import React from "react";
 

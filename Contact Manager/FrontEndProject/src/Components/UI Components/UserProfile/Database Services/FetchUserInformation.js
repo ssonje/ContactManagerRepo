@@ -10,7 +10,7 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
  * @component
  * `FetchUserInformation` provides the functionality to fetch the user information by using the `axios`.
  */
-export const FetchUserInformation = (setUser) => {
+const FetchUserInformation = (setUser) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -32,3 +32,5 @@ export const FetchUserInformation = (setUser) => {
         )
     );
 }
+
+export default FetchUserInformation;
