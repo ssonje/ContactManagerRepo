@@ -15,7 +15,7 @@ import * as ToastWarningMessages from "../../../../Constants/Toast Messages/Toas
  * @param {setContact} setContact
  * This setContact function is used to set the contact details.
  */
-export const ViewSingleContactDBService = (setContact, id) => {
+const ViewSingleContactDBService = (setContact, id) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -44,3 +44,5 @@ export const ViewSingleContactDBService = (setContact, id) => {
         )
     );
 }
+
+export default ViewSingleContactDBService;

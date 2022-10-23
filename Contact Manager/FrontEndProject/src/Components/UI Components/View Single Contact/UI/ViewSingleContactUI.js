@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { useViewSingleContact } from "../Hooks/useViewSingleContact";
-import { ViewSingleContactDBService } from "../Database Services/ViewSingleContactDBService";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import ContactDetailsTable from "./ContactDetailsTable";
@@ -8,6 +7,7 @@ import CustomNavbar from "../../Navbar/CustomNavbar";
 import React from "react";
 import UnauthorizedContactDetails from "./UnauthorizedContactDetails";
 import ViewSingleContactCss from "../CSS/ViewSingleContact.module.css";
+import ViewSingleContactDBService from "../Database Services/ViewSingleContactDBService";
 
 /**
  * @Component
