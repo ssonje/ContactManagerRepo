@@ -1,9 +1,9 @@
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
-import { SettingsDBService } from "../Database Services/SettingsDBService";
+import { OldPasswordAuthenticationDBService } from "../Database Services/OldPasswordAuthenticationDBService";
 import { SettingsFormValidation } from "../Form Validation/SettingsFormValidation";
-import { useChangeUserPassword } from "../Hooks/useChangeUserPassword";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useUserOldPasswordAuthentication } from "../Hooks/useUserOldPasswordAuthentication";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
@@ -28,6 +28,10 @@ const SettingsUI = () => {
         confirmedNewPassword: null
     });
 
+    const [userPasswordAuthentication, setUserPasswordAuthentication] = useState({
+        password: null
+    });
+
     const [userSettingsErrors, setUserSettingsErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     const navigate = useNavigate();
@@ -47,11 +51,6 @@ const SettingsUI = () => {
         setShowEnteredNewConfirmPassword(!showEnteredNewConfirmPassword);
     }
 
-    // Change password of the user
-    const changePasswordOfUser = (userPassword) => {
-        SettingsDBService(navigate, userPassword);
-    };
-
     const handleForm = (e) => {
         e.preventDefault();
         setUserSettingsErrors(SettingsFormValidation(
@@ -61,8 +60,16 @@ const SettingsUI = () => {
         setIsSubmit(true);
     }
 
-    // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and add user to the database.
-    useChangeUserPassword(changePasswordOfUser, userPassword, userSettingsErrors, isSubmit);
+    // Authenticate user's old password
+    const authenticateUserOldPassword = (navigate, userPassword, userPasswordAuthentication) => {
+        OldPasswordAuthenticationDBService(navigate, userPassword, userPasswordAuthentication);
+    };
+
+    /*
+    * Call the useUserOldPasswordAuthentication in-order to skip initial execution of useEffect 
+    * and authenticate the user's password followed by changing user's password.
+    */
+    useUserOldPasswordAuthentication(authenticateUserOldPassword, navigate, isSubmit, userPassword, userPasswordAuthentication, userSettingsErrors);
 
     return (
         <div>
@@ -93,6 +100,7 @@ const SettingsUI = () => {
                                                         type={showEnteredOldPassword ? "text" : "password"}
                                                         onChange={(e) => {
                                                             setUserPassword({ ...userPassword, oldPassword: e.target.value });
+                                                            setUserPasswordAuthentication({ ...userPasswordAuthentication, password: e.target.value });
                                                         }}
                                                     />
                                                     <Button style={{ background: "#ffffff", border: "none", boxShadow: "none" }}
@@ -192,6 +200,7 @@ const SettingsUI = () => {
                                                         newPassword: null,
                                                         confirmedNewPassword: null
                                                     });
+                                                    setUserPasswordAuthentication({ ...userPasswordAuthentication, password: null });
                                                 }}>
                                                     Clear Data
                                                 </Button>
