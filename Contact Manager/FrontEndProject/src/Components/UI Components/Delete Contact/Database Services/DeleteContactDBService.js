@@ -13,7 +13,7 @@ import * as ToastWarningMessages from "../../../../Constants/Toast Messages/Toas
  * @param {id} id
  * This contact id will used to delete the contact details.
  */
-export const DeleteContactDBService = (navigate, id, user) => {
+const DeleteContactDBService = (navigate, id, user) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -41,3 +41,5 @@ export const DeleteContactDBService = (navigate, id, user) => {
         )
     );
 }
+
+export default DeleteContactDBService;
