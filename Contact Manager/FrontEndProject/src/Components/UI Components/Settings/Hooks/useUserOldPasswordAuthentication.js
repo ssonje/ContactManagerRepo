@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 /**
  * @Hook
- * `useChangeUserPassword` custom hook is used in-order to skip initial twice execution using useEffect 
+ * `useUserOldPasswordAuthentication` custom hook is used in-order to skip initial twice execution using useEffect 
  * and change the user password.
  * @param {changePasswordOfUser} changePasswordOfUser
  * Execute the changePasswordOfUser function in-order to change the user's password.
@@ -13,7 +13,14 @@ import { useEffect, useRef } from 'react';
  * @param {isSubmit} isSubmit
  * This boolean is initially false, and becomes true when we submit the form.
  */
-export const useChangeUserPassword = (changePasswordOfUser, userPassword, userSettingsErrors, isSubmit) => {
+export const useUserOldPasswordAuthentication = (
+    authenticateUserOldPassword,
+    navigate,
+    isSubmit,
+    userPassword,
+    userPasswordAuthentication,
+    userSettingsErrors,
+) => {
 
     const isInitialRender = useRef(true);
 
@@ -26,7 +33,7 @@ export const useChangeUserPassword = (changePasswordOfUser, userPassword, userSe
         }
 
         if (Object.keys(userSettingsErrors).length === 0 && isSubmit) {
-            changePasswordOfUser(userPassword);
+            authenticateUserOldPassword(navigate, userPassword, userPasswordAuthentication);
         }
     }, [userSettingsErrors]);
 
