@@ -1,5 +1,4 @@
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
-import { OldPasswordAuthenticationDBService } from "../Database Services/OldPasswordAuthenticationDBService";
 import { SettingsFormValidation } from "../Form Validation/SettingsFormValidation";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -7,6 +6,7 @@ import { useUserOldPasswordAuthentication } from "../Hooks/useUserOldPasswordAut
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
+import OldPasswordAuthenticationDBService from "../Database Services/OldPasswordAuthenticationDBService";
 import React from "react";
 import SettingsCss from "../CSS/Settings.module.css";
 

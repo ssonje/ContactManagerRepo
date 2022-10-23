@@ -14,7 +14,7 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
  * @param {userPassword} userPassword
  * This userPassword will used to update the user's password.
  */
-export const SettingsDBService = (navigate, userPassword) => {
+const SettingsDBService = (navigate, userPassword) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -38,3 +38,5 @@ export const SettingsDBService = (navigate, userPassword) => {
         )
     );
 }
+
+export default SettingsDBService;

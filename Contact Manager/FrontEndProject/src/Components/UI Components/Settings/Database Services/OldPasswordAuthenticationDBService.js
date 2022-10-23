@@ -1,9 +1,9 @@
 import { BASE_URL } from "../../../../Constants/BackEndServerURL";
 import { HTTPStatusErrorHelper } from "../../../Database Service Components/Helpers/HTTPStatusErrorHelper";
-import { SettingsDBService } from "./SettingsDBService";
 import { toast } from "react-toastify";
 
 import axios from "axios";
+import SettingsDBService from "./SettingsDBService";
 
 import * as ToastWarningMessages from "../../../../Constants/Toast Messages/ToastWarningMessages";
 
@@ -17,7 +17,7 @@ import * as ToastWarningMessages from "../../../../Constants/Toast Messages/Toas
  * @param {userPasswordAuthentication} userPasswordAuthentication
  * Model used to authenticate the user old password.
  */
-export const OldPasswordAuthenticationDBService = (navigate, userPassword, userPasswordAuthentication) => {
+const OldPasswordAuthenticationDBService = (navigate, userPassword, userPasswordAuthentication) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -43,3 +43,5 @@ export const OldPasswordAuthenticationDBService = (navigate, userPassword, userP
         )
     );
 }
+
+export default OldPasswordAuthenticationDBService;
