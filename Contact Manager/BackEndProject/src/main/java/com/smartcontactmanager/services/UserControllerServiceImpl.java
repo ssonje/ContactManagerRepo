@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties.Lettuce;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -95,6 +94,7 @@ public class UserControllerServiceImpl implements UserControllerService {
 		return null;
 	}
 
+	@Override
 	public User changePassword(UserPassword userPassword, Principal principal) {
 		User user = userRepository.loadUserByEmail(principal.getName());
 
