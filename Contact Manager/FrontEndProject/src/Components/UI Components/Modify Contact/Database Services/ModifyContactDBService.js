@@ -17,7 +17,7 @@ import * as ToastWarningMessages from "../../../../Constants/Toast Messages/Toas
  * @param {contact} contact
  * This contact will modified from the contact list.
  */
-export const ModifyContactDBService = (navigate, id, contact) => {
+const ModifyContactDBService = (navigate, id, contact) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -45,3 +45,5 @@ export const ModifyContactDBService = (navigate, id, contact) => {
         )
     );
 }
+
+export default ModifyContactDBService;
