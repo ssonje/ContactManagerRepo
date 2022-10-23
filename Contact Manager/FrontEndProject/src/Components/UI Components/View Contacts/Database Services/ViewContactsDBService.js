@@ -13,7 +13,7 @@ import * as ToastWarningMessages from "../../../../Constants/Toast Messages/Toas
  * @param {setContacts} setContacts
  * Fetched contacts are now passed to the setContacts function.
  */
-export const ViewContactsDBService = (setContacts) => {
+const ViewContactsDBService = (setContacts) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -40,3 +40,5 @@ export const ViewContactsDBService = (setContacts) => {
         )
     );
 }
+
+export default ViewContactsDBService;
