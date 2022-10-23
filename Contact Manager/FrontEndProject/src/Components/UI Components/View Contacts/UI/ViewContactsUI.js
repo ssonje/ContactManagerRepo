@@ -1,7 +1,6 @@
 import { Container } from "reactstrap";
 import { useRef, useState } from "react";
 import { useViewContacts } from "../Hooks/useViewContacts";
-import { ViewContactsDBService } from "../Database Services/ViewContactsDBService";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
@@ -9,6 +8,7 @@ import NoContactsAvailableUI from "./NoContactsAvailableUI";
 import React from "react";
 import ShowContactsTableUI from "./ShowContactsTableUI";
 import ViewContactsCss from "../CSS/ViewContacts.module.css";
+import ViewContactsDBService from "../Database Services/ViewContactsDBService";
 
 /**
  * @Component

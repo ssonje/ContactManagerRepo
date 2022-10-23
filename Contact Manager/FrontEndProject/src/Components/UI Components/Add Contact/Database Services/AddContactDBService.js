@@ -14,7 +14,7 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
  * @param {contact} contact
  * This contact will added into the user's contact list.
  */
-export const AddContactDBService = (navigate, contact) => {
+const AddContactDBService = (navigate, contact) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
@@ -38,3 +38,5 @@ export const AddContactDBService = (navigate, contact) => {
         )
     );
 }
+
+export default AddContactDBService;

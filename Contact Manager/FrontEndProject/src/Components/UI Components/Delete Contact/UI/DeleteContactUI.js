@@ -1,10 +1,10 @@
-import { DeleteContactDBService } from "../Database Services/DeleteContactDBService";
 import { useDeleteContact } from "../Hooks/useDeleteContact";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { useState } from "react";
 
 import CustomNavbar from "../../Navbar/CustomNavbar";
+import DeleteContactDBService from "../Database Services/DeleteContactDBService";
 import React from "react";
 
 /**

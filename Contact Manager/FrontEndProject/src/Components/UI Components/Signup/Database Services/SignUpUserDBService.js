@@ -14,7 +14,7 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
  * @param {user} user
  * This user will signed up into the server.
  */
-export const SignUpUserDBService = (navigate, user) => {
+const SignUpUserDBService = (navigate, user) => {
     return (
         axios.post(`${BASE_URL}/signup`, user).then(
             (response) => {
@@ -31,3 +31,5 @@ export const SignUpUserDBService = (navigate, user) => {
         )
     );
 }
+
+export default SignUpUserDBService;
