@@ -1,4 +1,4 @@
-package com.smartcontactmanager.services;
+package com.smartcontactmanager.services.user.controller;
 
 import java.security.Principal;
 import java.util.List;
