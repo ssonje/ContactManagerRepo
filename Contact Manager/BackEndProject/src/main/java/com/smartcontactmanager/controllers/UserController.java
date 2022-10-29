@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smartcontactmanager.entities.Contact;
 import com.smartcontactmanager.entities.User;
 import com.smartcontactmanager.entities.UserPassword;
-import com.smartcontactmanager.services.UserControllerService;
+import com.smartcontactmanager.services.user.controller.UserControllerService;
 
 @RestController
 @RequestMapping("/user")

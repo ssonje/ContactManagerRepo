@@ -47,6 +47,8 @@ public class User {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Contact> contacts = new ArrayList<Contact>();
 
+	private Integer otp;
+
 	public Integer getId() {
 		return id;
 	}
@@ -119,7 +121,16 @@ public class User {
 		this.contacts = contacts;
 	}
 
-	// TODO: Remove this toString() method once the Contact Manager back end project is ready.
+	public Integer getOtp() {
+		return otp;
+	}
+
+	public void setOtp(Integer otp) {
+		this.otp = otp;
+	}
+
+	// TODO: Remove this toString() method once the Contact Manager back end project
+	// is ready.
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role

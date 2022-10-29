@@ -1,4 +1,4 @@
-package com.smartcontactmanager.services;
+package com.smartcontactmanager.services.user.password.authentication.controller;
 
 import java.security.Principal;
 
