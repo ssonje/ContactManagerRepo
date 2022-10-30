@@ -31,7 +31,7 @@ public class ForgotPasswordController {
 		return forgotPasswordService.authenticateForgotPasswordOTP(forgotPasswordOTPValidation, httpSession);
 	}
 
-	@PostMapping("/update")
+	@PostMapping("/update/password")
 	public boolean updateForgotPassword(@RequestBody ForgotPasswordValidation forgotPasswordValidation, HttpSession httpSession) throws AttributeNotFoundException {
 		return forgotPasswordService.updateForgotPassword(forgotPasswordValidation, httpSession);
 	}

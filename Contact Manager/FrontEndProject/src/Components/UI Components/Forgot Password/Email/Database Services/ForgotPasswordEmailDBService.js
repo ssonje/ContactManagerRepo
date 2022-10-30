@@ -28,7 +28,7 @@ const ForgotPasswordEmailDBService = (navigate, forgotPasswordEmail) => {
                 navigate('/forgot/password/otp/auth');
             },
             (error) => {
-                // Show error while signing up the user
+                // Show error while sending the OTP
                 HTTPStatusErrorHelper(error.response.status);
             }
         )
