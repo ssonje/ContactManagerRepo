@@ -1,6 +1,7 @@
 export const COMPONENT_TITLE_FOR_ABOUT = "About";
 export const COMPONENT_TITLE_FOR_ADD_CONTACT = "Add Contact";
 export const COMPONENT_TITLE_FOR_DELETE_CONTACT = "Delete Contact";
+export const COMPONENT_TITLE_FOR_FORGOT_PASSWORD = "Forgot Password";
 export const COMPONENT_TITLE_FOR_HOME = "Home";
 export const COMPONENT_TITLE_FOR_LOGIN = "Login";
 export const COMPONENT_TITLE_FOR_LOGOUT = "Logout";

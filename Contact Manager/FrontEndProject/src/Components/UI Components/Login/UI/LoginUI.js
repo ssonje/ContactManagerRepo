@@ -21,6 +21,9 @@ import * as LoginFormPlaceholderConstants from "../Constants/LoginFormPlaceholde
  * `LoginUI` component provides the UI for Login Section.
  */
 const LoginUI = () => {
+
+    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+
     const [user, setUser] = useState({
         email: null,
         password: null,
@@ -50,8 +53,6 @@ const LoginUI = () => {
 
     // Call the useUserFormActionErrors in-order to skip initial execution of useEffect and login user into the Application.
     useUserFormActionErrors(userLoginErrors, user, isSubmit, loginUser);
-
-    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
 
     return (
         <div>
@@ -128,6 +129,17 @@ const LoginUI = () => {
                                             { /* Navigate to the SignUp Page */}
                                             <Container className="text-center">
                                                 <Label className={LoginCss.LoginText}>Do you want to Sign Up? <Link to="/signup">Signup here</Link>
+                                                </Label>
+                                            </Container>
+                                        </Col>
+                                    </Row>
+
+                                    <Row>
+                                        <Col>
+                                            { /* Navigate to the Forgot Password Page */}
+                                            <Container className="text-center">
+                                                <Label>
+                                                    <Link to="/forgot/password/email">Forgot Password</Link>
                                                 </Label>
                                             </Container>
                                         </Col>
