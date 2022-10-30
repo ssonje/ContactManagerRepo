@@ -3,6 +3,8 @@ import * as ForgotPasswordEmailFormValidationConstants from "../Constants/Forgot
 /**
  * @helper @Component
  * `ForgotPasswordFormValidation` component provides functionality to validate the Forgot Password Form.
+ * @param {forgotPasswordEmail} forgotPasswordEmail
+ * forgotPasswordOTP contains the email
  */
 export const ForgotPasswordFormValidation = (forgotPasswordEmail) => {
 
