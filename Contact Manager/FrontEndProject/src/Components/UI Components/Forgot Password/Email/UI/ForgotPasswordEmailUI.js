@@ -41,7 +41,10 @@ const ForgotPasswordEmailUI = () => {
         setIsSubmit(true);
     }
 
-    // Call the useForgotPasswordEmailFormActionErrors in-order to skip initial execution of useEffect and login user into the Application.
+    /* 
+    * Call the useForgotPasswordEmailFormActionErrors in-order to skip initial execution of useEffect and 
+    * send OTP to the entered email ID.
+    */
     useForgotPasswordEmailFormActionErrors(userForgotPasswordFormErrors, forgotPasswordEmail, isSubmit, sendOTP);
 
     return (

@@ -8,9 +8,9 @@ import * as ToastSuccessMessages from "../../../../../Constants/Toast Messages/T
 
 /**
  * @component
- * `ForgotPasswordEmailDBService` provides the functionality for adding contact for the user by using the `axios`.
+ * `ForgotPasswordEmailDBService` provides the functionality for sending OTP to the entered email by using the `axios`.
  * @param {navigate} navigate
- * Navigate to the destination where we want to go after successfully adding contact.
+ * Navigate to the destination where we want to go after successfully sending OTP to the entered email ID.
  * @param {forgotPasswordEmail} forgotPasswordEmail
  * This forgotPasswordEmail will contains the email id of the user where we've send OTP.
  */
