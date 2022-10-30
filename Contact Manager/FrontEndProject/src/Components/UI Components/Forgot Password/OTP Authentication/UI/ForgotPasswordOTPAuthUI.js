@@ -1,6 +1,6 @@
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import { ForgotPasswordOTPAuthenticationFormValidation } from "../Form Validation/ForgotPasswordOTPAuthenticationFormValidation";
-import { useForgotPasswordEmailFormActionErrors } from "../Hooks/useForgotPasswordEmailFormActionErrors";
+import { useForgotPasswordOTPAuthFormActionErrors } from "../Hooks/useForgotPasswordOTPAuthFormActionErrors";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -42,10 +42,10 @@ const ForgotPasswordOTPAuthUI = () => {
     }
 
     /* 
-    * Call the useForgotPasswordEmailFormActionErrors in-order to skip initial execution of useEffect and 
+    * Call the useForgotPasswordOTPAuthFormActionErrors in-order to skip initial execution of useEffect and 
     * verify OTP send to the entered email ID.
     */
-    useForgotPasswordEmailFormActionErrors(userForgotPasswordFormErrors, forgotPasswordOTP, isSubmit, verifyOTP);
+    useForgotPasswordOTPAuthFormActionErrors(userForgotPasswordFormErrors, forgotPasswordOTP, isSubmit, verifyOTP);
 
     return (
         <div>
