@@ -8,6 +8,7 @@ import About from './Components/UI Components/About/About';
 import AddContact from './Components/UI Components/Add Contact/AddContact';
 import BaseAppCss from "./CSS/BaseApp.module.css";
 import DeleteContact from './Components/UI Components/Delete Contact/DeleteContact';
+import ForgotPassword from './Components/UI Components/Forgot Password/ForgotPassword';
 import Home from './Components/UI Components/Home/Home';
 import Login from './Components/UI Components/Login/Login';
 import Logout from './Components/UI Components/Logout/Logout';
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} exact></Route>
             <Route path="/about" element={<About />} exact></Route>
+            <Route path="/forgot/password/email" element={<ForgotPassword />} exact></Route>
             <Route path="/home" element={<Home />} exact></Route>
             <Route path="/login" element={<Login />} exact></Route>
             <Route path="/logout" element={<Logout />} exact></Route>

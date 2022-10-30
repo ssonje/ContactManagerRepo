@@ -15,23 +15,23 @@ import com.smartcontactmanager.entities.ForgotPasswordValidation;
 import com.smartcontactmanager.services.email.ForgotPasswordService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/forgot/password")
 public class ForgotPasswordController {
 
 	@Autowired
 	private ForgotPasswordService forgotPasswordService;
 
-	@PostMapping("/forgot/password")
+	@PostMapping("/email")
 	public boolean forgotPassword(@RequestBody ForgotPasswordEmail forgotPasswordEmail, HttpSession httpSession) throws AttributeNotFoundException {
 		return forgotPasswordService.sendEmail(forgotPasswordEmail, httpSession);
 	}
 
-	@PostMapping("/auth/forgot/password")
+	@PostMapping("/otp/auth")
 	public boolean authenticateForgotPasswordOTP(@RequestBody ForgotPasswordOTPValidation forgotPasswordOTPValidation, HttpSession httpSession) throws AttributeNotFoundException {
 		return forgotPasswordService.authenticateForgotPasswordOTP(forgotPasswordOTPValidation, httpSession);
 	}
 
-	@PostMapping("/update/forgot/password")
+	@PostMapping("/update")
 	public boolean updateForgotPassword(@RequestBody ForgotPasswordValidation forgotPasswordValidation, HttpSession httpSession) throws AttributeNotFoundException {
 		return forgotPasswordService.updateForgotPassword(forgotPasswordValidation, httpSession);
 	}
