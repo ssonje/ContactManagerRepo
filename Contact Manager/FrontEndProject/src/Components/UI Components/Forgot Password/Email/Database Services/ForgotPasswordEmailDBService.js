@@ -16,8 +16,6 @@ import * as ToastSuccessMessages from "../../../../../Constants/Toast Messages/T
  */
 const ForgotPasswordEmailDBService = (navigate, forgotPasswordEmail) => {
 
-    const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
-
     return (
         axios.post(`${BASE_URL}/forgot/password/email`, forgotPasswordEmail).then(
             (response) => {

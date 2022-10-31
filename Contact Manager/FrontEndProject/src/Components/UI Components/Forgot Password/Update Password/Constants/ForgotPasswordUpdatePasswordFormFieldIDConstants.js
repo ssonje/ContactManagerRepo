@@ -1,0 +1,2 @@
+export const FORGOT_PASSWORD_UPDATED_CONFIRMED_NEW_PASSWORD_AUTH_FIELD_ID = "userUpdatedConfirmedNewPassword";
+export const FORGOT_PASSWORD_UPDATED_NEW_PASSWORD_AUTH_FIELD_ID = "userUpdatedNewPassword";
