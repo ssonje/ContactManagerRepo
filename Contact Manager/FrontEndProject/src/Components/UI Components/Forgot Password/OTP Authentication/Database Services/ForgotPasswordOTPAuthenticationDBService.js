@@ -16,8 +16,6 @@ import * as ToastSuccessMessages from "../../../../../Constants/Toast Messages/T
  */
 const ForgotPasswordOTPAuthenticationDBService = (navigate, forgotPasswordOTP) => {
 
-    const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
-
     return (
         axios.post(`${BASE_URL}/forgot/password/otp/auth`, forgotPasswordOTP).then(
             (response) => {
