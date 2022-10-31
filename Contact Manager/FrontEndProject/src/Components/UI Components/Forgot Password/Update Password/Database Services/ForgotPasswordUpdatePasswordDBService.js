@@ -26,7 +26,7 @@ const ForgotPasswordUpdatePasswordDBService = (navigate, forgotPasswordUpdatePas
                 navigate('/login');
             },
             (error) => {
-                // Show error while verifying the user
+                // Show error while verifying the updated password of the user
                 HTTPStatusErrorHelper(error.response.status);
             }
         )
