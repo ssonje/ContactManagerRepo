@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.dao.ContactRepository;
 import com.smartcontactmanager.dao.UserRepository;
-import com.smartcontactmanager.entities.Contact;
-import com.smartcontactmanager.entities.User;
-import com.smartcontactmanager.entities.UserPassword;
+import com.smartcontactmanager.entities.contact.Contact;
+import com.smartcontactmanager.entities.user.User;
+import com.smartcontactmanager.entities.user.data.models.UserPassword;
 
 @Service
 public class UserControllerServiceImpl implements UserControllerService {

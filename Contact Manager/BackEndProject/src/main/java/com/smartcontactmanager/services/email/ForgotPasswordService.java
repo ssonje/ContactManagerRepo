@@ -3,9 +3,9 @@ package com.smartcontactmanager.services.email;
 import javax.management.AttributeNotFoundException;
 import javax.servlet.http.HttpSession;
 
-import com.smartcontactmanager.entities.ForgotPasswordEmail;
-import com.smartcontactmanager.entities.ForgotPasswordOTPValidation;
-import com.smartcontactmanager.entities.ForgotPasswordValidation;
+import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordEmail;
+import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordOTPValidation;
+import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordValidation;
 
 public interface ForgotPasswordService {
 

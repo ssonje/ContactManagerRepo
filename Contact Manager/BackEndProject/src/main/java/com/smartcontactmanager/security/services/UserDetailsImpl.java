@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.user.User;
 
 public class UserDetailsImpl implements UserDetails {
 

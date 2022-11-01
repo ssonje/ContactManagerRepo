@@ -1,4 +1,4 @@
-package com.smartcontactmanager.entities;
+package com.smartcontactmanager.entities.contact;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.smartcontactmanager.entities.user.User;
 
 @Entity
 @Table(name = "CONTACT")

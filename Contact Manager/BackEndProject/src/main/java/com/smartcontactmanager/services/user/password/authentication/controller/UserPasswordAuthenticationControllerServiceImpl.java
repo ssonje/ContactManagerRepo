@@ -7,8 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.dao.UserRepository;
-import com.smartcontactmanager.entities.User;
-import com.smartcontactmanager.entities.UserPasswordAuthentication;
+import com.smartcontactmanager.entities.user.User;
+import com.smartcontactmanager.entities.user.data.models.UserPasswordAuthentication;
 
 @Service
 public class UserPasswordAuthenticationControllerServiceImpl implements UserPasswordAuthenticationControllerService {

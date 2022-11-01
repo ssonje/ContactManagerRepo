@@ -2,7 +2,7 @@ package com.smartcontactmanager.controllers.helpers;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.user.User;
 
 public class SignUpControllerHelper {
 

@@ -1,4 +1,4 @@
-package com.smartcontactmanager.entities;
+package com.smartcontactmanager.entities.user;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+
+import com.smartcontactmanager.entities.contact.Contact;
 
 @Entity
 @Table(name = "USER")

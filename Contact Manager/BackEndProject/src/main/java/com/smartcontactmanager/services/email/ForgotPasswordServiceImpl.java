@@ -18,10 +18,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.dao.UserRepository;
-import com.smartcontactmanager.entities.ForgotPasswordEmail;
-import com.smartcontactmanager.entities.ForgotPasswordOTPValidation;
-import com.smartcontactmanager.entities.ForgotPasswordValidation;
-import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordEmail;
+import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordOTPValidation;
+import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordValidation;
+import com.smartcontactmanager.entities.user.User;
 
 @Service
 public class ForgotPasswordServiceImpl implements ForgotPasswordService {

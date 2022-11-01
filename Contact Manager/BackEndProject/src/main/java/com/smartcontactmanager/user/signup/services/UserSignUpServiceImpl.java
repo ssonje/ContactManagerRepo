@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.dao.UserRepository;
-import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.user.User;
 
 @Service
 public class UserSignUpServiceImpl implements UserSignUpService {
