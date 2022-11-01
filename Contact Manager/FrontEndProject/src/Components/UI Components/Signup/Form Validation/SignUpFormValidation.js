@@ -54,10 +54,13 @@ export const SignUpFormValidation = (user, confirmPassword) => {
     if (user.password && confirmPassword && user.password !== confirmPassword) {
         if (errors.password) {
             errors.password = errors.password + " " + SignUpFormValidationConstants.SIGNUP_CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
-        } else if (errors.confirmPassword) {
-            errors.confirmPassword = errors.confirmPassword + " " + SignUpFormValidationConstants.SIGNUP_CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
         } else {
             errors.password = SignUpFormValidationConstants.SIGNUP_CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
+        }
+
+        if (errors.confirmPassword) {
+            errors.confirmPassword = errors.confirmPassword + " " + SignUpFormValidationConstants.SIGNUP_CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
+        } else {
             errors.confirmPassword = SignUpFormValidationConstants.SIGNUP_CHECK_ENTERED_AND_CONFIMED_PASSWORD_VALIDATIONS;
         }
     }
