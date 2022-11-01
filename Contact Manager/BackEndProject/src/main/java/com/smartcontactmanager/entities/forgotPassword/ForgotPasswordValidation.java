@@ -1,4 +1,4 @@
-package com.smartcontactmanager.entities;
+package com.smartcontactmanager.entities.forgotPassword;
 
 public class ForgotPasswordValidation {
 

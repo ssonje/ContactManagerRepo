@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smartcontactmanager.entities.UserPasswordAuthentication;
+import com.smartcontactmanager.entities.user.data.models.UserPasswordAuthentication;
 import com.smartcontactmanager.services.user.password.authentication.controller.UserPasswordAuthenticationControllerService;
 
 @RestController

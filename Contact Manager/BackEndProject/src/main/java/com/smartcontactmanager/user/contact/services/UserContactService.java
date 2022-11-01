@@ -1,6 +1,6 @@
 package com.smartcontactmanager.user.contact.services;
 
-import com.smartcontactmanager.entities.Contact;
+import com.smartcontactmanager.entities.contact.Contact;
 
 public interface UserContactService {
 

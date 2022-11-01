@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.dao.UserRepository;
-import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.user.User;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

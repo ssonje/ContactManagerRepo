@@ -3,9 +3,9 @@ package com.smartcontactmanager.services.user.controller;
 import java.security.Principal;
 import java.util.List;
 
-import com.smartcontactmanager.entities.Contact;
-import com.smartcontactmanager.entities.User;
-import com.smartcontactmanager.entities.UserPassword;
+import com.smartcontactmanager.entities.contact.Contact;
+import com.smartcontactmanager.entities.user.User;
+import com.smartcontactmanager.entities.user.data.models.UserPassword;
 
 public interface UserControllerService {
 

@@ -1,16 +1,11 @@
-package com.smartcontactmanager.entities;
-
-import javax.validation.constraints.Size;
+package com.smartcontactmanager.entities.user.data.models;
 
 public class UserPassword {
 
-	@Size(min = 6, max = 75, message = "Password at least have 6 and maximum 75 charaters")
 	private String oldPassword;
 
-	@Size(min = 6, max = 75, message = "Password at least have 6 and maximum 75 charaters")
 	private String newPassword;
 
-	@Size(min = 6, max = 75, message = "Password at least have 6 and maximum 75 charaters")
 	private String confirmedNewPassword;
 
 	public String getOldPassword() {

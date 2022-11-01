@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontactmanager.controllers.helpers.SignUpControllerHelper;
-import com.smartcontactmanager.entities.User;
+import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.user.signup.services.UserSignUpService;
 
 @RestController
