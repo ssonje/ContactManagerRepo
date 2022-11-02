@@ -1,5 +1,5 @@
-import { BASE_URL } from "../../Constants/BackEndServerURL";
-import { HTTPStatusErrorHelper } from "./Helpers/HTTPStatusErrorHelper";
+import { BASE_URL } from "../../../../Constants/BackEndServerURL";
+import { HTTPStatusErrorHelper } from "../../../Database Service Components/Helpers/HTTPStatusErrorHelper";
 
 import axios from "axios";
 

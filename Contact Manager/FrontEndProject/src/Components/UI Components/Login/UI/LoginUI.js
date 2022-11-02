@@ -1,4 +1,4 @@
-import { AuthenticateUser } from "../../../Database Service Components/AuthenticateUser";
+import { AuthenticateUser } from "../Database Services/AuthenticateUser";
 import { Button, Col, Container, Form, FormGroup, Input, InputGroup, Label, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import { LoginFormValidation } from "../Form Validation/LoginFormValidation";
