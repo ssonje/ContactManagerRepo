@@ -1,5 +1,5 @@
 import { useComponentTitle } from "../../Helpers/Hooks/useComponentTitle";
-import { useHomeRender } from "./Hook/useHomeRender";
+import { useHomeRender } from "./Hooks/useHomeRender";
 
 import HomeForLoggedInUser from "./UI/HomeForLoggedInUser";
 import HomeForNonLoggedInUser from "./UI/HomeForNonLoggedInUser";
