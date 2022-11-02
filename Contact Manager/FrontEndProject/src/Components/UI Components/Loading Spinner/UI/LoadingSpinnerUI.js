@@ -1,0 +1,34 @@
+import { Spinner } from "reactstrap";
+import { useState } from "react";
+
+import BasAppCss from "../../../../CSS/BaseApp.module.css";
+import CustomNavbar from "../../Navbar/CustomNavbar";
+import LoadingSpinnerCss from "../CSS/LoadingSpinner.module.css";
+import React from "react";
+
+/**
+ * @Component
+ * `LoadingSpinnerUI` component provides the UI for showing Loading animation while fetching information from the API's.
+ */
+const LoadingSpinnerUI = () => {
+
+    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+
+    return (
+        <div>
+            <CustomNavbar
+                setSideBarForProfileUI={setSideBarForProfileUI}
+                isSideBarShowing={sideBarForProfileUI}>
+            </CustomNavbar>
+            <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
+                <div className={(LoadingSpinnerCss.LoadingSpinnerFontColor)}>
+                    <div style={{ display: 'block', width: 700, padding: 30 }}>
+                        <Spinner style={{ width: '3rem', height: '3rem' }} children={false} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default LoadingSpinnerUI;
