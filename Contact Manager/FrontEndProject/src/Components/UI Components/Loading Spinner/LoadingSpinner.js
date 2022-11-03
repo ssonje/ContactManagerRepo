@@ -5,10 +5,10 @@ import React from "react";
  * @Component
  * `LoadingSpinner` component provides the UI and Funtionality for showing Loading animation while fetching information from the API's.
  */
-const LoadingSpinner = () => {
+const LoadingSpinner = (props) => {
 
     return (
-        <LoadingSpinnerUI />
+        <LoadingSpinnerUI sideBarForProfileUI={props.sideBarForProfileUI}/>
     );
 }
 
