@@ -14,9 +14,12 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
  * @param {contact} contact
  * This contact will added into the user's contact list.
  */
-const AddContactDBService = (navigate, contact) => {
+const AddContactDBService = (navigate, setIsAPICalled, contact) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
+
+    // Set the `isAPICalled` to true as we've started calling the Database API
+    setIsAPICalled(true);
 
     return (
         axios.post(`${BASE_URL}/user/add/contact`, contact, {
@@ -30,10 +33,16 @@ const AddContactDBService = (navigate, contact) => {
 
                 // Navigate to the view contact page after contact has been successfully added to the server
                 navigate('/user/view/contacts');
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             },
             (error) => {
                 // Show error while signing up the user
                 HTTPStatusErrorHelper(error.response.status);
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             }
         )
     );
