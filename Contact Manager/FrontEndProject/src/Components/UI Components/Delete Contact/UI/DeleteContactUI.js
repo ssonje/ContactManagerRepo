@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import DeleteContactDBService from "../Database Services/DeleteContactDBService";
+import LoadingSpinner from "../../Loading Spinner/LoadingSpinner";
 import React from "react";
 
 /**
@@ -13,12 +14,15 @@ import React from "react";
  */
 const DeleteContactUI = (props) => {
 
+    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+    const [isAPICalled, setIsAPICalled] = useState(false);
+
+    // this user is used to avoid mismatched call to the API at the server side
     const user = useState({
         email: null,
         password: null,
     });
 
-    const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
     const id = props.id;
     const isContactsDeleted = useRef(true);
     const navigate = useNavigate();
@@ -26,7 +30,7 @@ const DeleteContactUI = (props) => {
     // Delete the contact
     const deleteContact = () => {
         if (isContactsDeleted.current) {
-            DeleteContactDBService(navigate, id, user);
+            DeleteContactDBService(navigate, setIsAPICalled, id, user);
             isContactsDeleted.current = false;
         }
     };
@@ -40,6 +44,11 @@ const DeleteContactUI = (props) => {
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
+            {
+                isAPICalled
+                ? <LoadingSpinner sideBarForProfileUI={sideBarForProfileUI} />
+                : <></>
+            }
         </div>
     );
 }
