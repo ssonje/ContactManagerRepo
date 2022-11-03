@@ -39,6 +39,7 @@ const DeleteContactDBService = (navigate, setIsAPICalled, id, user) => {
                     toast.warning(ToastWarningMessages.TOAST_WARNING_DELETE_UNATHORIZED_CONTACT);
                 }
 
+                // Navigate to the view contacts page after contact has been successfully deleted to the server
                 navigate("/user/view/contacts");
 
                 // Set the `isAPICalled` to false as API is called successfully and we want to show the result
@@ -47,6 +48,9 @@ const DeleteContactDBService = (navigate, setIsAPICalled, id, user) => {
             (error) => {
                 // Show error while deleting the required contact
                 HTTPStatusErrorHelper(error.response.status);
+
+                // Navigate to the view contact page after there are problems while deleting the contact
+                navigate("/user/view/contacts");
 
                 // Set the `isAPICalled` to false as API is called successfully and we want to show the result
                 setIsAPICalled(false);
