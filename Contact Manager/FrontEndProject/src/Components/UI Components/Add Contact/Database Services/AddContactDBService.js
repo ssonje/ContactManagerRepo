@@ -11,6 +11,8 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
  * `AddContactDBService` provides the functionality for adding contact for the user by using the `axios`.
  * @param {navigate} navigate
  * Navigate to the destination where we want to go after successfully adding contact.
+ * @param {setIsAPICalled} setIsAPICalled
+ * This function is used to set the correct value to the `isAPICalled`.
  * @param {contact} contact
  * This contact will added into the user's contact list.
  */
