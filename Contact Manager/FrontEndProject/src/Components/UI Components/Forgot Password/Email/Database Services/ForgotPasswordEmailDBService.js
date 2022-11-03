@@ -11,10 +11,15 @@ import * as ToastSuccessMessages from "../../../../../Constants/Toast Messages/T
  * `ForgotPasswordEmailDBService` provides the functionality for sending OTP to the entered email by using the `axios`.
  * @param {navigate} navigate
  * Navigate to the destination where we want to go after successfully sending OTP to the entered email ID.
+ * @param {setIsAPICalled} setIsAPICalled
+ * This function is used to set the correct value to the `isAPICalled`.
  * @param {forgotPasswordEmail} forgotPasswordEmail
  * This forgotPasswordEmail will contains the email id of the user where we've send OTP.
  */
-const ForgotPasswordEmailDBService = (navigate, forgotPasswordEmail) => {
+const ForgotPasswordEmailDBService = (navigate, setIsAPICalled, forgotPasswordEmail) => {
+
+    // Set the `isAPICalled` to true as we've started calling the Database API
+    setIsAPICalled(true);
 
     return (
         axios.post(`${BASE_URL}/forgot/password/email`, forgotPasswordEmail).then(
@@ -24,10 +29,16 @@ const ForgotPasswordEmailDBService = (navigate, forgotPasswordEmail) => {
 
                 // Navigate to enter received OTP page 
                 navigate('/forgot/password/otp/auth');
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             },
             (error) => {
                 // Show error while sending the OTP
                 HTTPStatusErrorHelper(error.response.status);
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             }
         )
     );
