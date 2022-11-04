@@ -10,7 +10,7 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
  * @component
  * `SettingsDBService` provides the functionality for changing user's password by using the `axios`.
  * @param {navigate} navigate
- * Navigate to the destination where we want to go after successfully adding contact.
+ * Navigate to the destination where we want to go after successfully changing password.
  * @param {userPassword} userPassword
  * This userPassword will used to update the user's password.
  */
