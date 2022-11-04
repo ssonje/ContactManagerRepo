@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import CustomNavbar from "../../Navbar/CustomNavbar";
 import FetchUserInformation from "../Database Services/FetchUserInformation";
+import LoadingSpinner from "../../Loading Spinner/LoadingSpinner";
 import Profile from "./Profile";
 import React from "react";
 
@@ -14,13 +15,15 @@ import React from "react";
 const UserProfileUI = () => {
 
     const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+    const [isAPICalled, setIsAPICalled] = useState(false);
+
     const [user, setUser] = useState([]);
     const isUserInformationFetched = useRef(true);
 
     // Fetch the required User
     const fetchUser = () => {
         if (isUserInformationFetched.current) {
-            FetchUserInformation(setUser);
+            FetchUserInformation(setUser, setIsAPICalled);
             isUserInformationFetched.current = false;
         }
     };
@@ -38,7 +41,13 @@ const UserProfileUI = () => {
                 setSideBarForProfileUI={setSideBarForProfileUI}
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
-            <Profile isSideBarShowing={sideBarForProfileUI} user={user}/>
+            {
+                isAPICalled
+                    ?
+                        <LoadingSpinner sideBarForProfileUI={sideBarForProfileUI} />
+                    :
+                        <Profile isSideBarShowing={sideBarForProfileUI} user={user} />
+            }
         </div>
     );
 }
