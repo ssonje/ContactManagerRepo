@@ -9,12 +9,17 @@ import * as ToastSuccessMessages from "../../../../../Constants/Toast Messages/T
 /**
  * @component
  * `ForgotPasswordOTPAuthenticationDBService` provides the functionality for verifying OTP by using the `axios`.
+ * @param {setIsAPICalled} setIsAPICalled
+ * This function is used to set the correct value to the `isAPICalled`.
  * @param {navigate} navigate
  * Navigate to the destination where we want to go after successfully verifying OTP.
  * @param {forgotPasswordOTP} forgotPasswordOTP
  * This forgotPasswordOTP will contains the OTP entered by the user.
  */
-const ForgotPasswordOTPAuthenticationDBService = (navigate, forgotPasswordOTP) => {
+const ForgotPasswordOTPAuthenticationDBService = (navigate, setIsAPICalled, forgotPasswordOTP) => {
+
+    // Set the `isAPICalled` to true as we've started calling the Database API
+    setIsAPICalled(true);
 
     return (
         axios.post(`${BASE_URL}/forgot/password/otp/auth`, forgotPasswordOTP).then(
@@ -24,10 +29,16 @@ const ForgotPasswordOTPAuthenticationDBService = (navigate, forgotPasswordOTP) =
 
                 // Navigate to update password page
                 navigate('/forgot/password/update/password');
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             },
             (error) => {
                 // Show error while verifying the user
                 HTTPStatusErrorHelper(error.response.status);
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             }
         )
     );
