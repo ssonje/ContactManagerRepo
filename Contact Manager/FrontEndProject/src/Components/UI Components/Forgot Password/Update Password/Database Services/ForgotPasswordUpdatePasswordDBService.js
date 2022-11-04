@@ -11,10 +11,15 @@ import * as ToastSuccessMessages from "../../../../../Constants/Toast Messages/T
  * `ForgotPasswordUpdatePasswordDBService` provides the functionality for verifying new passwords by using the `axios`.
  * @param {navigate} navigate
  * Navigate to the destination where we want to go after successfully verifying new passwords.
+ * @param {setIsAPICalled} setIsAPICalled
+ * This function is used to set the correct value to the `isAPICalled`.
  * @param {forgotPasswordUpdatePassword} forgotPasswordUpdatePassword
  * `forgotPasswordUpdatePassword` contains the required password fields.
  */
-const ForgotPasswordUpdatePasswordDBService = (navigate, forgotPasswordUpdatePassword) => {
+const ForgotPasswordUpdatePasswordDBService = (navigate, setIsAPICalled, forgotPasswordUpdatePassword) => {
+
+    // Set the `isAPICalled` to true as we've started calling the Database API
+    setIsAPICalled(true);
 
     return (
         axios.post(`${BASE_URL}/forgot/password/update/password`, forgotPasswordUpdatePassword).then(
@@ -24,10 +29,16 @@ const ForgotPasswordUpdatePasswordDBService = (navigate, forgotPasswordUpdatePas
 
                 // Navigate to login page
                 navigate('/login');
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             },
             (error) => {
                 // Show error while verifying the updated password of the user
                 HTTPStatusErrorHelper(error.response.status);
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             }
         )
     );
