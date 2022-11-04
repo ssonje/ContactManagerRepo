@@ -9,11 +9,18 @@ import * as ToastSuccessMessages from "../../../../Constants/Toast Messages/Toas
 /**
  * @component
  * `FetchUserInformation` provides the functionality to fetch the user information by using the `axios`.
+ * @param {setUser} setUser
+ * This function is used to set the user.
+ * @param {setIsAPICalled} setIsAPICalled
+ * This function is used to set the correct value to the `isAPICalled`.
  */
-const FetchUserInformation = (setUser) => {
+const FetchUserInformation = (setUser, setIsAPICalled) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
+    // Set the `isAPICalled` to true as we've started calling the Database API
+    setIsAPICalled(true);
+    
     return (
         axios.get(`${BASE_URL}/user/profile`, {
             headers: {
@@ -24,10 +31,16 @@ const FetchUserInformation = (setUser) => {
                 // Successfully fetched user information
                 toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFULLY_FETCHING_USER_INFORMATION);
                 setUser(response.data);
+
+                 // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                 setIsAPICalled(false);
             },
             (error) => {
                 // Show error while fetching data of user
                 HTTPStatusErrorHelper(error.response.status);
+
+                 // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                 setIsAPICalled(false);
             }
         )
     );
