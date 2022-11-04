@@ -12,14 +12,19 @@ import * as ToastWarningMessages from "../../../../Constants/Toast Messages/Toas
  * `ModifyContactDBService` provides the functionality for modifying the existing contact by using the `axios`.
  * @param {navigate} navigate
  * Navigate to the destination where we want to go after successfully modifying contact.
+ * @param {setIsAPICalled} setIsAPICalled
+ * This function is used to set the correct value to the `isAPICalled`.
  * @param {id} id
  * Contact with this ID will be modified.
  * @param {contact} contact
  * This contact will modified from the contact list.
  */
-const ModifyContactDBService = (navigate, id, contact) => {
+const ModifyContactDBService = (navigate, setIsAPICalled, id, contact) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
+
+    // Set the `isAPICalled` to true as we've started calling the Database API
+    setIsAPICalled(true);
 
     return (
         axios.post(`${BASE_URL}/user/modify/contact/${id}`, contact, {
@@ -37,10 +42,16 @@ const ModifyContactDBService = (navigate, id, contact) => {
                 }
 
                 navigate("/user/view/contacts");
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             },
             (error) => {
                 // Show error while modifying the contact
                 HTTPStatusErrorHelper(error.response.status);
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             }
         )
     );
