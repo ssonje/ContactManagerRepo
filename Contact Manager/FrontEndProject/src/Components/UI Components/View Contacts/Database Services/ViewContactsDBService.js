@@ -12,10 +12,15 @@ import * as ToastWarningMessages from "../../../../Constants/Toast Messages/Toas
  * `ViewContactsDBService` provides the functionality for viewing all the contacts for the user by using the `axios`.
  * @param {setContacts} setContacts
  * Fetched contacts are now passed to the setContacts function.
+ * @param {setIsAPICalled} setIsAPICalled
+ * This function is used to set the correct value to the `isAPICalled`.
  */
-const ViewContactsDBService = (setContacts) => {
+const ViewContactsDBService = (setContacts, setIsAPICalled) => {
 
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
+
+    // Set the `isAPICalled` to true as we've started calling the Database API
+    setIsAPICalled(true);
 
     return (
         axios.get(`${BASE_URL}/user/view/contacts`, {
@@ -32,10 +37,16 @@ const ViewContactsDBService = (setContacts) => {
                 } else {
                     toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFULLY_FETCHING_CONTACTS);
                 }
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             },
             (error) => {
                 // Show error while fetching all the contacts
                 HTTPStatusErrorHelper(error.response.status);
+
+                // Set the `isAPICalled` to false as API is called successfully and we want to show the result
+                setIsAPICalled(false);
             }
         )
     );

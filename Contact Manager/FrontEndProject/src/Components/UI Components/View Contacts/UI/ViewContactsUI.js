@@ -4,6 +4,7 @@ import { useViewContacts } from "../Hooks/useViewContacts";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
 import CustomNavbar from "../../Navbar/CustomNavbar";
+import LoadingSpinner from "../../Loading Spinner/LoadingSpinner";
 import NoContactsAvailableUI from "./NoContactsAvailableUI";
 import React from "react";
 import ShowContactsTableUI from "./ShowContactsTableUI";
@@ -16,14 +17,16 @@ import ViewContactsDBService from "../Database Services/ViewContactsDBService";
  */
 const ViewContactsUI = () => {
 
-    const [contacts, setContacts] = useState([]);
     const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
+    const [isAPICalled, setIsAPICalled] = useState(false);
+
+    const [contacts, setContacts] = useState([]);
     const isContactsFetched = useRef(true);
 
     // Fetch the Contacts for the User
     const viewContacts = () => {
         if (isContactsFetched.current) {
-            ViewContactsDBService(setContacts);
+            ViewContactsDBService(setContacts, setIsAPICalled);
             isContactsFetched.current = false;
         }
     };
@@ -39,16 +42,22 @@ const ViewContactsUI = () => {
                 isSideBarShowing={sideBarForProfileUI}>
             </CustomNavbar>
             <div className={"d-flex align-items-center justify-content-center " + (sideBarForProfileUI ? BasAppCss.ContainerWindowForSideBarOn : BasAppCss.ContainerWindowForSideBarOff)}>
-                <Container>
-                    <h2 className={(ViewContactsCss.ViewContactsText) + " mb-4"}>Your Contacts</h2>
-                    <div className={(ViewContactsCss.ViewContactsTextCenter)}>
-                        {
-                            contacts.length > 0
-                                ? <ShowContactsTableUI contacts={contacts}></ShowContactsTableUI>
-                                : <NoContactsAvailableUI />
-                        }
-                    </div>
-                </Container>
+                {
+                    isAPICalled
+                        ?
+                            <LoadingSpinner sideBarForProfileUI={sideBarForProfileUI} />
+                        :
+                            <Container>
+                                <h2 className={(ViewContactsCss.ViewContactsText) + " mb-4"}>Your Contacts</h2>
+                                <div className={(ViewContactsCss.ViewContactsTextCenter)}>
+                                    {
+                                        contacts.length > 0
+                                            ? <ShowContactsTableUI contacts={contacts}></ShowContactsTableUI>
+                                            : <NoContactsAvailableUI />
+                                    }
+                                </div>
+                            </Container>
+                }
             </div>
         </div>
     );
