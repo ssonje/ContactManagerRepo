@@ -110,9 +110,11 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 		if (Integer.compare(OTPFromUser, OTPFromHTTPSession) == 0
 				&& Integer.compare(OTPFromUser, OTPEnteredFromUser) == 0) {
 			httpSession.setAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordOTPValidation, "true");
+			ForgotPasswordServiceImpl.performTaskAfterAuthenticatingOTP(user, null, userRepository);
 			return true;
 		}
 
+		ForgotPasswordServiceImpl.performTaskAfterAuthenticatingOTP(user, null, userRepository);
 		return false;
 	}
 
@@ -133,11 +135,11 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 		if (forgotPasswordValidation.getNewPassword().equals(forgotPasswordValidation.getConfirmedNewPassword())) {
 			ForgotPasswordServiceImpl.updateNewPasswordForUser(user, forgotPasswordValidation.getNewPassword(),
 					userRepository, passwordEncoder);
-			ForgotPasswordServiceImpl.performTaskAfterForgottingPassword(user, null, userRepository, httpSession);
+			ForgotPasswordServiceImpl.performTaskAfterForgottingPassword(httpSession);
 			return true;
 		}
 
-		ForgotPasswordServiceImpl.performTaskAfterForgottingPassword(user, null, userRepository, httpSession);
+		ForgotPasswordServiceImpl.performTaskAfterForgottingPassword(httpSession);
 		return false;
 	}
 
@@ -177,11 +179,13 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 		httpSession.setAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordEmailString, user.getEmail());
 	}
 
-	private static void performTaskAfterForgottingPassword(User user, 
+	private static void performTaskAfterAuthenticatingOTP(User user, 
 			Integer OTP, 
-			UserRepository userRepository,
-			HttpSession httpSession) {
+			UserRepository userRepository) {
 		ForgotPasswordServiceImpl.saveForgotPasswordOTP(user, null, userRepository);
+	}
+
+	private static void performTaskAfterForgottingPassword(HttpSession httpSession) {
 		httpSession.removeAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordOTPString);
 		httpSession.removeAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordEmailString);
 		httpSession.removeAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordOTPValidation);
