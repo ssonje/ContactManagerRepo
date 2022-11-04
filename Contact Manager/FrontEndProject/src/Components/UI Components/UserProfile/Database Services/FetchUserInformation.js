@@ -1,5 +1,5 @@
 import { BASE_URL } from "../../../../Constants/BackEndServerURL";
-import { HTTPStatusErrorHelper } from "../../../Database Service Components/Helpers/HTTPStatusErrorHelper";
+import { HTTPStatusErrorHelper } from "../../../Helpers/Database Service Components/HTTPStatusErrorHelper";
 import { toast } from "react-toastify";
 
 import axios from "axios";
