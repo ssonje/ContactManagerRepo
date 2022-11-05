@@ -30,7 +30,7 @@ const ViewContactsDBService = (setContacts, setIsAPICalled) => {
         }).then(
             (response) => {
                 // Successfully fetched the contacts
-                setContacts(response.data);
+                setContacts(response.data.content);
 
                 if (response.data.length === 0) {
                     toast.warning(ToastWarningMessages.TOAST_WARNING_NO_CONTACTS_FOUND);

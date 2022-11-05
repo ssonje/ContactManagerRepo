@@ -6,11 +6,13 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontactmanager.entities.contact.Contact;
@@ -36,8 +38,9 @@ public class UserController {
 	}
 
 	@GetMapping("/view/contacts")
-	public List<Contact> viewContacts(Principal principal) {
-		return userControllerService.viewContacts(principal);
+	public Page<Contact> viewContacts(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber, 
+			Principal principal) {
+		return userControllerService.viewContacts(pageNumber, principal);
 	}
 
 	@GetMapping("/view/contact/{id}")

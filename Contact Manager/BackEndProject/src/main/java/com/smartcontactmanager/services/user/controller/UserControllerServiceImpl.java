@@ -5,8 +5,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smartcontactmanager.dao.ContactRepository;
 import com.smartcontactmanager.dao.UserRepository;
@@ -26,6 +30,8 @@ public class UserControllerServiceImpl implements UserControllerService {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
+	private static Integer pageSize = 5;
+
 	@Override
 	public User userProfile(Principal principal) {
 		return userRepository.loadUserByEmail(principal.getName());
@@ -40,10 +46,11 @@ public class UserControllerServiceImpl implements UserControllerService {
 	}
 
 	@Override
-	public List<Contact> viewContacts(Principal principal) {
+	public Page<Contact> viewContacts(Integer pageNumber, Principal principal) {
 		User user = userRepository.loadUserByEmail(principal.getName());
-		List<Contact> contacts = contactRepository.findContactsByUserID(user.getId());
-		return contacts;
+		Pageable pageable = PageRequest.of(pageNumber, UserControllerServiceImpl.pageSize);
+		Page<Contact> contactPage= contactRepository.findContactsByUserID(user.getId(), pageable);
+		return contactPage;
 	}
 
 	@Override
