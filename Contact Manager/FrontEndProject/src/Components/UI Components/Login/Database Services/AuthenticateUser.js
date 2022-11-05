@@ -15,7 +15,7 @@ import axios from "axios";
  * @param {password} password
  * Password for above username to be authenticated
  */
-export const AuthenticateUser = (navigate, setIsAPICalled, username, password) => {
+const AuthenticateUser = (navigate, setIsAPICalled, username, password) => {
 
     // Set the `isAPICalled` to true as we've started calling the Database API
     setIsAPICalled(true);
@@ -49,3 +49,5 @@ export const AuthenticateUser = (navigate, setIsAPICalled, username, password) =
         )
     );
 }
+
+export default AuthenticateUser;
