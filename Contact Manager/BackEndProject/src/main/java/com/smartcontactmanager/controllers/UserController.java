@@ -1,7 +1,6 @@
 package com.smartcontactmanager.controllers;
 
 import java.security.Principal;
-import java.util.List;
 
 import javax.validation.Valid;
 

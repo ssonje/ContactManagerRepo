@@ -1,7 +1,6 @@
 package com.smartcontactmanager.services.user.controller;
 
 import java.security.Principal;
-import java.util.List;
 
 import org.springframework.data.domain.Page;
 
