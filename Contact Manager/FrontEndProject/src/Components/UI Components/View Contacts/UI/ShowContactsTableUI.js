@@ -73,7 +73,7 @@ const ShowContactsTableUI = (props) => {
                     }
                 </tbody>
             </Table>
-            <Container>
+            <Container className={"d-flex align-items-center justify-content-center"}>
                 <Pagination>
                     <PaginationItem
                         disabled={contactContent.pageNumber === 0}
