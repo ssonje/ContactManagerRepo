@@ -1,5 +1,5 @@
 import { Container } from "reactstrap";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useViewContacts } from "../Hooks/useViewContacts";
 
 import BasAppCss from "../../../../CSS/BaseApp.module.css";
@@ -20,16 +20,31 @@ const ViewContactsUI = () => {
     const [sideBarForProfileUI, setSideBarForProfileUI] = useState(false);
     const [isAPICalled, setIsAPICalled] = useState(false);
 
-    const [contacts, setContacts] = useState([]);
-    const isContactsFetched = useRef(true);
+    const [contactContent, setContactContent] = useState({
+        content: [],
+        totalPages: null,
+        totalElements: null,
+        pageSize: null,
+        pageNumber: null,
+        lastPage: null
+    });
 
     // Fetch the Contacts for the User
-    const viewContacts = () => {
-        if (isContactsFetched.current) {
-            ViewContactsDBService(setContacts, setIsAPICalled);
-            isContactsFetched.current = false;
-        }
+    const viewContacts = (pageNumber = 0) => {
+        ViewContactsDBService(setContactContent, setIsAPICalled, pageNumber);
     };
+
+    const changePageContent = (pageNumber = 0) => {
+        if (pageNumber > contactContent.pageNumber && contactContent.lastPage) {
+            return
+        }
+
+        if (pageNumber < contactContent.pageNumber && contactContent.pageNumber === 0) {
+            return
+        }
+
+        viewContacts(pageNumber);
+    }
 
     // Call the useViewContacts in-order to skip initial execution of useEffect and fetch contacts for the user.
     useViewContacts(viewContacts);
@@ -51,8 +66,8 @@ const ViewContactsUI = () => {
                                 <h2 className={(ViewContactsCss.ViewContactsText) + " mb-4"}>Your Contacts</h2>
                                 <div className={(ViewContactsCss.ViewContactsTextCenter)}>
                                     {
-                                        contacts.length > 0
-                                            ? <ShowContactsTableUI contacts={contacts}></ShowContactsTableUI>
+                                        contactContent.content.length > 0
+                                            ? <ShowContactsTableUI contactContent={contactContent} changePageContent={changePageContent} />
                                             : <NoContactsAvailableUI />
                                     }
                                 </div>

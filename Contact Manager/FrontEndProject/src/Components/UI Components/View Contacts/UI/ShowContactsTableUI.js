@@ -1,4 +1,4 @@
-import { Button, Table } from "reactstrap";
+import { Button, Container, Pagination, PaginationItem, PaginationLink, Table } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -17,7 +17,9 @@ import * as AiIcons from 'react-icons/ai';
  */
 const ShowContactsTableUI = (props) => {
 
-    const contacts = props.contacts;
+    const contactContent = props.contactContent;
+    const contacts = contactContent.content;
+
     const [searchContactQuery, setSearchContactQuery] = useState("");
     const navigate = useNavigate();
 
@@ -71,6 +73,38 @@ const ShowContactsTableUI = (props) => {
                     }
                 </tbody>
             </Table>
+            <Container>
+                <Pagination>
+                    <PaginationItem
+                        disabled={contactContent.pageNumber === 0}
+                        onClick={() => {
+                            props.changePageContent(contactContent.pageNumber - 1);
+                        }}>
+                        <PaginationLink previous>Previous</PaginationLink>
+                    </PaginationItem>
+
+                    {
+                        [...Array(contactContent.totalPages)].map((item, index) => (
+                            <PaginationItem
+                                onClick={() => {
+                                    props.changePageContent(index);
+                                }}
+                                key={index}
+                                active={index === contactContent.pageNumber}>
+                                <PaginationLink>{index + 1}</PaginationLink>
+                            </PaginationItem>
+                        ))
+                    }
+
+                    <PaginationItem
+                        disabled={contactContent.lastPage}
+                        onClick={() => {
+                            props.changePageContent(contactContent.pageNumber + 1);
+                        }}>
+                        <PaginationLink next>Next</PaginationLink>
+                    </PaginationItem>
+                </Pagination>
+            </Container>
         </>
     );
 }
