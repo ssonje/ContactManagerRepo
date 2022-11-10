@@ -25,7 +25,7 @@ const DeleteContactDBService = (navigate, setIsAPICalled, id, user) => {
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/user/delete/contact/${id}`, user, {
+        axios.post(`${BASE_URL}/api/user/delete/contact/${id}`, user, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

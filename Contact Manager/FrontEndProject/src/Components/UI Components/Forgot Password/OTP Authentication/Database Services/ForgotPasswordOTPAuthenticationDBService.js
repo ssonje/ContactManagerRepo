@@ -22,7 +22,7 @@ const ForgotPasswordOTPAuthenticationDBService = (navigate, setIsAPICalled, forg
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/forgot/password/otp/auth`, forgotPasswordOTP).then(
+        axios.post(`${BASE_URL}/api/forgot/password/otp/auth`, forgotPasswordOTP).then(
             (response) => {
                 // Successfully post the data to the server
                 toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFUL_OTP_AUTHENTICATION);

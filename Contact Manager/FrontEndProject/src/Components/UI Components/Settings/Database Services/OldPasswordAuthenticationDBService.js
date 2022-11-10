@@ -27,7 +27,7 @@ const OldPasswordAuthenticationDBService = (navigate, setIsAPICalled, userPasswo
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/user/password/auth`, userPasswordAuthentication, {
+        axios.post(`${BASE_URL}/api/user/password/auth`, userPasswordAuthentication, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }
