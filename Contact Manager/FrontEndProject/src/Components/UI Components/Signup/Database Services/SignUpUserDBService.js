@@ -22,7 +22,7 @@ const SignUpUserDBService = (navigate, setIsAPICalled, user) => {
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/signup`, user).then(
+        axios.post(`${BASE_URL}/api/signup/add/user`, user).then(
             (response) => {
                 // Successfully post the data to the server
                 toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFUL_SIGNUP);

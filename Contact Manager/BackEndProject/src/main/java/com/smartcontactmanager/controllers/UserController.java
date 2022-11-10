@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,46 +21,53 @@ import com.smartcontactmanager.entities.user.data.models.UserPassword;
 import com.smartcontactmanager.services.user.controller.UserControllerService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
 	@Autowired
 	private UserControllerService userControllerService;
 
 	@GetMapping("/profile")
-	public User userProfile(Principal principal) {
-		return userControllerService.userProfile(principal);
+	public ResponseEntity<?> userProfile(Principal principal) {
+		User userResponse = userControllerService.userProfile(principal);
+		return ResponseEntity.ok(userResponse);
 	}
 
 	@PostMapping("/add/contact")
-	public Contact addContact(@Valid @RequestBody Contact contact, Principal principal) {
-		return userControllerService.addContact(contact, principal);
+	public ResponseEntity<?> addContact(@Valid @RequestBody Contact contact, Principal principal) {
+		Contact contactResponse = userControllerService.addContact(contact, principal);
+		return ResponseEntity.ok(contactResponse);
 	}
 
 	@GetMapping("/view/contacts")
-	public Page<Contact> viewContacts(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber, 
+	public ResponseEntity<?> viewContacts(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber, 
 			Principal principal) {
-		return userControllerService.viewContacts(pageNumber, principal);
+		Page<Contact> pagableResponse = userControllerService.viewContacts(pageNumber, principal);
+		return ResponseEntity.ok(pagableResponse);
 	}
 
 	@GetMapping("/view/contact/{id}")
-	public Contact getContactByID(@PathVariable("id") Integer id, Principal principal) {
-		return userControllerService.getContactByID(id, principal);
+	public ResponseEntity<?> getContactByID(@PathVariable("id") Integer id, Principal principal) {
+		Contact contactResponse = userControllerService.getContactByID(id, principal);
+		return ResponseEntity.ok(contactResponse);
 	}
 
 	@PostMapping("/delete/contact/{id}")
-	public Contact deleteContact(@PathVariable("id") Integer id, Principal principal) {
-		return userControllerService.deleteContact(id, principal);
+	public ResponseEntity<?> deleteContact(@PathVariable("id") Integer id, Principal principal) {
+		Contact contactResponse = userControllerService.deleteContact(id, principal);
+		return ResponseEntity.ok(contactResponse);
 	}
 
 	@PostMapping("/modify/contact/{id}")
-	public Contact modifyContact(@PathVariable("id") Integer id, Principal principal, @Valid @RequestBody Contact contact) {
-		return userControllerService.modifyContact(id, principal, contact);
+	public ResponseEntity<?> modifyContact(@PathVariable("id") Integer id, Principal principal, @Valid @RequestBody Contact contact) {
+		Contact contactResponse = userControllerService.modifyContact(id, principal, contact);
+		return ResponseEntity.ok(contactResponse);
 	}
 
 	@PostMapping("/settings/password")
-	public User changePassword(@Valid @RequestBody UserPassword userPassword, Principal principal) {
-		return userControllerService.changePassword(userPassword, principal);
+	public ResponseEntity<?> changePassword(@Valid @RequestBody UserPassword userPassword, Principal principal) {
+		User userResponse = userControllerService.changePassword(userPassword, principal);
+		return ResponseEntity.ok(userResponse);
 	}
 
 }

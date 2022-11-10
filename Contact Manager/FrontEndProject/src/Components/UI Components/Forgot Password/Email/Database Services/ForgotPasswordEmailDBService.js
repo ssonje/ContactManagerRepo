@@ -22,7 +22,7 @@ const ForgotPasswordEmailDBService = (navigate, setIsAPICalled, forgotPasswordEm
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/forgot/password/email`, forgotPasswordEmail).then(
+        axios.post(`${BASE_URL}/api/forgot/password/email`, forgotPasswordEmail).then(
             (response) => {
                 // Successfully post the data to the server
                 toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFUL_OTP);

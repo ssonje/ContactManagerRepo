@@ -4,6 +4,7 @@ import javax.management.AttributeNotFoundException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,25 +16,28 @@ import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordValidation;
 import com.smartcontactmanager.services.email.ForgotPasswordService;
 
 @RestController
-@RequestMapping("/forgot/password")
+@RequestMapping("/api/forgot/password")
 public class ForgotPasswordController {
 
 	@Autowired
 	private ForgotPasswordService forgotPasswordService;
 
 	@PostMapping("/email")
-	public boolean forgotPassword(@RequestBody ForgotPasswordEmail forgotPasswordEmail, HttpSession httpSession) throws AttributeNotFoundException {
-		return forgotPasswordService.sendEmail(forgotPasswordEmail, httpSession);
+	public ResponseEntity<?> forgotPassword(@RequestBody ForgotPasswordEmail forgotPasswordEmail, HttpSession httpSession) throws AttributeNotFoundException {
+		boolean isEmailSend = forgotPasswordService.sendEmail(forgotPasswordEmail, httpSession);
+		return ResponseEntity.ok(isEmailSend);
 	}
 
 	@PostMapping("/otp/auth")
-	public boolean authenticateForgotPasswordOTP(@RequestBody ForgotPasswordOTPValidation forgotPasswordOTPValidation, HttpSession httpSession) throws AttributeNotFoundException {
-		return forgotPasswordService.authenticateForgotPasswordOTP(forgotPasswordOTPValidation, httpSession);
+	public ResponseEntity<?> authenticateForgotPasswordOTP(@RequestBody ForgotPasswordOTPValidation forgotPasswordOTPValidation, HttpSession httpSession) throws AttributeNotFoundException {
+		boolean isOTPAuthenticated = forgotPasswordService.authenticateForgotPasswordOTP(forgotPasswordOTPValidation, httpSession);
+		return ResponseEntity.ok(isOTPAuthenticated);
 	}
 
 	@PostMapping("/update/password")
-	public boolean updateForgotPassword(@RequestBody ForgotPasswordValidation forgotPasswordValidation, HttpSession httpSession) throws AttributeNotFoundException {
-		return forgotPasswordService.updateForgotPassword(forgotPasswordValidation, httpSession);
+	public ResponseEntity<?> updateForgotPassword(@RequestBody ForgotPasswordValidation forgotPasswordValidation, HttpSession httpSession) throws AttributeNotFoundException {
+		boolean isPasswordUpdated = forgotPasswordService.updateForgotPassword(forgotPasswordValidation, httpSession);
+		return ResponseEntity.ok(isPasswordUpdated);
 	}
 
 }

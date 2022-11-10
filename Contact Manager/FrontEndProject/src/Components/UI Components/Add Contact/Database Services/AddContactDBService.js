@@ -24,7 +24,7 @@ const AddContactDBService = (navigate, setIsAPICalled, contact) => {
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/user/add/contact`, contact, {
+        axios.post(`${BASE_URL}/api/user/add/contact`, contact, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

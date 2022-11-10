@@ -24,7 +24,7 @@ import com.smartcontactmanager.security.response.AuthenticationResponse;
 import com.smartcontactmanager.security.services.UserDetailsImpl;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthenticationController {
 
 	@Autowired
