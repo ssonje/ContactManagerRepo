@@ -15,6 +15,7 @@ import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.contact.Contact;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.entities.user.data.models.UserPassword;
+import com.smartcontactmanager.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserControllerServiceImpl implements UserControllerService {
@@ -54,49 +55,64 @@ public class UserControllerServiceImpl implements UserControllerService {
 	@Override
 	public Contact getContactByID(Integer id, Principal principal) {
 		User user = userRepository.loadUserByEmail(principal.getName());
-		Optional<Contact> contactOptional = contactRepository.findById(id);
-		Contact contact = contactOptional.get();
 
-		if (user.getId() == contact.getUser().getId()) {
-			return contact;
+		try {
+			Optional<Contact> contactOptional = contactRepository.findById(id);
+			Contact contact = contactOptional.get();
+
+			if (user.getId() == contact.getUser().getId()) {
+				return contact;
+			}
+
+			return null;
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("User", "ID", id.toString());
 		}
-
-		return null;
 	}
 
 	@Override
 	public Contact deleteContact(Integer id, Principal principal) {
 		User user = userRepository.loadUserByEmail(principal.getName());
-		Optional<Contact> contactOptional = contactRepository.findById(id);
-		Contact contact = contactOptional.get();
 
-		if (user.getId() == contact.getUser().getId()) {
-			contactRepository.deleteById(id);
-			return contact;
+		try {
+			Optional<Contact> contactOptional = contactRepository.findById(id);
+			Contact contact = contactOptional.get();
+
+			if (user.getId() == contact.getUser().getId()) {
+				contactRepository.deleteById(id);
+				return contact;
+			}
+
+			return null;
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("User", "ID", id.toString());
 		}
-
-		return null;
 	}
 
 	@Override
 	public Contact modifyContact(Integer id, Principal principal, Contact contact) {
 		User user = userRepository.loadUserByEmail(principal.getName());
-		Optional<Contact> contactOptional = contactRepository.findById(id);
-		Contact contactFromID = contactOptional.get();
 
-		if ((user.getId() == contactFromID.getUser().getId()) && (contactFromID.getId() == contact.getId())) {
-			contactFromID.setDescription(contact.getDescription());
-			contactFromID.setEmail(contact.getEmail());
-			contactFromID.setImageURL(contact.getImageURL());
-			contactFromID.setMobileNumber(contact.getMobileNumber());
-			contactFromID.setName(contact.getName());
-			contactFromID.setNickname(contact.getNickname());
-			contactFromID.setWork(contact.getWork());
-			contactRepository.save(contactFromID);
-			return contactFromID;
+		try {
+			Optional<Contact> contactOptional = contactRepository.findById(id);
+			Contact contactFromID = contactOptional.get();
+
+			if ((user.getId() == contactFromID.getUser().getId()) && (contactFromID.getId() == contact.getId())) {
+				contactFromID.setDescription(contact.getDescription());
+				contactFromID.setEmail(contact.getEmail());
+				contactFromID.setImageURL(contact.getImageURL());
+				contactFromID.setMobileNumber(contact.getMobileNumber());
+				contactFromID.setName(contact.getName());
+				contactFromID.setNickname(contact.getNickname());
+				contactFromID.setWork(contact.getWork());
+				contactRepository.save(contactFromID);
+				return contactFromID;
+			}
+
+			return null;
+		} catch (Exception e) {
+			throw new ResourceNotFoundException("User", "ID", id.toString());
 		}
-
-		return null;
 	}
 
 	@Override
