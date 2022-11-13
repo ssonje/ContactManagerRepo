@@ -26,4 +26,10 @@ Happy Coding 😊 !!!
       * User Authentication
       * User Login
     * Forgot Password
-2. 
+2. Added Features - 
+   * Pagination
+   * Contact Searching
+   * Exception Handling
+   * Modularization of Project
+   * Security
+   * JWT Athentication
