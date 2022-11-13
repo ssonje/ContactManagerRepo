@@ -32,4 +32,6 @@ Happy Coding 😊 !!!
    * Exception Handling
    * Modularization of Project
    * Security
+     * Model Mapping
+     * Authentication Token for every request
    * JWT Athentication
