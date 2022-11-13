@@ -8,3 +8,22 @@ To execute this Project follow the Following Steps -
 5. Run the `Front End Project` by adding `npm start` in the terminal. (Make sure `npm (Node Package Manager)` is installed in your machine).
 
 Happy Coding 😊 !!!
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# MAJOR FUNCTIONALITES OF BACK END CODE - 
+
+1. Following Major functionalities of this Application - 
+    * Contacts - 
+      * View Contacts
+      * View Single Contact
+      * Add Contact
+      * Modify Contact
+    * User - 
+      * User Profile
+      * Change User Password
+      * Sign up User
+      * User Authentication
+      * User Login
+    * Forgot Password
+2. 
