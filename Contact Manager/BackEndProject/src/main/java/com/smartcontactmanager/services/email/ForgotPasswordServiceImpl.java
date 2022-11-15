@@ -17,11 +17,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.smartcontactmanager.controllers.api.responses.constants.ForgotPasswordControllerAPIResponseConstants;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordEmail;
 import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordOTPValidation;
 import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordValidation;
+import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;
+import com.smartcontactmanager.exceptions.ResourceNotFoundException;
 
 @Service
 public class ForgotPasswordServiceImpl implements ForgotPasswordService {
@@ -45,15 +48,15 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 	private Random random = new Random(100000);
 
 	@Override
-	public boolean sendEmail(ForgotPasswordEmail forgotPasswordEmail, HttpSession httpSession)
+	public APIResponse sendEmail(ForgotPasswordEmail forgotPasswordEmail, HttpSession httpSession)
 			throws AttributeNotFoundException {
 		if (forgotPasswordEmail.getEmail().length() == 0) {
-			throw new AttributeNotFoundException("Email from the ForgotPassword cannot be null.");
+			throw new ResourceNotFoundException("ForgotPasswordEmail", "Email", "Null");
 		}
 
 		User user = userRepository.loadUserByEmail(forgotPasswordEmail.getEmail());
 		if (user == null) {
-			return false;
+			throw new ResourceNotFoundException("User", "Email", "Null");
 		}
 
 		// Generate random OTP for the user
@@ -79,25 +82,25 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 			mimeMessage.setText(message);
 			Transport.send(mimeMessage);
 			ForgotPasswordServiceImpl.performTaskAfterSendingOTP(user, OTP, userRepository, httpSession);
-			return true;
+			return new APIResponse(ForgotPasswordControllerAPIResponseConstants.FORGOT_PASSWORD_EMAIL_AUTH_SUCCESS, true);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return new APIResponse(ForgotPasswordControllerAPIResponseConstants.FORGOT_PASSWORD_EMAIL_AUTH_FAILED, false);
 		}
 	}
 
 	@Override
-	public boolean authenticateForgotPasswordOTP(ForgotPasswordOTPValidation forgotPasswordOTPValidation,
+	public APIResponse authenticateForgotPasswordOTP(ForgotPasswordOTPValidation forgotPasswordOTPValidation,
 			HttpSession httpSession) throws AttributeNotFoundException {
 		User user = userRepository.loadUserByEmail((String) httpSession.getAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordEmailString));
 		if (user == null) {
-			return false;
+			throw new ResourceNotFoundException("User", "Email", "Null");
 		}
 
 		// Get OTP from the User
 		Integer OTPFromUser = user.getOtp();
 		if (OTPFromUser == null) {
-			throw new AttributeNotFoundException("Requested OTP found null. Do not access it without permission.");
+			throw new ResourceNotFoundException("ForgotPasswordOTPValidation", "otp", "Null");
 		}
 
 		// Get OTP from the HTTPSession
@@ -111,24 +114,23 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 				&& Integer.compare(OTPFromUser, OTPEnteredFromUser) == 0) {
 			httpSession.setAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordOTPValidation, "true");
 			ForgotPasswordServiceImpl.performTaskAfterAuthenticatingOTP(user, null, userRepository);
-			return true;
+			return new APIResponse(ForgotPasswordControllerAPIResponseConstants.FORGOT_PASSWORD_OTP_AUTH_SUCCESS, true);
 		}
 
-		ForgotPasswordServiceImpl.performTaskAfterAuthenticatingOTP(user, null, userRepository);
-		return false;
+		return new APIResponse(ForgotPasswordControllerAPIResponseConstants.FORGOT_PASSWORD_OTP_AUTH_FAILED, false);
 	}
 
 	@Override
-	public boolean updateForgotPassword(ForgotPasswordValidation forgotPasswordValidation,
+	public APIResponse updateForgotPassword(ForgotPasswordValidation forgotPasswordValidation,
 			HttpSession httpSession) throws AttributeNotFoundException {
 		User user = userRepository.loadUserByEmail((String) httpSession.getAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordEmailString));
 		if (user == null) {
-			return false;
+			throw new ResourceNotFoundException("User", "Email", "Null");
 		}
 
 		String httpSessionForgotPasswordOTPValidation = (String) httpSession.getAttribute(ForgotPasswordServiceImpl.httpSessionForgotPasswordOTPValidation);
 		if (!httpSessionForgotPasswordOTPValidation.equals("true")) {
-			return false;
+			return new APIResponse("Invalid OTP.", false);
 		}
 
 		// Update the password
@@ -136,11 +138,11 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 			ForgotPasswordServiceImpl.updateNewPasswordForUser(user, forgotPasswordValidation.getNewPassword(),
 					userRepository, passwordEncoder);
 			ForgotPasswordServiceImpl.performTaskAfterForgottingPassword(httpSession);
-			return true;
+			return new APIResponse(ForgotPasswordControllerAPIResponseConstants.FORGOT_PASSWORD_NEW_PASSWORD_AUTH_SUCCESS, true);
 		}
 
 		ForgotPasswordServiceImpl.performTaskAfterForgottingPassword(httpSession);
-		return false;
+		return new APIResponse(ForgotPasswordControllerAPIResponseConstants.FORGOT_PASSWORD_NEW_PASSWORD_AUTH_FAILED, false);
 	}
 
 	// Get the System's Properties and set the required information

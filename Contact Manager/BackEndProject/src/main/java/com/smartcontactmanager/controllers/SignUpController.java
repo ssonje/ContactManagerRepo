@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontactmanager.controllers.helpers.SignUpControllerHelper;
+import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.user.signup.services.UserSignUpService;
 
@@ -27,8 +28,8 @@ public class SignUpController {
 	@PostMapping("/add/user")
 	public ResponseEntity<?> addUser(@Valid @RequestBody User user) {
 		User updatedUser = SignUpControllerHelper.setDefaultPropertiesForUser(user, passwordEncoder);
-		User userResponse = userSignUpService.addUser(updatedUser);
-		return ResponseEntity.ok(userResponse);
+		APIResponse apiResponse  = userSignUpService.addUser(updatedUser);
+		return ResponseEntity.ok(apiResponse);
 	}
 
 }
