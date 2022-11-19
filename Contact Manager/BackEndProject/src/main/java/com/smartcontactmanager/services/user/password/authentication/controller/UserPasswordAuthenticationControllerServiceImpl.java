@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.smartcontactmanager.controllers.api.responses.constants.UserPasswordAuthenticationControllerAPIResponseConstants;
+import com.smartcontactmanager.controllers.passwordAuth.UserPasswordAuthenticationControllerAPIResponseConstants;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;

@@ -1,4 +1,4 @@
-package com.smartcontactmanager.controllers;
+package com.smartcontactmanager.controllers.forgotPassword;
 
 import javax.management.AttributeNotFoundException;
 import javax.servlet.http.HttpSession;

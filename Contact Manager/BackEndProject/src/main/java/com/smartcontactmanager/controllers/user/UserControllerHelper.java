@@ -1,4 +1,4 @@
-package com.smartcontactmanager.controllers.helpers;
+package com.smartcontactmanager.controllers.user;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
