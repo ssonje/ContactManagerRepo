@@ -15,8 +15,8 @@ import com.smartcontactmanager.entities.payloads.APIResponse;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler(ResourceNotFoundException.class)
-	public ResponseEntity<APIResponse> handleResourceNotFoundException(ResourceNotFoundException exception) {
+	@ExceptionHandler(FileException.class)
+	public ResponseEntity<APIResponse> handleFileExceptionException(FileException exception) {
 		String exceptionMessage = exception.getMessage();
 		APIResponse response = new APIResponse(exceptionMessage, false);
 		return new ResponseEntity<APIResponse>(response, HttpStatus.NOT_FOUND);
@@ -31,6 +31,13 @@ public class GlobalExceptionHandler {
 			responseMap.put(fieldName, message);
 		});
 		return new ResponseEntity<Map<String,String>>(responseMap, HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<APIResponse> handleResourceNotFoundException(ResourceNotFoundException exception) {
+		String exceptionMessage = exception.getMessage();
+		APIResponse response = new APIResponse(exceptionMessage, false);
+		return new ResponseEntity<APIResponse>(response, HttpStatus.NOT_FOUND);
 	}
 
 }

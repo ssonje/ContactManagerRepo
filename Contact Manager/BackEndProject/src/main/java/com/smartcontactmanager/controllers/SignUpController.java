@@ -3,14 +3,14 @@ package com.smartcontactmanager.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.smartcontactmanager.controllers.helpers.SignUpControllerHelper;
 import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.user.signup.services.UserSignUpService;
@@ -22,14 +22,15 @@ public class SignUpController {
 	@Autowired
 	private UserSignUpService userSignUpService;
 
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-
-	@PostMapping("/add/user")
-	public ResponseEntity<?> addUser(@Valid @RequestBody User user) {
-		User updatedUser = SignUpControllerHelper.setDefaultPropertiesForUser(user, passwordEncoder);
-		APIResponse apiResponse  = userSignUpService.addUser(updatedUser);
-		return ResponseEntity.ok(apiResponse);
+	@RequestMapping(value = "/add/user" , method = RequestMethod.POST, consumes={ MediaType.MULTIPART_FORM_DATA_VALUE })
+	public ResponseEntity<?> addUser(@Valid @RequestPart User user, @RequestPart MultipartFile multipartFile) {
+		try {
+			APIResponse apiResponse = userSignUpService.addUser(user, multipartFile);
+			return ResponseEntity.ok(apiResponse);
+		} catch (Exception exception) {
+			APIResponse apiResponse = new APIResponse(exception.getMessage(), false);
+			return ResponseEntity.ok(apiResponse);
+		}
 	}
 
 }

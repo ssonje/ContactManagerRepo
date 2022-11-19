@@ -11,11 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.smartcontactmanager.entities.contact.Contact;
+import com.smartcontactmanager.entities.profile.image.ProfileImage;
 
 @Entity
 @Table(name = "USER")
@@ -39,7 +42,9 @@ public class User {
 
 	@Column(nullable = false)
 	private String role;
-	private String imegeURL;
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	private ProfileImage profileImage;
 
 	@Column(length = 500)
 	@Size(max = 500, message = "About should have maximum 500 charaters.")
@@ -91,14 +96,6 @@ public class User {
 		this.role = role;
 	}
 
-	public String getImegeURL() {
-		return imegeURL;
-	}
-
-	public void setImegeURL(String imegeURL) {
-		this.imegeURL = imegeURL;
-	}
-
 	public String getAbout() {
 		return about;
 	}
@@ -113,6 +110,14 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public ProfileImage getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(ProfileImage profileImage) {
+		this.profileImage = profileImage;
 	}
 
 	public List<Contact> getContacts() {
