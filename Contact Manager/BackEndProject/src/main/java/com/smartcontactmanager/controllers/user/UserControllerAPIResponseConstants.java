@@ -1,4 +1,4 @@
-package com.smartcontactmanager.controllers.api.responses.constants;
+package com.smartcontactmanager.controllers.user;
 
 public final class UserControllerAPIResponseConstants {
 	

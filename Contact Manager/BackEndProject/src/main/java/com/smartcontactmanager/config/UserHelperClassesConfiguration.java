@@ -3,7 +3,7 @@ package com.smartcontactmanager.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.smartcontactmanager.controllers.helpers.UserControllerHelper;
+import com.smartcontactmanager.controllers.user.UserControllerHelper;
 
 @Configuration
 public class UserHelperClassesConfiguration {

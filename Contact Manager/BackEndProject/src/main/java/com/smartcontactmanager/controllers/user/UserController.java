@@ -1,4 +1,4 @@
-package com.smartcontactmanager.controllers;
+package com.smartcontactmanager.controllers.user;
 
 import java.security.Principal;
 
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smartcontactmanager.controllers.helpers.UserControllerHelper;
 import com.smartcontactmanager.dto.ContactDTO;
 import com.smartcontactmanager.dto.UserDTO;
 import com.smartcontactmanager.entities.contact.Contact;

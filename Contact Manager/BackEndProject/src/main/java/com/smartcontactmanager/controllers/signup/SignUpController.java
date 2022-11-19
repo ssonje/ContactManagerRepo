@@ -1,4 +1,4 @@
-package com.smartcontactmanager.controllers;
+package com.smartcontactmanager.controllers.signup;
 
 import javax.validation.Valid;
 

@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.smartcontactmanager.controllers.api.responses.constants.UserControllerAPIResponseConstants;
+import com.smartcontactmanager.controllers.user.UserControllerAPIResponseConstants;
 import com.smartcontactmanager.dao.ContactRepository;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.contact.Contact;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.smartcontactmanager.controllers.api.responses.constants.ProfileImageControllerAPIResponseConstants;
+import com.smartcontactmanager.controllers.signup.ProfileImageControllerAPIResponseConstants;
 import com.smartcontactmanager.dao.ProfileImageRepository;
 import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.profile.image.ProfileImage;
