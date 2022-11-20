@@ -14,10 +14,10 @@ import com.smartcontactmanager.controllers.user.UserControllerAPIResponseConstan
 import com.smartcontactmanager.dao.ContactRepository;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.contact.Contact;
-import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.entities.user.data.models.UserPassword;
 import com.smartcontactmanager.exceptions.ResourceNotFoundException;
+import com.smartcontactmanager.payloads.APIResponse;
 
 @Service
 public class UserControllerServiceImpl implements UserControllerService {

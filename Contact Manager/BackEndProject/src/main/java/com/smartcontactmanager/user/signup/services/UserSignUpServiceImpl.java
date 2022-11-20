@@ -8,8 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.smartcontactmanager.controllers.signup.SignUpControllerAPIResponseConstants;
 import com.smartcontactmanager.controllers.signup.SignUpControllerHelper;
 import com.smartcontactmanager.dao.UserRepository;
-import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;
+import com.smartcontactmanager.payloads.APIResponse;
 import com.smartcontactmanager.services.profile.image.ProfileImageService;
 
 @Service

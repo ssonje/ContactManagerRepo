@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smartcontactmanager.dto.ContactDTO;
 import com.smartcontactmanager.dto.UserDTO;
 import com.smartcontactmanager.entities.contact.Contact;
-import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.entities.user.data.models.UserPassword;
+import com.smartcontactmanager.payloads.APIResponse;
 import com.smartcontactmanager.services.user.controller.UserControllerService;
 
 @RestController
