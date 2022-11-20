@@ -12,7 +12,7 @@ import com.smartcontactmanager.dao.ProfileImageRepository;
 import com.smartcontactmanager.entities.profileImage.ProfileImage;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.exceptions.FileException;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
 
 @Service
 public class ProfileImageServiceImpl implements ProfileImageService {

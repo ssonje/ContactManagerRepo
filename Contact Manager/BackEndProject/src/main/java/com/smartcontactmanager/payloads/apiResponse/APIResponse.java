@@ -1,4 +1,4 @@
-package com.smartcontactmanager.payloads;
+package com.smartcontactmanager.payloads.apiResponse;
 
 public class APIResponse {
 

@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordEmail;
-import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordOTPValidation;
-import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordValidation;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
+import com.smartcontactmanager.payloads.forgotPassword.ForgotPasswordEmail;
+import com.smartcontactmanager.payloads.forgotPassword.ForgotPasswordOTPValidation;
+import com.smartcontactmanager.payloads.forgotPassword.ForgotPasswordValidation;
 import com.smartcontactmanager.services.email.ForgotPasswordService;
 
 @RestController

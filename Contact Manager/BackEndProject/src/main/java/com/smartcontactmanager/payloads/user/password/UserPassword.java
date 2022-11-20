@@ -1,9 +1,20 @@
-package com.smartcontactmanager.entities.forgotPassword;
+package com.smartcontactmanager.payloads.user.password;
 
-public class ForgotPasswordValidation {
+public class UserPassword {
+
+	private String oldPassword;
 
 	private String newPassword;
+
 	private String confirmedNewPassword;
+
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
 
 	public String getNewPassword() {
 		return newPassword;

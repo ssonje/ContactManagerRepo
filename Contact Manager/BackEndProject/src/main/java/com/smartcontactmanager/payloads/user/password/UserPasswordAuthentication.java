@@ -1,4 +1,4 @@
-package com.smartcontactmanager.entities.user.data.models;
+package com.smartcontactmanager.payloads.user.password;
 
 public class UserPasswordAuthentication {
 

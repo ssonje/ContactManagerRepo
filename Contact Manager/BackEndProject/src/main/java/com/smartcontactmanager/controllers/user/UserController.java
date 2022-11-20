@@ -20,8 +20,8 @@ import com.smartcontactmanager.dto.ContactDTO;
 import com.smartcontactmanager.dto.UserDTO;
 import com.smartcontactmanager.entities.contact.Contact;
 import com.smartcontactmanager.entities.user.User;
-import com.smartcontactmanager.entities.user.data.models.UserPassword;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
+import com.smartcontactmanager.payloads.user.password.UserPassword;
 import com.smartcontactmanager.services.user.controller.UserControllerService;
 
 @RestController

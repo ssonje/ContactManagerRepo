@@ -19,12 +19,12 @@ import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.controllers.forgotPassword.ForgotPasswordControllerAPIResponseConstants;
 import com.smartcontactmanager.dao.UserRepository;
-import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordEmail;
-import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordOTPValidation;
-import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordValidation;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.exceptions.ResourceNotFoundException;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
+import com.smartcontactmanager.payloads.forgotPassword.ForgotPasswordEmail;
+import com.smartcontactmanager.payloads.forgotPassword.ForgotPasswordOTPValidation;
+import com.smartcontactmanager.payloads.forgotPassword.ForgotPasswordValidation;
 
 @Service
 public class ForgotPasswordServiceImpl implements ForgotPasswordService {

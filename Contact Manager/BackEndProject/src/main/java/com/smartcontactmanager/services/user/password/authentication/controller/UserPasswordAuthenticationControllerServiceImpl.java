@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import com.smartcontactmanager.controllers.passwordAuth.UserPasswordAuthenticationControllerAPIResponseConstants;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.user.User;
-import com.smartcontactmanager.entities.user.data.models.UserPasswordAuthentication;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
+import com.smartcontactmanager.payloads.user.password.UserPasswordAuthentication;
 
 @Service
 public class UserPasswordAuthenticationControllerServiceImpl implements UserPasswordAuthenticationControllerService {
