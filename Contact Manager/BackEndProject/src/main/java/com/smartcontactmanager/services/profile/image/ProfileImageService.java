@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.smartcontactmanager.entities.profileImage.ProfileImage;
 import com.smartcontactmanager.entities.user.User;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
 
 public interface ProfileImageService {
 

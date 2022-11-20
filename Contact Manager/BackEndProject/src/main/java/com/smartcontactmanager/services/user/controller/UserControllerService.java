@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 
 import com.smartcontactmanager.entities.contact.Contact;
 import com.smartcontactmanager.entities.user.User;
-import com.smartcontactmanager.entities.user.data.models.UserPassword;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
+import com.smartcontactmanager.payloads.user.password.UserPassword;
 
 public interface UserControllerService {
 

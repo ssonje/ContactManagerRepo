@@ -9,7 +9,7 @@ import com.smartcontactmanager.controllers.signup.SignUpControllerAPIResponseCon
 import com.smartcontactmanager.controllers.signup.SignUpControllerHelper;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.user.User;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
 import com.smartcontactmanager.services.profile.image.ProfileImageService;
 
 @Service

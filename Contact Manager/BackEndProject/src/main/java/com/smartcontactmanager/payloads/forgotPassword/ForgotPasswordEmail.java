@@ -1,4 +1,4 @@
-package com.smartcontactmanager.entities.forgotPassword;
+package com.smartcontactmanager.payloads.forgotPassword;
 
 public class ForgotPasswordEmail {
 

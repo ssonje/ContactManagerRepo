@@ -2,8 +2,8 @@ package com.smartcontactmanager.services.user.password.authentication.controller
 
 import java.security.Principal;
 
-import com.smartcontactmanager.entities.user.data.models.UserPasswordAuthentication;
-import com.smartcontactmanager.payloads.APIResponse;
+import com.smartcontactmanager.payloads.apiResponse.APIResponse;
+import com.smartcontactmanager.payloads.user.password.UserPasswordAuthentication;
 
 public interface UserPasswordAuthenticationControllerService {
 
