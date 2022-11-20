@@ -2,7 +2,7 @@ package com.smartcontactmanager.services.profile.image;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.smartcontactmanager.entities.profile.image.ProfileImage;
+import com.smartcontactmanager.entities.profileImage.ProfileImage;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.payloads.APIResponse;
 
