@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.smartcontactmanager.entities.payloads.APIResponse;
 import com.smartcontactmanager.entities.user.User;
+import com.smartcontactmanager.payloads.APIResponse;
 import com.smartcontactmanager.user.signup.services.UserSignUpService;
 
 @RestController

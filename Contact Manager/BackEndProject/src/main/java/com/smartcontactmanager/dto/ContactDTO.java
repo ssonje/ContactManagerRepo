@@ -1,7 +1,5 @@
 package com.smartcontactmanager.dto;
 
-import com.smartcontactmanager.entities.user.User;
-
 public class ContactDTO {
 
 	private String name;

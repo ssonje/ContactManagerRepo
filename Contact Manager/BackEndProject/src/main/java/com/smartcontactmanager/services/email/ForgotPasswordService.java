@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordEmail;
 import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordOTPValidation;
 import com.smartcontactmanager.entities.forgotPassword.ForgotPasswordValidation;
-import com.smartcontactmanager.entities.payloads.APIResponse;
+import com.smartcontactmanager.payloads.APIResponse;
 
 public interface ForgotPasswordService {
 
