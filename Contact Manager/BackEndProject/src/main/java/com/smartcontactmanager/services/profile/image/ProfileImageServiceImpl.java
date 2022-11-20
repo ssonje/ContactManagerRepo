@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.smartcontactmanager.controllers.signup.ProfileImageControllerAPIResponseConstants;
 import com.smartcontactmanager.dao.ProfileImageRepository;
-import com.smartcontactmanager.entities.profile.image.ProfileImage;
+import com.smartcontactmanager.entities.profileImage.ProfileImage;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.exceptions.FileException;
 import com.smartcontactmanager.payloads.APIResponse;

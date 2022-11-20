@@ -16,9 +16,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.smartcontactmanager.entities.contact.Contact;
-import com.smartcontactmanager.entities.profile.image.ProfileImage;
+import com.smartcontactmanager.entities.profileImage.ProfileImage;
 
 @Entity
 @Table(name = "USER")

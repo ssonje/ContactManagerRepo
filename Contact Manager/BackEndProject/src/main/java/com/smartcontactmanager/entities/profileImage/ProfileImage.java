@@ -1,4 +1,4 @@
-package com.smartcontactmanager.entities.profile.image;
+package com.smartcontactmanager.entities.profileImage;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
