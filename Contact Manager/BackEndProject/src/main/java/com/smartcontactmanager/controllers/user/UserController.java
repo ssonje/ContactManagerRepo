@@ -4,7 +4,6 @@ import java.security.Principal;
 
 import javax.validation.Valid;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,7 @@ import com.smartcontactmanager.entities.contact.Contact;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.payloads.apiResponse.APIResponse;
 import com.smartcontactmanager.payloads.user.password.UserPassword;
-import com.smartcontactmanager.services.user.controller.UserControllerService;
+import com.smartcontactmanager.services.user.UserControllerService;
 
 @RestController
 @RequestMapping("/api/user")

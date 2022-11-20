@@ -1,4 +1,4 @@
-package com.smartcontactmanager.user.contact.services;
+package com.smartcontactmanager.services.contact;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

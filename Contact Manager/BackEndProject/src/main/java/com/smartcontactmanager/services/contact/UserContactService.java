@@ -1,4 +1,4 @@
-package com.smartcontactmanager.user.contact.services;
+package com.smartcontactmanager.services.contact;
 
 import com.smartcontactmanager.entities.contact.Contact;
 

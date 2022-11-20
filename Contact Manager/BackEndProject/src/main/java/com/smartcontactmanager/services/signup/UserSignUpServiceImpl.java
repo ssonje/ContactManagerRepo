@@ -1,4 +1,4 @@
-package com.smartcontactmanager.user.signup.services;
+package com.smartcontactmanager.services.signup;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -10,7 +10,7 @@ import com.smartcontactmanager.controllers.signup.SignUpControllerHelper;
 import com.smartcontactmanager.dao.UserRepository;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.payloads.apiResponse.APIResponse;
-import com.smartcontactmanager.services.profile.image.ProfileImageService;
+import com.smartcontactmanager.services.profileImage.ProfileImageService;
 
 @Service
 public class UserSignUpServiceImpl implements UserSignUpService {
