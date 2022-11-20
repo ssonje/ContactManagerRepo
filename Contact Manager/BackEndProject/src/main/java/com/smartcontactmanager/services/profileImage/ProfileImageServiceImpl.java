@@ -1,4 +1,4 @@
-package com.smartcontactmanager.services.profile.image;
+package com.smartcontactmanager.services.profileImage;
 
 import java.util.Optional;
 

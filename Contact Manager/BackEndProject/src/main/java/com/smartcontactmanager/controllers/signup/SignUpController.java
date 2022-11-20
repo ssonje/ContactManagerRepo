@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.payloads.apiResponse.APIResponse;
-import com.smartcontactmanager.user.signup.services.UserSignUpService;
+import com.smartcontactmanager.services.signup.UserSignUpService;
 
 @RestController
 @RequestMapping("/api/signup")
