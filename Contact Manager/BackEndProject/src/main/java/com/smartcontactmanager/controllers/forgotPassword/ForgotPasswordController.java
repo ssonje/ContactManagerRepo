@@ -17,7 +17,7 @@ import com.smartcontactmanager.payloads.forgotPassword.ForgotPasswordValidation;
 import com.smartcontactmanager.services.email.ForgotPasswordService;
 
 @RestController
-@RequestMapping("/api/forgot/password")
+@RequestMapping("/api/v1/forgot/password")
 public class ForgotPasswordController {
 
 	@Autowired
@@ -29,7 +29,7 @@ public class ForgotPasswordController {
 		return ResponseEntity.ok(apiResponse);
 	}
 
-	@PostMapping("/otp/auth")
+	@PostMapping("/auth/otp")
 	public ResponseEntity<?> authenticateForgotPasswordOTP(@RequestBody ForgotPasswordOTPValidation forgotPasswordOTPValidation, HttpSession httpSession) throws AttributeNotFoundException {
 		APIResponse apiResponse = forgotPasswordService.authenticateForgotPasswordOTP(forgotPasswordOTPValidation, httpSession);
 		return ResponseEntity.ok(apiResponse);

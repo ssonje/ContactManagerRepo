@@ -16,7 +16,7 @@ import com.smartcontactmanager.payloads.apiResponse.APIResponse;
 import com.smartcontactmanager.services.signup.UserSignUpService;
 
 @RestController
-@RequestMapping("/api/signup")
+@RequestMapping("/api/v1/signup")
 public class SignUpController {
 
 	@Autowired
