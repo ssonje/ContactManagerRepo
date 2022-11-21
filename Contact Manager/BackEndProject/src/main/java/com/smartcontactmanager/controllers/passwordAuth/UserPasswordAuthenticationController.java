@@ -14,13 +14,13 @@ import com.smartcontactmanager.payloads.user.password.UserPasswordAuthentication
 import com.smartcontactmanager.services.passwordAuthentication.UserPasswordAuthenticationControllerService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/v1/user")
 public class UserPasswordAuthenticationController {
 
 	@Autowired
 	private UserPasswordAuthenticationControllerService userPasswordAuthenticationControllerService;
 
-	@PostMapping("/password/auth")
+	@PostMapping("/auth/password")
 	public ResponseEntity<?> authenticateUserOldPassword(@RequestBody UserPasswordAuthentication userPasswordAuthentication, Principal principal) {
 		APIResponse apiResponse = userPasswordAuthenticationControllerService.authenticateUserOldPassword(
 				userPasswordAuthentication,

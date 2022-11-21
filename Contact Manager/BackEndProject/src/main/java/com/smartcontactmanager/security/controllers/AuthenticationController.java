@@ -1,7 +1,6 @@
 package com.smartcontactmanager.security.controllers;
 
 import java.security.NoSuchAlgorithmException;
-import java.security.Principal;
 import java.security.spec.InvalidKeySpecException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +20,7 @@ import com.smartcontactmanager.security.response.AuthenticationResponse;
 import com.smartcontactmanager.security.services.UserDetailsImpl;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthenticationController {
 
 	@Autowired
@@ -32,9 +28,6 @@ public class AuthenticationController {
 
 	@Autowired
 	private JWTTokenHelper jwtTokenHelper;
-
-	@Autowired
-	private UserDetailsService userDetailsService;
 
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody AuthenticationRequest authenticationRequest) throws InvalidKeySpecException, NoSuchAlgorithmException {
@@ -46,12 +39,6 @@ public class AuthenticationController {
 		AuthenticationResponse response = new AuthenticationResponse();
 		response.setToken(jwtToken);
 		return ResponseEntity.ok(response);
-	}
-
-	@GetMapping("/userinfo")
-	public ResponseEntity<?> getUserInfo(Principal user) {
-		UserDetails userDetails = (UserDetailsImpl) userDetailsService.loadUserByUsername(user.getName());
-		return ResponseEntity.ok(userDetails);
 	}
 
 }
