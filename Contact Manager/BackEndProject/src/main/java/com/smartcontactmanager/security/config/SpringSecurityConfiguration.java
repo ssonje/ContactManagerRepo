@@ -14,12 +14,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.smartcontactmanager.security.config.helpers.JWTTokenHelper;
 import com.smartcontactmanager.security.services.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
+@EnableWebMvc
 public class SpringSecurityConfiguration {
 
 	@Autowired

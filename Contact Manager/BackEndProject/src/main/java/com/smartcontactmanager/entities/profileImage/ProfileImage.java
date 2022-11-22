@@ -31,6 +31,9 @@ public class ProfileImage {
 	@JsonIgnore
 	private User user;
 
+	public ProfileImage() {
+	}
+
 	public ProfileImage(String fileName, String fileType, byte[] data) {
 		this.fileName = fileName;
 		this.fileType = fileType;

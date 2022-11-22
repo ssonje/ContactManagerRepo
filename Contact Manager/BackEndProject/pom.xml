@@ -13,7 +13,8 @@
 	<artifactId>SmartContactManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BackEndProject</name>
-	<description>Back End Project for the Smart Contact Manager</description>
+	<description>Back End Project for the Smart Contact Manager
+	</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -72,6 +73,11 @@
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 
