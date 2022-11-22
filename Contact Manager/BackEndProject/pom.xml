@@ -13,8 +13,7 @@
 	<artifactId>SmartContactManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BackEndProject</name>
-	<description>Back End Project for the Smart Contact Manager
-	</description>
+	<description>Back End Project for the Smart Contact Manager</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
