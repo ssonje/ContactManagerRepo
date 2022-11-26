@@ -25,7 +25,7 @@ const ViewContactsDBService = (setContactContent, setIsAPICalled, pageNumber) =>
     setIsAPICalled(true);
 
     return (
-        axios.get(`${BASE_URL}/api/user/view/contacts?pageNumber=${pageNumber}`, {
+        axios.get(`${BASE_URL}/api/v1/user/contacts?pageNumber=${pageNumber}`, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

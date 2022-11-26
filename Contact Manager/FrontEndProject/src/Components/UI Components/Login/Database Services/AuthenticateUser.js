@@ -21,7 +21,7 @@ const AuthenticateUser = (navigate, setIsAPICalled, username, password) => {
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/api/auth/login`, {
+        axios.post(`${BASE_URL}/api/v1/auth/login`, {
             username,
             password
         }).then(

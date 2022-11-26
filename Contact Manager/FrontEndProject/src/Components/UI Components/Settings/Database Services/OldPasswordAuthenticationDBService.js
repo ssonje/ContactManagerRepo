@@ -27,13 +27,13 @@ const OldPasswordAuthenticationDBService = (navigate, setIsAPICalled, userPasswo
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/api/user/password/auth`, userPasswordAuthentication, {
+        axios.post(`${BASE_URL}/api/v1/user/auth/password`, userPasswordAuthentication, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }
         }).then(
             (response) => {
-                if (response.data === true) {
+                if (response.data["success"] === true) {
                     // Successfully authenticated the user's old password now change the password
                     SettingsDBService(navigate, userPassword);
                 } else {

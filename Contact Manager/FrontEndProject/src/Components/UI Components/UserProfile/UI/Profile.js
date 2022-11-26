@@ -28,10 +28,6 @@ const Profile = (props) => {
                             <td>{user.email}</td>
                         </tr>
                         <tr>
-                            <th>Role</th>
-                            <td>{user.role}</td>
-                        </tr>
-                        <tr>
                             <th>About</th>
                             <td>{user.about ? user.about : "-"}</td>
                         </tr>

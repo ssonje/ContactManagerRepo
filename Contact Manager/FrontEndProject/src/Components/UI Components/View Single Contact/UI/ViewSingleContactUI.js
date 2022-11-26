@@ -51,7 +51,7 @@ const ViewSingleContactUI = (props) => {
                                 <h2>View Contact</h2>
                                 {
                                     contact
-                                        ? <ContactDetailsTable contact={contact}></ContactDetailsTable>
+                                        ? <ContactDetailsTable contactID={id} contact={contact}></ContactDetailsTable>
                                         : <UnauthorizedContactDetails></UnauthorizedContactDetails>
                                 }
                             </div>
