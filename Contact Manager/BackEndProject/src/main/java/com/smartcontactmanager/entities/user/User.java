@@ -13,8 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
 
 import com.smartcontactmanager.entities.contact.Contact;
 import com.smartcontactmanager.entities.profileImage.ProfileImage;
@@ -28,15 +26,12 @@ public class User {
 	private Integer id;
 
 	@Column(nullable = false)
-	@Size(min = 2, max = 100, message = "Name at least have 2 and maximum 100 charaters.")
 	private String name;
 
 	@Column(unique = true, nullable = false)
-	@Email(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Please enter a valid email-ID.")
 	private String email;
 
 	@Column(nullable = false)
-	@Size(min = 6, max = 75, message = "Password at least have 6 and maximum 75 charaters.")
 	private String password;
 
 	@Column(nullable = false)
@@ -46,7 +41,6 @@ public class User {
 	private ProfileImage profileImage;
 
 	@Column(length = 500)
-	@Size(max = 500, message = "About should have maximum 500 charaters.")
 	private String about;
 	private boolean enabled;
 

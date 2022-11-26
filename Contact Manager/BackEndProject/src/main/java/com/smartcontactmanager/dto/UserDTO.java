@@ -1,19 +1,21 @@
 package com.smartcontactmanager.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.smartcontactmanager.entities.contact.Contact;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 public class UserDTO {
 
+	@Size(min = 2, max = 100, message = "Name at least have 2 and maximum 100 charaters.")
 	private String name;
+
+	@Email(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Please enter a valid email-ID.")
 	private String email;
-	private String role;
-	private String imegeURL;
+
+	@Size(min = 6, max = 75, message = "Password at least have 6 and maximum 75 charaters.")
+	private String password;
+
+	@Size(max = 500, message = "About should have maximum 500 charaters.")
 	private String about;
-	private boolean enabled;
-	private List<Contact> contacts = new ArrayList<Contact>();
 
 	public String getName() {
 		return name;
@@ -31,22 +33,6 @@ public class UserDTO {
 		this.email = email;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public String getImegeURL() {
-		return imegeURL;
-	}
-
-	public void setImegeURL(String imegeURL) {
-		this.imegeURL = imegeURL;
-	}
-
 	public String getAbout() {
 		return about;
 	}
@@ -55,19 +41,12 @@ public class UserDTO {
 		this.about = about;
 	}
 
-	public boolean isEnabled() {
-		return enabled;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public List<Contact> getContacts() {
-		return contacts;
-	}
-
-	public void setContacts(List<Contact> contacts) {
-		this.contacts = contacts;
-	}
 }

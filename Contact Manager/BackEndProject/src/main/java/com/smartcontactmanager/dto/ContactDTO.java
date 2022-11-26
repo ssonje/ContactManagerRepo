@@ -1,13 +1,25 @@
 package com.smartcontactmanager.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class ContactDTO {
 
+	@Size(min = 2, max = 100, message = "Name at least have 2 and maximum 100 charaters.")
 	private String name;
+
 	private String nickname;
 	private String work;
+
+	@Email(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Please enter a valid email-ID.")
 	private String email;
 	private String imageURL;
+
+	@Pattern(regexp = "[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$", message = "Please enter a Valid Mobile Number.")
 	private String mobileNumber;
+
+	@Size(max = 15000, message = "Description should have maximum 15000 charaters.")
 	private String description;
 
 	public String getName() {

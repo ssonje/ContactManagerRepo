@@ -32,8 +32,8 @@ public class ContactController {
 	private UserControllerHelper userControllerHelper;
 
 	@PostMapping("/contact/new")
-	public ResponseEntity<?> addContact(@Valid @RequestBody Contact contact, Principal principal) {
-		APIResponse apiResponse = userControllerService.addContact(contact, principal);
+	public ResponseEntity<?> addContact(@Valid @RequestBody ContactDTO contactDTO, Principal principal) {
+		APIResponse apiResponse = userControllerService.addContact(contactDTO, principal);
 		return ResponseEntity.ok(apiResponse);
 	}
 
@@ -51,8 +51,8 @@ public class ContactController {
 	}	
 
 	@PostMapping("/contact/modify/{id}")
-	public ResponseEntity<?> modifyContact(@PathVariable("id") Integer id, Principal principal, @Valid @RequestBody Contact contact) {
-		APIResponse apiResponse = userControllerService.modifyContact(id, principal, contact);
+	public ResponseEntity<?> modifyContact(@PathVariable("id") Integer id, Principal principal, @Valid @RequestBody ContactDTO contactDTO) {
+		APIResponse apiResponse = userControllerService.modifyContact(id, principal, contactDTO);
 		return ResponseEntity.ok(apiResponse);
 	}
 
