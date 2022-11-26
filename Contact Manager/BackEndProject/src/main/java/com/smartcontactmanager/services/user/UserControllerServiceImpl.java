@@ -11,8 +11,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.smartcontactmanager.controllers.user.UserControllerAPIResponseConstants;
+import com.smartcontactmanager.controllers.user.UserControllerHelper;
 import com.smartcontactmanager.dao.ContactRepository;
 import com.smartcontactmanager.dao.UserRepository;
+import com.smartcontactmanager.dto.ContactDTO;
 import com.smartcontactmanager.entities.contact.Contact;
 import com.smartcontactmanager.entities.user.User;
 import com.smartcontactmanager.exceptions.ResourceNotFoundException;
@@ -31,10 +33,14 @@ public class UserControllerServiceImpl implements UserControllerService {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
+	@Autowired
+	private UserControllerHelper userControllerHelper;
+
 	private static Integer pageSize = 5;
 
 	@Override
-	public APIResponse addContact(Contact contact, Principal principal) {
+	public APIResponse addContact(ContactDTO contactDTO, Principal principal) {
+		Contact contact = userControllerHelper.contactDTOToContact(contactDTO);
 		User user = userRepository.loadUserByEmail(principal.getName());
 
 		try {
@@ -83,7 +89,7 @@ public class UserControllerServiceImpl implements UserControllerService {
 				return new APIResponse(UserControllerAPIResponseConstants.DELETE_CONTACT_FAILED, false);
 			}
 		} catch (Exception e) {
-			throw new ResourceNotFoundException("User", "ID", id.toString());
+			throw new ResourceNotFoundException("Contact", "ID", id.toString());
 		}
 	}
 
@@ -101,19 +107,20 @@ public class UserControllerServiceImpl implements UserControllerService {
 
 			return null;
 		} catch (Exception e) {
-			throw new ResourceNotFoundException("User", "ID", id.toString());
+			throw new ResourceNotFoundException("Contact", "ID", id.toString());
 		}
 	}
 
 	@Override
-	public APIResponse modifyContact(Integer id, Principal principal, Contact contact) {
+	public APIResponse modifyContact(Integer id, Principal principal, ContactDTO contactDTO) {
+		Contact contact = userControllerHelper.contactDTOToContact(contactDTO);
 		User user = userRepository.loadUserByEmail(principal.getName());
 
 		try {
 			Optional<Contact> contactOptional = contactRepository.findById(id);
 			Contact contactFromID = contactOptional.get();
 
-			if ((user.getId() == contactFromID.getUser().getId()) && (contactFromID.getId() == contact.getId())) {
+			if (user.getId() == contactFromID.getUser().getId()) {
 				contactFromID.setDescription(contact.getDescription());
 				contactFromID.setEmail(contact.getEmail());
 				contactFromID.setImageURL(contact.getImageURL());
@@ -127,7 +134,7 @@ public class UserControllerServiceImpl implements UserControllerService {
 				return new APIResponse(UserControllerAPIResponseConstants.MODIFIED_CONTACT_FAILED, false);
 			}
 		} catch (Exception e) {
-			throw new ResourceNotFoundException("User", "ID", id.toString());
+			throw new ResourceNotFoundException("Contact", "ID", id.toString());
 		}
 	}
 

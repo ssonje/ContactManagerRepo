@@ -7,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.smartcontactmanager.entities.user.User;
@@ -23,23 +20,19 @@ public class Contact {
 	private Integer id;
 
 	@Column(nullable = false)
-	@Size(min = 2, max = 100, message = "Name at least have 2 and maximum 100 charaters.")
 	private String name;
 
 	private String nickname;
 	private String work;
 	
 	@Column(nullable = false)
-	@Email(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Please enter a valid email-ID.")
 	private String email;
 	private String imageURL;
 
 	@Column(nullable = false)
-	@Pattern(regexp = "[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$", message = "Please enter a Valid Mobile Number.")
 	private String mobileNumber;
 
 	@Column(length = 15000)
-	@Size(max = 15000, message = "Description should have maximum 15000 charaters.")
 	private String description;
 
 	@ManyToOne

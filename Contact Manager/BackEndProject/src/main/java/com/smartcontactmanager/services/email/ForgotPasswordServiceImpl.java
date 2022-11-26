@@ -56,7 +56,7 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
 
 		User user = userRepository.loadUserByEmail(forgotPasswordEmail.getEmail());
 		if (user == null) {
-			throw new ResourceNotFoundException("User", "Email", "Null");
+			throw new ResourceNotFoundException("User", "Email", forgotPasswordEmail.getEmail());
 		}
 
 		// Generate random OTP for the user
