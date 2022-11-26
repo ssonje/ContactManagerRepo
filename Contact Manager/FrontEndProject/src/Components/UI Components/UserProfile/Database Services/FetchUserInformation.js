@@ -22,7 +22,7 @@ const FetchUserInformation = (setUser, setIsAPICalled) => {
     setIsAPICalled(true);
     
     return (
-        axios.get(`${BASE_URL}/api/user/profile`, {
+        axios.get(`${BASE_URL}/api/v1/user/profile`, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

@@ -19,7 +19,7 @@ const SettingsDBService = (navigate, userPassword) => {
     const authToken = JSON.parse(localStorage.getItem(localStorage.key(0)));
 
     return (
-        axios.post(`${BASE_URL}/api/user/settings/password`, userPassword, {
+        axios.post(`${BASE_URL}/api/v1/user/settings/password`, userPassword, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

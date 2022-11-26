@@ -29,13 +29,13 @@ public class ForgotPasswordController {
 		return ResponseEntity.ok(apiResponse);
 	}
 
-	@PostMapping("/auth/otp")
+	@PostMapping("/otp")
 	public ResponseEntity<?> authenticateForgotPasswordOTP(@RequestBody ForgotPasswordOTPValidation forgotPasswordOTPValidation, HttpSession httpSession) throws AttributeNotFoundException {
 		APIResponse apiResponse = forgotPasswordService.authenticateForgotPasswordOTP(forgotPasswordOTPValidation, httpSession);
 		return ResponseEntity.ok(apiResponse);
 	}
 
-	@PostMapping("/update/password")
+	@PostMapping("/update")
 	public ResponseEntity<?> updateForgotPassword(@RequestBody ForgotPasswordValidation forgotPasswordValidation, HttpSession httpSession) throws AttributeNotFoundException {
 		APIResponse apiResponse = forgotPasswordService.updateForgotPassword(forgotPasswordValidation, httpSession);
 		return ResponseEntity.ok(apiResponse);

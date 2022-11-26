@@ -25,7 +25,7 @@ const ViewSingleContactDBService = (setContact, setIsAPICalled, id) => {
     setIsAPICalled(true);
 
     return (
-        axios.get(`${BASE_URL}/api/user/view/contact/${id}`, {
+        axios.get(`${BASE_URL}/api/v1/user/contact/${id}`, {
             headers: {
                 Authorization: 'Bearer ' + authToken
             }

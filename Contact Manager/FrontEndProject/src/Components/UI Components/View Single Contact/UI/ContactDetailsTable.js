@@ -12,6 +12,7 @@ import * as AiIcons from 'react-icons/ai';
 const ContactDetailsTable = (props) => {
 
     const contact = props.contact;
+    const contactID = props.contactID;
     const navigate = useNavigate();
 
     const handleDeleteButtonClick = (contactID) => {
@@ -21,7 +22,7 @@ const ContactDetailsTable = (props) => {
     }
 
     const handleEditButtonClick = (contactID) => {
-        if (window.confirm("Are you sure you want to Modify this Contact?")) {
+        if (window.confirm("Are you sure you want to Modify this Contact? 123")) {
             navigate(`/user/modify/contact/${contactID}`);
         }
     }
@@ -60,12 +61,12 @@ const ContactDetailsTable = (props) => {
                 <tr>
                     <td colSpan={2}>
                         <Button outline color="danger" onClick={() => {
-                            handleDeleteButtonClick(contact.id);
+                            handleDeleteButtonClick(contactID);
                         }}>
                             <AiIcons.AiFillDelete />
                         </Button>
                         <Button outline color="warning" className="ms-3" onClick={() => {
-                            handleEditButtonClick(contact.id);
+                            handleEditButtonClick(contactID);
                         }}>
                             <AiIcons.AiFillEdit />
                         </Button>

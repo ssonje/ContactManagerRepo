@@ -22,7 +22,7 @@ const ForgotPasswordUpdatePasswordDBService = (navigate, setIsAPICalled, forgotP
     setIsAPICalled(true);
 
     return (
-        axios.post(`${BASE_URL}/api/forgot/password/update/password`, forgotPasswordUpdatePassword).then(
+        axios.post(`${BASE_URL}/api/v1/forgot/password/update`, forgotPasswordUpdatePassword).then(
             (response) => {
                 // Successfully updated the user's password
                 toast.success(ToastSuccessMessages.TOAST_SUCCESS_FOR_SUCCESSFUL_PASSWORD_CHANGE);
