@@ -11,27 +11,6 @@ Happy Coding 😊 !!!
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-# MAJOR FUNCTIONALITES OF BACK END CODE - 
+# Documentation - 
 
-1. Following Major functionalities of this Application - 
-    * Contacts - 
-      * View Contacts
-      * View Single Contact
-      * Add Contact
-      * Modify Contact
-    * User - 
-      * User Profile
-      * Change User Password
-      * Sign up User
-      * User Authentication
-      * User Login
-    * Forgot Password
-2. Added Features - 
-   * Pagination
-   * Contact Searching
-   * Exception Handling
-   * Modularization of Project
-   * Security
-     * Model Mapping
-     * Authentication Token for every request
-   * JWT Athentication
+https://docs.google.com/document/d/1bxEB9CSczf_arMoJR-jsyvTJwcXUB5v2dJf7rUGACcc/edit?usp=sharing
